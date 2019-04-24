@@ -18,7 +18,7 @@ parameters: file_name (String, required), sheet (String, required):
 `
 
 `
-return: List of type Polygon()
+return: array of tuple (x,y)
 `
 
 ###  polygons_from_txt
@@ -27,7 +27,7 @@ parameters: file_name (String, required):
 `
 
 `
-return: List of type Polygon()
+return: array of tuple (x,y)
 `
 
 ###  return_limits_of_board_xls
