@@ -7,10 +7,15 @@ python3 main.py
 ```
 ## Functions: file (Visualizer.py)
 
+### Constructor
+`
+constructor = parameters: array_polygons (array of type Polygon, required), title (String, required), x_lim (Integer, required) y_lim (Integer, required)
+`
+
 ### plot_polygons
-`
-parameters: array_polygons (array of type Polygon, required), title (String, required), x_lim (Integer, required) y_lim (Integer, required)
-`
+
+### plot_animation
+
 ## Functions: file (File.py)
 ###  polygons_from_xls
 `
@@ -18,7 +23,7 @@ parameters: file_name (String, required), sheet (String, required):
 `
 
 `
-return: array of tuple (x,y)
+return: array of tuple (x,y), limit_x (int)
 `
 
 ###  polygons_from_txt
@@ -27,7 +32,7 @@ parameters: file_name (String, required):
 `
 
 `
-return: array of tuple (x,y)
+return: array of tuple (x,y), limit_x (int)
 `
 
 ###  return_limits_of_board_xls
@@ -36,7 +41,7 @@ parameters: file_name (String, required), sheet (String, required):
 `
 
 `
-return: tuple(float, float)
+return: x_lim (float)
 `
 
 ###  return_limits_of_board_txt
@@ -45,12 +50,12 @@ parameters: file_name (String, required), sheet (String, required):
 `
 
 `
-return: tuple(float, float)
+return: x_lim (float)
 `
 ## Functions: file (Polygon.py)
 ### create_polygon
 `
-parameters: polygon_points (numpy array, required)
+parameters: polygon_points (numpy array, required):
 `
 
 `
@@ -58,9 +63,16 @@ return: Polygon()
 `
 ### set_points_to_positive
 `
-parameters: polygon_points (array of tuple (x,y), required)
+parameters: polygon_points (array of tuple (x,y), required):
 `
 
 `
 return: array of tuple (x,y)
+`
+### add_number_axis_x_y
+`
+parameters: polygon (array of typle (x,y)), number_x (float), number_y (float):
+`
+`
+return: array of typle (x,y)
 `
