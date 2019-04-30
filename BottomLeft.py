@@ -6,7 +6,7 @@ x = 0
 y = 1
 
 
-def initial_solution(array_polygons, x_lim, y_lim):
+def initial_solution(array_polygons):
     new_polygons = []
     for i in range(len(array_polygons)):
 
