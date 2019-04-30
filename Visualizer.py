@@ -44,8 +44,5 @@ class Visualizer:
                                       frames=len(self.__array_polygons),
                                       init_func=self.init,
                                       repeat=False)
-        self.__ax = plt.gca()
-        self.__ax.invert_yaxis()
-        self.__ax.invert_yaxis()
         plt.show()
         return ani
