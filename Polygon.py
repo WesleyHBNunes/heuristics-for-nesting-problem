@@ -27,3 +27,13 @@ def set_points_to_positive(polygons_point):
             list_points_y[i] += (min_y * -1)
 
     return list(zip(list_points_x, list_points_y))
+
+
+def add_number_axis_x_y(polygon, number_x, number_y):
+    list_x, list_y = zip(*polygon)
+    list_x = list(list_x)
+    list_y = list(list_y)
+    for i in range(len(list_x)):
+        list_x[i] = list_x[i] + number_x
+        list_y[i] = list_y[i] + number_y
+    return list(zip(list_x, list_y))
