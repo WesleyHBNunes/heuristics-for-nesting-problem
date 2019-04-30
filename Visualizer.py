@@ -26,11 +26,11 @@ class Visualizer:
 
     def init(self):
         self.__ax.set_title(self.__title)
-        self.__ax.set_xlim(self.__x_lim)
-        self.__ax.set_ylim(self.__y_lim)
+        plt.ylim(0, self.__y_lim)
+        plt.xlim(0, self.__x_lim)
 
     def update(self, frame):
-        colors = 100 * np.random.rand(len(self.__array_polygons))
+        colors = 1000 * np.random.rand(len(self.__array_polygons))
         p = PatchCollection([self.__array_polygons[frame]], alpha=0.4)
         p.set_array(np.array(colors))
         self.__ax.add_collection(p)
@@ -43,4 +43,7 @@ class Visualizer:
                                       frames=len(self.__array_polygons),
                                       init_func=self.init,
                                       repeat=False)
+        self.__ax = plt.gca()
+        self.__ax.invert_yaxis()
+        self.__ax.invert_yaxis()
         plt.show()
