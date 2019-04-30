@@ -48,3 +48,4 @@ class Visualizer:
         self.__ax.invert_yaxis()
         self.__ax.invert_yaxis()
         plt.show()
+        return ani

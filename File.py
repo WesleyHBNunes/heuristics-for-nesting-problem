@@ -1,4 +1,3 @@
-import numpy as np
 from pyexcel_xls import get_data
 
 import Polygon
