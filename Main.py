@@ -5,10 +5,10 @@ from Visualizer import Visualizer
 
 
 def main():
-    polygons, limits = File.polygons_from_xls("Test/han.xls", "Han")
+    polygons, limit_x = File.polygons_from_xls("Test/han.xls", "Han")
     shuffle(polygons)
-    visualizer = Visualizer(BottomLeft.better_initial_solution(polygons, limits[0]),
-                            limits[0], limits[1], "Title animation plot")
+    polygons_to_plot, limit_y = BottomLeft.better_initial_solution(polygons, limit_x)
+    visualizer = Visualizer(polygons_to_plot, limit_x, limit_y, "Title animation plot")
     # visualizer.plot_polygons()
     visualizer.plot_animation()
 

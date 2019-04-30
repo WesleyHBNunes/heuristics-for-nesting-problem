@@ -60,7 +60,7 @@ def return_limits_of_board_xls(file_name, sheet):
     data = get_data(file_name)
     x_lim = float(data[sheet][COLUMN_LINE_WIDTH_DATA][COLUMN_LINE_WIDTH_DATA])
     y_lim = float(data[sheet][COLUMN_LINE_WIDTH_DATA][COLUMN_LINE_WIDTH_DATA])
-    return x_lim, y_lim
+    return x_lim
 
 
 def return_limits_of_board_txt(file_name):
@@ -69,4 +69,4 @@ def return_limits_of_board_txt(file_name):
     x_lim = float(line)
     y_lim = x_lim
     file.close()
-    return x_lim, y_lim
+    return x_lim

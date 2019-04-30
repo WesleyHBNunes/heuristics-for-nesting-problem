@@ -44,7 +44,7 @@ def better_initial_solution(array_polygons, x_lim):
     for polygon in new_polygons:
         new_polygons_object.append(Polygon.create_polygon(np.array(polygon)))
 
-    return new_polygons_object
+    return new_polygons_object, return_line_y(new_polygons)
 
 
 def return_line_y(array_polygons):
