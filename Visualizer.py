@@ -11,7 +11,7 @@ class Visualizer:
         self.__x_lim = x_lim
         self.__y_lim = y_lim
         self.__title = title
-        self.__fig = plt.figure()
+        self.__fig = plt.figure(figsize=(10, 10))
         self.__ax = plt.subplot()
 
     def plot_polygons(self):
@@ -30,9 +30,10 @@ class Visualizer:
         plt.xlim(0, self.__x_lim)
 
     def update(self, frame):
-        colors = 1000 * np.random.rand(len(self.__array_polygons))
-        p = PatchCollection([self.__array_polygons[frame]], alpha=0.4)
-        p.set_array(np.array(colors))
+        color = np.random.rand(1, 3)
+        p = PatchCollection([self.__array_polygons[frame]], alpha=.5)
+        p.set_color(color)
+        p.set_edgecolor([0, 0, 0])
         self.__ax.add_collection(p)
         return
 
