@@ -28,7 +28,7 @@ def polygons_from_xls(file_name, sheet):
                 array_points_y = []
                 for _ in range(amount_polygons):
                     array_polygons.append(array_points_tuple)
-    return array_polygons
+    return array_polygons, return_limits_of_board_xls(file_name, sheet)
 
 
 def polygons_from_txt(file_name):
@@ -53,7 +53,7 @@ def polygons_from_txt(file_name):
         else:
             line = file.readline().strip()
     file.close()
-    return array_polygons
+    return array_polygons, return_limits_of_board_txt(file_name)
 
 
 def return_limits_of_board_xls(file_name, sheet):

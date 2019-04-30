@@ -4,8 +4,7 @@ from Visualizer import Visualizer
 
 
 def main():
-    polygons = File.polygons_from_xls("Test/marques.xls", "Marques")
-    limits = File.return_limits_of_board_xls("Test/marques.xls", "Marques")
+    polygons, limits = File.polygons_from_xls("Test/han.xls", "Han")
     visualizer = Visualizer(BottomLeft.initial_solution(polygons), limits[0], limits[1], "Title animation plot")
     # visualizer.plot_polygons()
     visualizer.plot_animation()
