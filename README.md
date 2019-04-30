@@ -55,7 +55,7 @@ return: x_lim (float)
 ## Functions: file (Polygon.py)
 ### create_polygon
 `
-parameters: polygon_points (numpy array, required):
+parameters: polygon_points (array of typle (x,y), required):
 `
 
 `
@@ -75,4 +75,20 @@ parameters: polygon (array of typle (x,y)), number_x (float), number_y (float):
 `
 `
 return: array of typle (x,y)
+`
+
+## Functions: file (BottomLeft.py)
+### initial_solution
+`
+parameters: array_polygons (array of tuple (x,y), required):
+`
+`
+return: List of type Polygon()
+`
+### better_initial_solution
+`
+parameters: array_polygons (array of tuple (x,y), required), x_lim (float, required):
+`
+`
+return: List of type Polygon()
 `
