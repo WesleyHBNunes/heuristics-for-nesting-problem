@@ -1,5 +1,4 @@
 from matplotlib.patches import Polygon
-import numpy as np
 
 
 def create_polygon(polygons_points):
