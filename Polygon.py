@@ -1,4 +1,5 @@
 from matplotlib.patches import Polygon
+import numpy as np
 
 
 def create_polygon(polygons_points):
@@ -37,3 +38,27 @@ def add_number_axis_x_y(polygon, number_x, number_y):
         list_x[i] = list_x[i] + number_x
         list_y[i] = list_y[i] + number_y
     return list(zip(list_x, list_y))
+
+
+def area_polygon(corners):
+    n = len(corners)
+    area = 0.0
+    for i in range(n):
+        j = (i + 1) % n
+        area += corners[i][0] * corners[j][1]
+        area -= corners[j][0] * corners[i][1]
+    area = abs(area) / 2.0
+    return area
+
+
+def sort_by_area(polygons):
+    list_areas_index = []
+    index = 0
+    for polygon in polygons:
+        list_areas_index.append((area_polygon(polygon), index))
+        index += 1
+    list_areas_index.sort(key=lambda tup: tup[0])
+    polygons_sorted = []
+    for i in range(len(polygons)):
+        polygons_sorted.append(polygons[int(list_areas_index[i][1])])
+    return polygons_sorted
