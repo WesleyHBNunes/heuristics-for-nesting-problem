@@ -1,4 +1,5 @@
 from matplotlib.patches import Polygon
+import math
 
 
 def create_polygon(polygons_points):
@@ -61,3 +62,13 @@ def sort_by_area(polygons):
     for i in range(len(polygons)):
         polygons_sorted.append(polygons[int(list_areas_index[i][1])])
     return polygons_sorted
+
+
+def rotate_polygon(polygon, angle):
+    angle = math.radians(angle)
+    rotated_polygon = []
+    for points in polygon:
+        rotated_polygon.append((points[0]*math.cos(angle)-points[1]*math.sin(angle),
+                                points[0]*math.sin(angle)+points[1]*math.cos(angle)))
+
+    return rotated_polygon
