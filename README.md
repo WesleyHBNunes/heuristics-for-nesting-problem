@@ -73,6 +73,7 @@ return: array of tuple (x,y)
 `
 parameters: polygon (array of typle (x,y)), number_x (float), number_y (float):
 `
+
 `
 return: array of typle (x,y)
 `
@@ -82,6 +83,7 @@ return: array of typle (x,y)
 `
 parameters: array_polygons (array of tuple (x,y), required):
 `
+
 `
 return: List of type Polygon()
 `
@@ -89,6 +91,7 @@ return: List of type Polygon()
 `
 parameters: array_polygons (array of tuple (x,y), required), x_lim (float, required):
 `
+
 `
 return: List of type Polygon()
 `
