@@ -55,12 +55,13 @@ return: x_lim (float)
 ## Functions: file (Polygon.py)
 ### create_polygon
 `
-parameters: polygon_points (array of typle (x,y), required):
+parameters: polygon_points (array of tuple (x,y), required):
 `
 
 `
 return: Polygon()
 `
+
 ### set_points_to_positive
 `
 parameters: polygon_points (array of tuple (x,y), required):
@@ -69,13 +70,41 @@ parameters: polygon_points (array of tuple (x,y), required):
 `
 return: array of tuple (x,y)
 `
+
 ### add_number_axis_x_y
 `
-parameters: polygon (array of typle (x,y)), number_x (float), number_y (float):
+parameters: polygon (array of tuple (x,y)), number_x (float), number_y (float):
 `
 
 `
-return: array of typle (x,y)
+return: array of tuple (x,y)
+`
+
+### area_polygon
+`
+parameters: polygon (array of tuple (x,y))
+`
+
+`
+return: float
+`
+
+### sort_by_area(polygons):
+`
+parameters: polygons (array of array of tuple (x,y))
+`
+
+`
+return: array of array of tuple (x,y)
+`
+
+### rotate_polygon
+`
+parameters: polygon (array of tuple (x,y)), angle (float)
+`
+
+`
+return: array of tuple (x,y)
 `
 
 ## Functions: file (BottomLeft.py)
