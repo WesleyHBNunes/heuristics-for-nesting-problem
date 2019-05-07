@@ -116,11 +116,36 @@ parameters: array_polygons (array of tuple (x,y), required):
 `
 return: List of type Polygon()
 `
-### better_initial_solution
+### solution
 `
 parameters: array_polygons (array of tuple (x,y), required), x_lim (float, required):
 `
 
 `
 return: List of type Polygon()
+`
+
+### random_solution
+`
+parameters: array_polygons (array of tuple (x,y), required), x_lim (float, required):
+`
+
+`
+return: List of type Polygon()
+`
+### sorted_by_area_solution
+`
+parameters: array_polygons (array of tuple (x,y), required), x_lim (float, required):
+`
+
+`
+return: List of type Polygon()
+`
+### return_line_y
+`
+parameters: array_polygons (array of tuple (x,y):
+`
+
+`
+return: float
 `
