@@ -1,9 +1,9 @@
 import numpy as np
-
+from random import shuffle
 import Polygon
 
 
-def initial_solution(array_polygons):
+def sequential_solution(array_polygons):
     new_polygons = []
     for i in range(len(array_polygons)):
         if i == 0:
@@ -21,7 +21,8 @@ def initial_solution(array_polygons):
     return new_polygons_object
 
 
-def better_initial_solution(array_polygons, x_lim):
+def solution(array_polygons, x_lim):
+
     new_polygons = []
     line_y = 0
     for i in range(len(array_polygons)):
@@ -45,6 +46,16 @@ def better_initial_solution(array_polygons, x_lim):
         new_polygons_object.append(Polygon.create_polygon(np.array(polygon)))
 
     return new_polygons_object, return_line_y(new_polygons)
+
+
+def random_solution(array_polygons, x_lim):
+    shuffle(array_polygons)
+    return solution(array_polygons, x_lim)
+
+
+def sorted_by_area_solution(array_polygons, x_lim):
+    array_polygons = Polygon.sort_by_area(array_polygons)
+    return solution(array_polygons, x_lim)
 
 
 def return_line_y(array_polygons):
