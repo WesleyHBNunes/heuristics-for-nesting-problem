@@ -72,6 +72,7 @@ def rotate_polygon(polygon, angle):
         rotated_polygon.append((points[0] * math.cos(angle) - points[1] * math.sin(angle),
                                 points[0] * math.sin(angle) + points[1] * math.cos(angle)))
 
+    rotated_polygon = set_points_to_positive(rotated_polygon)
     return rotated_polygon
 
 
