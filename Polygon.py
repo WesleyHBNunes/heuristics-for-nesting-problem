@@ -1,5 +1,6 @@
 import math
 import matplotlib.patches
+import numpy as np
 import shapely.geometry
 
 
@@ -80,3 +81,10 @@ def is_overlapping(current_polygon, polygon):
     current_polygon = shapely.geometry.Polygon(current_polygon)
     polygon = shapely.geometry.Polygon(polygon)
     return current_polygon.intersects(polygon)
+
+
+def create_polygons_to_plot(polygons):
+    polygons_object = []
+    for polygon in polygons:
+        polygons_object.append(create_polygon(np.array(polygon)))
+    return polygons_object

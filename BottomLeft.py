@@ -44,11 +44,7 @@ def solution(array_polygons, x_lim):
             line_y = return_line_y(new_polygons)
             new_polygons.append(Polygon.add_number_axis_x_y(array_polygons[i], 0, line_y))
 
-    new_polygons_object = []
-    for polygon in new_polygons:
-        new_polygons_object.append(Polygon.create_polygon(np.array(polygon)))
-
-    return new_polygons_object, return_line_y(new_polygons)
+    return Polygon.create_polygons_to_plot(new_polygons), return_line_y(new_polygons)
 
 
 def random_solution(array_polygons, x_lim):
