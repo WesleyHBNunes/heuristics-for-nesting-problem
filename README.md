@@ -116,6 +116,14 @@ parameters: current_polygon (array of tuple (x,y)), polygon (array of tuple (x,y
 return: boolean
 `
 
+###create_polygons_to_plot
+`
+parameters: polygon (array of tuple (x,y))
+`
+
+`
+return: List of type Polygon()
+`
 
 ## Functions: file (BottomLeft.py)
 ### initial_solution
@@ -132,7 +140,7 @@ parameters: array_polygons (array of tuple (x,y), required), x_lim (float, requi
 `
 
 `
-return: List of type Polygon()
+return: List of type Polygon(), float
 `
 
 ### random_solution
@@ -141,7 +149,7 @@ parameters: array_polygons (array of tuple (x,y), required), x_lim (float, requi
 `
 
 `
-return: List of type Polygon()
+return: List of type Polygon(), float
 `
 ### sorted_by_area_solution
 `
@@ -149,7 +157,7 @@ parameters: array_polygons (array of tuple (x,y), required), x_lim (float, requi
 `
 
 `
-return: List of type Polygon()
+return: List of type Polygon(), float
 `
 ### return_line_y
 `
