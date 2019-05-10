@@ -1,9 +1,10 @@
-from matplotlib.patches import Polygon
 import math
+import matplotlib.patches
+import shapely.geometry
 
 
 def create_polygon(polygons_points):
-    polygon = Polygon(polygons_points, True)
+    polygon = matplotlib.patches.Polygon(polygons_points, True)
     return polygon
 
 
@@ -68,7 +69,13 @@ def rotate_polygon(polygon, angle):
     angle = math.radians(angle)
     rotated_polygon = []
     for points in polygon:
-        rotated_polygon.append((points[0]*math.cos(angle)-points[1]*math.sin(angle),
-                                points[0]*math.sin(angle)+points[1]*math.cos(angle)))
+        rotated_polygon.append((points[0] * math.cos(angle) - points[1] * math.sin(angle),
+                                points[0] * math.sin(angle) + points[1] * math.cos(angle)))
 
     return rotated_polygon
+
+
+def is_overlapping(current_polygon, polygon):
+    current_polygon = shapely.geometry.Polygon(current_polygon)
+    polygon = shapely.geometry.Polygon(polygon)
+    return current_polygon.intersects(polygon)

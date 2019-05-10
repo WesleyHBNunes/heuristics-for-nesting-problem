@@ -107,6 +107,16 @@ parameters: polygon (array of tuple (x,y)), angle (float)
 return: array of tuple (x,y)
 `
 
+### is_overlapping
+`
+parameters: current_polygon (array of tuple (x,y)), polygon (array of tuple (x,y))
+`
+
+`
+return: boolean
+`
+
+
 ## Functions: file (BottomLeft.py)
 ### initial_solution
 `
