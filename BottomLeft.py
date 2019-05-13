@@ -53,12 +53,12 @@ def random_solution(array_polygons, x_lim):
 
 
 def sorted_by_area_solution(array_polygons, x_lim):
-    array_polygons = Polygon.sort_by_area(array_polygons)
+    array_polygons = Polygon.sort(array_polygons, Polygon.area_polygon)
     return solution(array_polygons, x_lim)
 
 
 def sorted_by_ray_solution(array_polygons, x_lim):
-    array_polygons = Polygon.sort_by_ray(array_polygons)
+    array_polygons = Polygon.sort(array_polygons, Polygon.ray_polygon)
     return solution(array_polygons, x_lim)
 
 

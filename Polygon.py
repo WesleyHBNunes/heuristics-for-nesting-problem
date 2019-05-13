@@ -68,24 +68,11 @@ def ray_polygon(polygon):
     return math.sqrt((max_x - min_x)**2 + (max_y - min_y)**2)
 
 
-def sort_by_area(polygons):
+def sort(polygons, function):
     list_areas_index = []
     index = 0
     for polygon in polygons:
-        list_areas_index.append((area_polygon(polygon), index))
-        index += 1
-    list_areas_index.sort(key=lambda tup: tup[0])
-    polygons_sorted = []
-    for i in range(len(polygons)):
-        polygons_sorted.append(polygons[int(list_areas_index[i][1])])
-    return polygons_sorted
-
-
-def sort_by_ray(polygons):
-    list_areas_index = []
-    index = 0
-    for polygon in polygons:
-        list_areas_index.append((ray_polygon(polygon), index))
+        list_areas_index.append((function(polygon), index))
         index += 1
     list_areas_index.sort(key=lambda tup: tup[0])
     polygons_sorted = []
