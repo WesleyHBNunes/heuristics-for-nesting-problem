@@ -57,6 +57,11 @@ def sorted_by_area_solution(array_polygons, x_lim):
     return solution(array_polygons, x_lim)
 
 
+def sorted_by_ray_solution(array_polygons, x_lim):
+    array_polygons = Polygon.sort_by_ray(array_polygons)
+    return solution(array_polygons, x_lim)
+
+
 def return_line_y(array_polygons):
     line_y = 0
 

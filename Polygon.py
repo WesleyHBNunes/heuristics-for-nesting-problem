@@ -42,15 +42,30 @@ def add_number_axis_x_y(polygon, number_x, number_y):
     return list(zip(list_x, list_y))
 
 
-def area_polygon(corners):
-    n = len(corners)
+def area_polygon(polygon):
+    n = len(polygon)
     area = 0.0
     for i in range(n):
         j = (i + 1) % n
-        area += corners[i][0] * corners[j][1]
-        area -= corners[j][0] * corners[i][1]
+        area += polygon[i][0] * polygon[j][1]
+        area -= polygon[j][0] * polygon[i][1]
     area = abs(area) / 2.0
     return area
+
+
+def ray_polygon(polygon):
+    list_points_x, list_points_y = zip(*polygon)
+
+    list_points_x = list(list_points_x)
+    list_points_y = list(list_points_y)
+
+    min_x = min(list_points_x)
+    min_y = min(list_points_y)
+
+    max_x = max(list_points_x)
+    max_y = max(list_points_y)
+
+    return math.sqrt((max_x - min_x)**2 + (max_y - min_y)**2)
 
 
 def sort_by_area(polygons):
@@ -58,6 +73,19 @@ def sort_by_area(polygons):
     index = 0
     for polygon in polygons:
         list_areas_index.append((area_polygon(polygon), index))
+        index += 1
+    list_areas_index.sort(key=lambda tup: tup[0])
+    polygons_sorted = []
+    for i in range(len(polygons)):
+        polygons_sorted.append(polygons[int(list_areas_index[i][1])])
+    return polygons_sorted
+
+
+def sort_by_ray(polygons):
+    list_areas_index = []
+    index = 0
+    for polygon in polygons:
+        list_areas_index.append((ray_polygon(polygon), index))
         index += 1
     list_areas_index.sort(key=lambda tup: tup[0])
     polygons_sorted = []
