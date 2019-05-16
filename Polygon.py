@@ -54,18 +54,19 @@ def area_polygon(polygon):
 
 
 def ray_polygon(polygon):
-    list_points_x, list_points_y = zip(*polygon)
 
-    list_points_x = list(list_points_x)
-    list_points_y = list(list_points_y)
-
-    min_x = min(list_points_x)
-    min_y = min(list_points_y)
-
-    max_x = max(list_points_x)
-    max_y = max(list_points_y)
-
+    min_x, max_x, min_y, max_y = min_max_points_polygon(polygon)
     return math.sqrt((max_x - min_x)**2 + (max_y - min_y)**2)
+
+
+def rectangle_polygon_area(polygon):
+    min_x, max_x, min_y, max_y = min_max_points_polygon(polygon)
+    return (max_x - min_x) * (max_y - min_y)
+
+
+def area_no_used_of_polygon(polygon):
+
+    return rectangle_polygon_area(polygon) - area_polygon(polygon)
 
 
 def sort(polygons, function):
@@ -103,3 +104,18 @@ def create_polygons_to_plot(polygons):
     for polygon in polygons:
         polygons_object.append(create_polygon(np.array(polygon)))
     return polygons_object
+
+
+def min_max_points_polygon(polygon):
+    list_points_x, list_points_y = zip(*polygon)
+
+    list_points_x = list(list_points_x)
+    list_points_y = list(list_points_y)
+
+    min_x = min(list_points_x)
+    min_y = min(list_points_y)
+
+    max_x = max(list_points_x)
+    max_y = max(list_points_y)
+
+    return min_x, max_x, min_y, max_y

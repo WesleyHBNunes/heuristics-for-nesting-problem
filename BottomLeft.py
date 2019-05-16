@@ -62,6 +62,16 @@ def sorted_by_ray_solution(array_polygons, x_lim):
     return solution(array_polygons, x_lim)
 
 
+def sorted_by_rectangle_of_polygon(array_polygons, x_lim):
+    array_polygons = Polygon.sort(array_polygons, Polygon.rectangle_polygon_area)
+    return solution(array_polygons, x_lim)
+
+
+def sorted_by_area_no_used_of_polygon(array_polygons, x_lim):
+    array_polygons = Polygon.sort(array_polygons, Polygon.area_no_used_of_polygon)
+    return solution(array_polygons, x_lim)
+
+
 def return_line_y(array_polygons):
     line_y = 0
 
