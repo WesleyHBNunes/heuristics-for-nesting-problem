@@ -89,9 +89,36 @@ parameters: polygon (array of tuple (x,y))
 return: float
 `
 
-### sort_by_area(polygons):
+### ray_polygon
 `
-parameters: polygons (array of array of tuple (x,y))
+parameters: polygon (array of tuple (x,y))
+`
+
+`
+return: float
+`
+
+### rectangle_polygon_area
+`
+parameters: polygon (array of tuple (x,y))
+`
+
+`
+return: float
+`
+
+### area_no_used_of_polygon
+`
+parameters: polygon (array of tuple (x,y))
+`
+
+`
+return: float
+`
+### sort:
+`
+parameters: polygons (array of array of tuple (x,y)), function (
+function that determines the ordering)
 `
 
 `
@@ -159,6 +186,34 @@ parameters: array_polygons (array of tuple (x,y), required), x_lim (float, requi
 `
 return: List of type Polygon(), float
 `
+
+### sorted_by_ray
+`
+parameters: array_polygons (array of tuple (x,y), required), x_lim (float, required):
+`
+
+`
+return: List of type Polygon(), float
+`
+
+### sorted_by_rectangle_of_polygon
+`
+parameters: array_polygons (array of tuple (x,y), required), x_lim (float, required):
+`
+
+`
+return: List of type Polygon(), float
+`
+
+### sorted_by_area_no_used_of_polygon
+`
+parameters: array_polygons (array of tuple (x,y), required), x_lim (float, required):
+`
+
+`
+return: List of type Polygon(), float
+`
+
 ### return_line_y
 `
 parameters: array_polygons (array of tuple (x,y):
