@@ -115,6 +115,16 @@ parameters: polygon (array of tuple (x,y))
 `
 return: float
 `
+
+### percent_area_no_used_of_polygon
+`
+parameters: polygon (array of tuple (x,y))
+`
+
+`
+return: float
+`
+
 ### sort:
 `
 parameters: polygons (array of array of tuple (x,y)), function (
@@ -141,6 +151,33 @@ parameters: current_polygon (array of tuple (x,y)), polygon (array of tuple (x,y
 
 `
 return: boolean
+`
+
+### min_max_points_polygon
+`
+parameters: polygon (array of tuple (x,y))
+`
+
+`
+return: float, float, float, float
+`
+
+### min_max_points_polygon
+`
+parameters: polygon (array of tuple (x,y))
+`
+
+`
+return: float, float, float, float
+`
+
+### width_height
+`
+parameters: polygon (array of tuple (x,y))
+`
+
+`
+return: float, float
 `
 
 ###create_polygons_to_plot
@@ -178,7 +215,8 @@ parameters: array_polygons (array of tuple (x,y), required), x_lim (float, requi
 `
 return: List of type Polygon(), float
 `
-### sorted_by_area_solution
+
+### better_solution
 `
 parameters: array_polygons (array of tuple (x,y), required), x_lim (float, required):
 `
@@ -187,27 +225,11 @@ parameters: array_polygons (array of tuple (x,y), required), x_lim (float, requi
 return: List of type Polygon(), float
 `
 
-### sorted_by_ray
-`
-parameters: array_polygons (array of tuple (x,y), required), x_lim (float, required):
-`
 
+### solve
 `
-return: List of type Polygon(), float
-`
-
-### sorted_by_rectangle_of_polygon
-`
-parameters: array_polygons (array of tuple (x,y), required), x_lim (float, required):
-`
-
-`
-return: List of type Polygon(), float
-`
-
-### sorted_by_area_no_used_of_polygon
-`
-parameters: array_polygons (array of tuple (x,y), required), x_lim (float, required):
+parameters: array_polygons (array of tuple (x,y), required), x_lim (float, required)
+function (funtion to solve, required), sort_function (funtion to sort, required):
 `
 
 `

@@ -1,29 +1,9 @@
 from random import shuffle
 
-import numpy as np
-
 import Polygon
 
 # CONST
 LAMBDA = 0.00000000001
-
-
-def sequential_solution(array_polygons):
-    new_polygons = []
-    for i in range(len(array_polygons)):
-        if i == 0:
-            new_polygons.append(array_polygons[i])
-            continue
-
-        list_x, list_y = list(zip(*new_polygons[i - 1]))
-        max_point_x = max(list_x)
-        new_polygons.append(Polygon.add_number_axis_x_y(array_polygons[i], max_point_x, 0))
-    new_polygons_object = []
-
-    for polygon in new_polygons:
-        new_polygons_object.append(Polygon.create_polygon(np.array(polygon)))
-
-    return new_polygons_object
 
 
 def solution(array_polygons, x_lim):
