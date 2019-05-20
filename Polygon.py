@@ -77,7 +77,7 @@ def sort(polygons, function):
     for polygon in polygons:
         list_areas_index.append((function(polygon), index))
         index += 1
-    list_areas_index.sort(key=lambda tup: tup[0])
+    list_areas_index.sort(key=lambda tup: tup[0], reverse=True)
     polygons_sorted = []
     for i in range(len(polygons)):
         polygons_sorted.append(polygons[int(list_areas_index[i][1])])

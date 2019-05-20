@@ -72,7 +72,7 @@ def better_solution(array_polygons, x_lim):
     return Polygon.create_polygons_to_plot(new_polygons), return_line_y(new_polygons)
 
 
-def random_solution(array_polygons, x_lim, function):
+def random_solve(array_polygons, x_lim, function):
     shuffle(array_polygons)
     return function(array_polygons, x_lim)
 
