@@ -54,9 +54,8 @@ def area_polygon(polygon):
 
 
 def ray_polygon(polygon):
-
     min_x, max_x, min_y, max_y = min_max_points_polygon(polygon)
-    return math.sqrt((max_x - min_x)**2 + (max_y - min_y)**2)
+    return math.sqrt((max_x - min_x) ** 2 + (max_y - min_y) ** 2)
 
 
 def rectangle_polygon_area(polygon):
@@ -65,8 +64,11 @@ def rectangle_polygon_area(polygon):
 
 
 def area_no_used_of_polygon(polygon):
-
     return rectangle_polygon_area(polygon) - area_polygon(polygon)
+
+
+def percent_area_no_used_of_polygon(polygon):
+    return (rectangle_polygon_area(polygon) - area_polygon(polygon) * 100) / rectangle_polygon_area(polygon)
 
 
 def sort(polygons, function):
@@ -119,3 +121,8 @@ def min_max_points_polygon(polygon):
     max_y = max(list_points_y)
 
     return min_x, max_x, min_y, max_y
+
+
+def width_height(polygon):
+    min_x, max_x, min_y, max_y = min_max_points_polygon(polygon)
+    return max_x - min_x, max_y - min_y

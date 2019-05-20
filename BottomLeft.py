@@ -50,6 +50,11 @@ def solution(array_polygons, x_lim):
 def better_solution(array_polygons, x_lim):
     new_polygons = []
     for i in range(len(array_polygons)):
+
+        width, height = Polygon.width_height(array_polygons[i])
+        if height <= width:
+            array_polygons[i] = Polygon.rotate_polygon(array_polygons[i], 90)
+
         if i == 0:
             new_polygons.append(array_polygons[i])
             continue

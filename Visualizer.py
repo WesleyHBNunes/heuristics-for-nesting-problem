@@ -12,7 +12,7 @@ class Visualizer:
         self.__y_lim = y_lim
         self.__title = title
         self.__fig = plt.figure(figsize=(10, 10))
-        self.__ax = plt.subplot()  # aspect='equal'
+        self.__ax = plt.subplot(aspect='equal')  # aspect='equal'
 
     def plot_polygons(self):
         colors = 100 * np.random.rand(len(self.__array_polygons))
