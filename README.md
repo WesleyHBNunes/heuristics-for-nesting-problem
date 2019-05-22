@@ -207,7 +207,7 @@ parameters: array_polygons (array of tuple (x,y), required), x_lim (float, requi
 return: List of type Polygon(), float
 `
 
-### random_solution
+### random_solve
 `
 parameters: array_polygons (array of tuple (x,y), required), x_lim (float, required):
 `
