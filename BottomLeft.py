@@ -77,8 +77,8 @@ def random_solve(array_polygons, x_lim, function):
     return function(array_polygons, x_lim)
 
 
-def solve(array_polygons, x_lim, function, sort_function):
-    array_polygons = Polygon.sort(array_polygons, sort_function)
+def solve(array_polygons, x_lim, function, sort_function, reverse):
+    array_polygons = Polygon.sort(array_polygons, sort_function, reverse=reverse)
     return function(array_polygons, x_lim)
 
 

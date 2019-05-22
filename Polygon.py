@@ -71,13 +71,13 @@ def percent_area_no_used_of_polygon(polygon):
     return (rectangle_polygon_area(polygon) - area_polygon(polygon) * 100) / rectangle_polygon_area(polygon)
 
 
-def sort(polygons, function):
+def sort(polygons, function, reverse):
     list_areas_index = []
     index = 0
     for polygon in polygons:
         list_areas_index.append((function(polygon), index))
         index += 1
-    list_areas_index.sort(key=lambda tup: tup[0], reverse=True)
+    list_areas_index.sort(key=lambda tup: tup[0], reverse=reverse)
     polygons_sorted = []
     for i in range(len(polygons)):
         polygons_sorted.append(polygons[int(list_areas_index[i][1])])
