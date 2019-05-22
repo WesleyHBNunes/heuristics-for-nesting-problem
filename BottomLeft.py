@@ -38,7 +38,7 @@ def better_solution(array_polygons, x_lim):
         if i == 0:
             new_polygons.append(array_polygons[i])
             continue
-
+        print(i)
         list_x, list_y = list(zip(*new_polygons[i - 1]))
         max_point_x = max(list_x)
 
@@ -65,9 +65,25 @@ def better_solution(array_polygons, x_lim):
             if Polygon.is_overlapping(abstract_polygon, polygon):
                 polygons_to_analyze.append(polygon)
 
-        point_y = return_line_y(polygons_to_analyze)
-        array_polygons[i] = Polygon.add_number_axis_x_y(array_polygons[i], 0, point_y)
-        new_polygons.append(array_polygons[i])
+        original_polygon = array_polygons[i]
+        placed = False
+        for polygon_overlapped in polygons_to_analyze:
+            list_x, list_y = list(zip(*polygon_overlapped))
+            max_point_y = max(list_y)
+            array_polygons[i] = original_polygon
+            array_polygons[i] = Polygon.add_number_axis_x_y(array_polygons[i], 0, max_point_y + LAMBDA)
+            if not polygon_overlapping(array_polygons[i], polygons_to_analyze):
+                placed = True
+                array_polygons[i] = original_polygon
+                array_polygons[i] = Polygon.add_number_axis_x_y(array_polygons[i], 0, max_point_y + LAMBDA)
+                new_polygons.append(array_polygons[i])
+                break
+
+        if not placed:
+            point_y = return_line_y(polygons_to_analyze)
+            array_polygons[i] = original_polygon
+            array_polygons[i] = Polygon.add_number_axis_x_y(array_polygons[i], 0, point_y)
+            new_polygons.append(array_polygons[i])
 
     return Polygon.create_polygons_to_plot(new_polygons), return_line_y(new_polygons)
 
@@ -91,3 +107,10 @@ def return_line_y(array_polygons):
         if max(list_y) > line_y:
             line_y = highest_y
     return line_y + LAMBDA
+
+
+def polygon_overlapping(polygon, polygons_to_analyze):
+    for p in polygons_to_analyze:
+        if Polygon.is_overlapping(polygon, p):
+            return True
+    return False
