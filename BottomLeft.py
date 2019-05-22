@@ -54,8 +54,6 @@ def better_solution(array_polygons, x_lim):
         current_list_x = list(current_list_x)
         current_max_point_x = max(current_list_x)
         current_min_point_x = min(current_list_x)
-        current_max_point_y = max(current_list_y)
-        current_min_point_y = min(current_list_y)
 
         highest_y_point = return_line_y(new_polygons)
         abstract_polygon = [(current_min_point_x, 0),
