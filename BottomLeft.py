@@ -38,7 +38,6 @@ def better_solution(array_polygons, x_lim):
         if i == 0:
             new_polygons.append(array_polygons[i])
             continue
-        print(i)
         list_x, list_y = list(zip(*new_polygons[i - 1]))
         max_point_x = max(list_x)
 
