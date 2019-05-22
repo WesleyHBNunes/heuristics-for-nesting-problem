@@ -38,6 +38,7 @@ def better_solution(array_polygons, x_lim):
         if i == 0:
             new_polygons.append(array_polygons[i])
             continue
+
         list_x, list_y = list(zip(*new_polygons[i - 1]))
         max_point_x = max(list_x)
 
@@ -53,21 +54,39 @@ def better_solution(array_polygons, x_lim):
         current_list_x = list(current_list_x)
         current_max_point_x = max(current_list_x)
         current_min_point_x = min(current_list_x)
+        current_max_point_y = max(current_list_y)
+        current_min_point_y = min(current_list_y)
 
         highest_y_point = return_line_y(new_polygons)
         abstract_polygon = [(current_min_point_x, 0),
                             (current_max_point_x, 0),
                             (current_max_point_x, highest_y_point),
                             (current_min_point_x, highest_y_point)]
-
         polygons_to_analyze = []
         for polygon in new_polygons:
             if Polygon.is_overlapping(abstract_polygon, polygon):
                 polygons_to_analyze.append(polygon)
 
-        point_y = return_line_y(polygons_to_analyze)
-        array_polygons[i] = Polygon.add_number_axis_x_y(array_polygons[i], 0, point_y)
-        new_polygons.append(array_polygons[i])
+        polygons_to_analyze = sort_polygons_to_analyze(polygons_to_analyze)
+        placed = False
+
+        for j in range(1, len(polygons_to_analyze)):
+            current_list_x, current_list_y = list(zip(*polygons_to_analyze[j]))
+            list_x, list_y = list(zip(*polygons_to_analyze[j-1]))
+            min_current_y = min(current_list_y)
+            max_y = max(list_y)
+
+            if current_max_point_y - current_min_point_y < min_current_y - max_y:
+                placed = True
+                point_y = max_y + LAMBDA
+                array_polygons[i] = Polygon.add_number_axis_x_y(array_polygons[i], 0, point_y)
+                new_polygons.append(array_polygons[i])
+                break
+
+        if not placed:
+            point_y = return_line_y(polygons_to_analyze)
+            array_polygons[i] = Polygon.add_number_axis_x_y(array_polygons[i], 0, point_y)
+            new_polygons.append(array_polygons[i])
 
     return Polygon.create_polygons_to_plot(new_polygons), return_line_y(new_polygons)
 
@@ -91,3 +110,17 @@ def return_line_y(array_polygons):
         if max(list_y) > line_y:
             line_y = highest_y
     return line_y + LAMBDA
+
+
+def sort_polygons_to_analyze(polygons):
+    index = 0
+    list_min_y_index = []
+    for polygon in polygons:
+        list_x, list_y = list(zip(*polygon))
+        list_min_y_index.append((min(list_y), index))
+        index += 1
+    list_min_y_index.sort(key=lambda tup: tup[0])
+    polygons_sorted = []
+    for i in range(len(polygons)):
+        polygons_sorted.append(polygons[int(list_min_y_index[i][1])])
+    return polygons_sorted

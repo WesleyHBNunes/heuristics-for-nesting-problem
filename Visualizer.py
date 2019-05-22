@@ -41,7 +41,7 @@ class Visualizer:
     def plot_animation(self):
         ani = animation.FuncAnimation(self.__fig,
                                       self.update,
-                                      interval=500,
+                                      interval=300,
                                       frames=len(self.__array_polygons),
                                       init_func=self.init,
                                       repeat=False)
