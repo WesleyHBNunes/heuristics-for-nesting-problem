@@ -244,3 +244,12 @@ parameters: array_polygons (array of tuple (x,y):
 `
 return: float
 `
+
+### polygon_overlapping
+`
+parameters: polygon (array of puple (x,y)) polygons_to_analyze (array of array of puple (x,y))
+`
+
+`
+return boolean
+`
