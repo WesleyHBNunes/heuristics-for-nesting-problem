@@ -71,6 +71,13 @@ def percent_area_no_used_of_polygon(polygon):
     return (rectangle_polygon_area(polygon) - area_polygon(polygon) * 100) / rectangle_polygon_area(polygon)
 
 
+def minimum_y(polygon):
+    list_points_x, list_points_y = zip(*polygon)
+    list_points_y = list(list_points_y)
+    min_y = min(list_points_y)
+    return min_y
+
+
 def sort(polygons, function, reverse):
     list_areas_index = []
     index = 0

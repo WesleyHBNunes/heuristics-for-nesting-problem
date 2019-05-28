@@ -66,6 +66,7 @@ def better_solution(array_polygons, x_lim):
 
         original_polygon = array_polygons[i]
         placed = False
+        polygons_to_analyze = Polygon.sort(polygons_to_analyze, Polygon.minimum_y, False)
         for polygon_overlapped in polygons_to_analyze:
             list_x, list_y = list(zip(*polygon_overlapped))
             max_point_y = max(list_y)

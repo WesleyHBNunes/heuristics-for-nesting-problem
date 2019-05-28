@@ -125,7 +125,14 @@ parameters: polygon (array of tuple (x,y))
 `
 return: float
 `
+### minimum_y
+`
+parameters: polygon (array of tuple (x,y))
+`
 
+`
+return float
+`
 ### sort:
 `
 parameters: polygons (array of array of tuple (x,y)), function (

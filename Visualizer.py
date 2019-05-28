@@ -31,7 +31,7 @@ class Visualizer:
         plt.xlim(0, self.__x_lim)
 
     def update(self, frame):
-        color = np.random.rand(1, 3)
+        color = (0, 0, 0)
         p = PatchCollection([self.__array_polygons[frame]], alpha=.5)
         p.set_color(color)
         p.set_edgecolor([0, 0, 0])
