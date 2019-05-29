@@ -197,6 +197,15 @@ parameters: polygon (array of tuple (x,y))
 return: List of type Polygon()
 `
 
+### highest_side
+`
+parameters: polygon (array of tuple (x,y))
+`
+
+`
+return tuple (x_max, x_min), tuple (y_max, y_min)
+`
+
 ## Functions: file (BottomLeft.py)
 ### initial_solution
 `
@@ -208,7 +217,7 @@ return: List of type Polygon()
 `
 ### solution
 `
-parameters: array_polygons (array of tuple (x,y), required), x_lim (float, required):
+parameters: array_polygons (array of tuple (x,y), required), x_lim (float, required), function (function to rotate):
 `
 
 `
@@ -226,7 +235,7 @@ return: List of type Polygon(), float
 
 ### better_solution
 `
-parameters: array_polygons (array of tuple (x,y), required), x_lim (float, required):
+parameters: array_polygons (array of tuple (x,y), required), x_lim (float, required), function (function to rotate):
 `
 
 `
@@ -237,7 +246,8 @@ return: List of type Polygon(), float
 ### solve
 `
 parameters: array_polygons (array of tuple (x,y), required), x_lim (float, required)
-function (funtion to solve, required), sort_function (funtion to sort, required):
+function (funtion to solve, required), sort_function (funtion to sort, required),
+rotate_function (function to rotate), reverse (True):
 `
 
 `
@@ -255,9 +265,36 @@ return: float
 
 ### polygon_overlapping
 `
-parameters: polygon (array of puple (x,y)) polygons_to_analyze (array of array of puple (x,y))
+parameters: polygon (array of tuple (x,y)) polygons_to_analyze (array of array of puple (x,y))
 `
 
 `
 return boolean
+`
+
+### rotate_polygon_heuristic
+`
+parameters: polygon (array of tuple (x,y)), function (function to rotate)
+`
+
+`
+return polygon (array of tuple (x,y))
+`
+
+### heuristic_highest_side
+`
+parameters: polygon (array of tuple (x,y))
+`
+
+`
+return float (angle to rotate)
+`
+
+### heuristic_highest_axis
+`
+parameters: polygon (array of tuple (x,y))
+`
+
+`
+return float (angle to rotate)
 `

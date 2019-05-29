@@ -118,7 +118,7 @@ def polygon_overlapping(polygon, polygons_to_analyze):
     return False
 
 
-def heuristic_higher_side(polygon):
+def heuristic_highest_side(polygon):
     points_x, points_y = Polygon.highest_side(polygon)
     if points_y[0] - points_y[1] == 0:
         return 90
@@ -126,7 +126,7 @@ def heuristic_higher_side(polygon):
         return math.degrees(math.atan((points_x[0] - points_x[1]) / (points_y[0] - points_y[1])))
 
 
-def heuristic_higher_axis(polygon):
+def heuristic_highest_axis(polygon):
     width, height = Polygon.width_height(polygon)
     if height <= width:
         return Polygon.rotate_polygon(polygon, 90)
