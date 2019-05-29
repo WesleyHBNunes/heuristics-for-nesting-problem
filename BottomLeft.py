@@ -6,10 +6,12 @@ import Polygon
 LAMBDA = 0.00000000001
 
 
-def solution(array_polygons, x_lim):
+def solution(array_polygons, x_lim, function):
     new_polygons = []
     line_y = 0
     for i in range(len(array_polygons)):
+
+        array_polygons[i] = rotate_polygon_heuristic(array_polygons[i], function)
         if i == 0:
             new_polygons.append(array_polygons[i])
             continue
@@ -27,17 +29,11 @@ def solution(array_polygons, x_lim):
     return Polygon.create_polygons_to_plot(new_polygons), return_line_y(new_polygons)
 
 
-def better_solution(array_polygons, x_lim):
+def better_solution(array_polygons, x_lim, function):
     new_polygons = []
     for i in range(len(array_polygons)):
 
-        # width, height = Polygon.width_height(array_polygons[i])
-        # if height <= width:
-        #    array_polygons[i] = Polygon.rotate_polygon(array_polygons[i], 90)
-
-        points_x, points_y = Polygon.highest_side(array_polygons[i])
-        array_polygons[i] = Polygon.rotate_polygon(array_polygons[i], angle_to_rotate(points_x, points_y))
-
+        array_polygons[i] = rotate_polygon_heuristic(array_polygons[i], function)
         if i == 0:
             new_polygons.append(array_polygons[i])
             continue
@@ -99,9 +95,9 @@ def random_solve(array_polygons, x_lim, function):
     return function(array_polygons, x_lim)
 
 
-def solve(array_polygons, x_lim, function, sort_function, reverse):
+def solve(array_polygons, x_lim, function, sort_function, rotate_function, reverse):
     array_polygons = Polygon.sort(array_polygons, sort_function, reverse=reverse)
-    return function(array_polygons, x_lim)
+    return function(array_polygons, x_lim, rotate_function)
 
 
 def return_line_y(array_polygons):
@@ -122,8 +118,20 @@ def polygon_overlapping(polygon, polygons_to_analyze):
     return False
 
 
-def angle_to_rotate(points_x, points_y):
+def heuristic_higher_side(polygon):
+    points_x, points_y = Polygon.highest_side(polygon)
     if points_y[0] - points_y[1] == 0:
         return 90
     else:
         return math.degrees(math.atan((points_x[0] - points_x[1]) / (points_y[0] - points_y[1])))
+
+
+def heuristic_higher_axis(polygon):
+    width, height = Polygon.width_height(polygon)
+    if height <= width:
+        return Polygon.rotate_polygon(polygon, 90)
+    return polygon
+
+
+def rotate_polygon_heuristic(polygon, function):
+    return Polygon.rotate_polygon(polygon, function(polygon))

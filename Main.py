@@ -6,8 +6,8 @@ from Visualizer import Visualizer
 
 def main():
     polygons, limit_x = File.polygons_from_txt("Test/trousers.txt")
-    polygons_to_plot, limit_y = BottomLeft.solve(polygons, limit_x, BottomLeft.better_solution,
-                                                 Polygon.ray_polygon, True)
+    polygons_to_plot, limit_y = BottomLeft.solve(
+        polygons, limit_x, BottomLeft.better_solution, Polygon.ray_polygon, BottomLeft.heuristic_higher_side, True)
     visualizer = Visualizer(polygons_to_plot, limit_x, limit_y, "Test of instances")
     print(limit_y)
     # visualizer.plot_polygons()
