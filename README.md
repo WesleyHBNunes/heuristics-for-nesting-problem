@@ -133,7 +133,7 @@ parameters: polygon (array of tuple (x,y))
 `
 return float
 `
-### sort:
+### sort
 `
 parameters: polygons (array of array of tuple (x,y)), function (
 function that determines the ordering)
