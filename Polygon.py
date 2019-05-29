@@ -133,3 +133,39 @@ def min_max_points_polygon(polygon):
 def width_height(polygon):
     min_x, max_x, min_y, max_y = min_max_points_polygon(polygon)
     return max_x - min_x, max_y - min_y
+
+
+def highest_side(polygon):
+    final_points_x = ()
+    final_points_y = ()
+    highest_side_of_polygon = 0
+    for i in range(len(polygon)):
+        if i == len(polygon) - 1:
+            point1 = polygon[i]
+            point2 = polygon[0]
+        else:
+            point1 = polygon[i]
+            point2 = polygon[i + 1]
+
+        if point1[0] > point2[0]:
+            x_min = point2[0]
+            x_max = point1[0]
+        else:
+            x_min = point1[0]
+            x_max = point2[0]
+
+        if point1[1] > point2[1]:
+            y_min = point2[1]
+            y_max = point1[1]
+        else:
+            y_min = point1[1]
+            y_max = point2[1]
+
+        value = math.sqrt((x_max - x_min) ** 2 + (y_max - y_min) ** 2)
+
+        if value > highest_side_of_polygon:
+            highest_side_of_polygon = value
+            final_points_x = (x_max, x_min)
+            final_points_y = (y_max, y_min)
+
+    return final_points_x, final_points_y

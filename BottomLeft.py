@@ -1,5 +1,5 @@
 from random import shuffle
-
+import math
 import Polygon
 
 # CONST
@@ -31,9 +31,12 @@ def better_solution(array_polygons, x_lim):
     new_polygons = []
     for i in range(len(array_polygons)):
 
-        width, height = Polygon.width_height(array_polygons[i])
-        if height <= width:
-            array_polygons[i] = Polygon.rotate_polygon(array_polygons[i], 90)
+        # width, height = Polygon.width_height(array_polygons[i])
+        # if height <= width:
+        #    array_polygons[i] = Polygon.rotate_polygon(array_polygons[i], 90)
+
+        points_x, points_y = Polygon.highest_side(array_polygons[i])
+        array_polygons[i] = Polygon.rotate_polygon(array_polygons[i], angle_to_rotate(points_x, points_y))
 
         if i == 0:
             new_polygons.append(array_polygons[i])
@@ -66,23 +69,26 @@ def better_solution(array_polygons, x_lim):
 
         original_polygon = array_polygons[i]
         placed = False
-        polygons_to_analyze = Polygon.sort(polygons_to_analyze, Polygon.minimum_y, False)
-        for polygon_overlapped in polygons_to_analyze:
-            list_x, list_y = list(zip(*polygon_overlapped))
-            max_point_y = max(list_y)
-            array_polygons[i] = original_polygon
-            array_polygons[i] = Polygon.add_number_axis_x_y(array_polygons[i], 0, max_point_y + LAMBDA)
-            if not polygon_overlapping(array_polygons[i], polygons_to_analyze):
-                placed = True
+        if polygon_overlapping(array_polygons[i], polygons_to_analyze):
+            polygons_to_analyze = Polygon.sort(polygons_to_analyze, Polygon.minimum_y, False)
+            for polygon_overlapped in polygons_to_analyze:
+                list_x, list_y = list(zip(*polygon_overlapped))
+                max_point_y = max(list_y)
                 array_polygons[i] = original_polygon
                 array_polygons[i] = Polygon.add_number_axis_x_y(array_polygons[i], 0, max_point_y + LAMBDA)
-                new_polygons.append(array_polygons[i])
-                break
+                if not polygon_overlapping(array_polygons[i], polygons_to_analyze):
+                    placed = True
+                    array_polygons[i] = original_polygon
+                    array_polygons[i] = Polygon.add_number_axis_x_y(array_polygons[i], 0, max_point_y + LAMBDA)
+                    new_polygons.append(array_polygons[i])
+                    break
 
-        if not placed:
-            point_y = return_line_y(polygons_to_analyze)
-            array_polygons[i] = original_polygon
-            array_polygons[i] = Polygon.add_number_axis_x_y(array_polygons[i], 0, point_y)
+            if not placed:
+                point_y = return_line_y(polygons_to_analyze)
+                array_polygons[i] = original_polygon
+                array_polygons[i] = Polygon.add_number_axis_x_y(array_polygons[i], 0, point_y)
+                new_polygons.append(array_polygons[i])
+        else:
             new_polygons.append(array_polygons[i])
 
     return Polygon.create_polygons_to_plot(new_polygons), return_line_y(new_polygons)
@@ -114,3 +120,10 @@ def polygon_overlapping(polygon, polygons_to_analyze):
         if Polygon.is_overlapping(polygon, p):
             return True
     return False
+
+
+def angle_to_rotate(points_x, points_y):
+    if points_y[0] - points_y[1] == 0:
+        return 90
+    else:
+        return math.degrees(math.atan((points_x[0] - points_x[1]) / (points_y[0] - points_y[1])))
