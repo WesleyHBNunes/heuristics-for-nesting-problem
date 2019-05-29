@@ -188,7 +188,7 @@ parameters: polygon (array of tuple (x,y))
 return: float, float
 `
 
-###create_polygons_to_plot
+### create_polygons_to_plot
 `
 parameters: polygon (array of tuple (x,y))
 `
