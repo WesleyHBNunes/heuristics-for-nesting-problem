@@ -10,8 +10,8 @@ def main():
         array_polygons=polygons,
         x_lim=limit_x,
         function=BottomLeft.better_solution,
-        sort_function=Polygon.percent_area_no_used_of_polygon,
-        rotate_function=BottomLeft.heuristic_highest_axis,
+        sort_function=Polygon.rectangle_polygon_area,
+        rotate_function=BottomLeft.heuristic_highest_side,
         reverse=True)
     visualizer = Visualizer(polygons_to_plot, limit_x, limit_y, "Test of instances")
     print(limit_y)

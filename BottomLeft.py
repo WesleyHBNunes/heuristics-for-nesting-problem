@@ -3,7 +3,7 @@ import math
 import Polygon
 
 # CONST
-LAMBDA = 0.00000000001
+LAMBDA = .00000000001
 
 
 def solution(array_polygons, x_lim, function):

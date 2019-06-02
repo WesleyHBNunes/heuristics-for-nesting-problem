@@ -72,6 +72,15 @@ parameters: polygon_points (array of tuple (x,y), required):
 return: array of tuple (x,y)
 `
 
+### return_to_origin
+`
+parameters: polygon_points (array of tuple (x,y), required):
+`
+
+`
+return: array of tuple (x,y)
+`
+
 ### add_number_axis_x_y
 `
 parameters: polygon (array of tuple (x,y)), number_x (float), number_y (float):

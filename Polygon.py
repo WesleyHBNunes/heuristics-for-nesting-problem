@@ -32,6 +32,29 @@ def set_points_to_positive(polygons_point):
     return list(zip(list_points_x, list_points_y))
 
 
+def return_to_origin(polygons_point):
+    list_points_x, list_points_y = zip(*polygons_point)
+
+    list_points_x = list(list_points_x)
+    list_points_y = list(list_points_y)
+
+    min_x = min(list_points_x)
+    min_y = min(list_points_y)
+
+    if min_x <= .00000000001 and min_y <= .00000000001:
+        return polygons_point
+
+    if min_x > .00000000001:
+        for i in range(len(list_points_x)):
+            list_points_x[i] -= min_x
+
+    if min_y > .00000000001:
+        for i in range(len(list_points_y)):
+            list_points_y[i] -= min_y
+
+    return list(zip(list_points_x, list_points_y))
+
+
 def add_number_axis_x_y(polygon, number_x, number_y):
     list_x, list_y = zip(*polygon)
     list_x = list(list_x)
@@ -99,6 +122,7 @@ def rotate_polygon(polygon, angle):
                                 points[0] * math.sin(angle) + points[1] * math.cos(angle)))
 
     rotated_polygon = set_points_to_positive(rotated_polygon)
+    rotated_polygon = return_to_origin(rotated_polygon)
     return rotated_polygon
 
 
