@@ -64,7 +64,6 @@ def better_solution(array_polygons, x_lim, function):
                 polygons_to_analyze.append(polygon)
 
         original_polygon = array_polygons[i]
-        placed = False
         if polygon_overlapping(array_polygons[i], polygons_to_analyze):
             polygons_to_analyze = Polygon.sort(polygons_to_analyze, Polygon.minimum_y, False)
             for polygon_overlapped in polygons_to_analyze:
@@ -73,17 +72,10 @@ def better_solution(array_polygons, x_lim, function):
                 array_polygons[i] = original_polygon
                 array_polygons[i] = Polygon.add_number_axis_x_y(array_polygons[i], 0, max_point_y + LAMBDA)
                 if not polygon_overlapping(array_polygons[i], polygons_to_analyze):
-                    placed = True
                     array_polygons[i] = original_polygon
                     array_polygons[i] = Polygon.add_number_axis_x_y(array_polygons[i], 0, max_point_y + LAMBDA)
                     new_polygons.append(array_polygons[i])
                     break
-
-            if not placed:
-                point_y = return_line_y(polygons_to_analyze)
-                array_polygons[i] = original_polygon
-                array_polygons[i] = Polygon.add_number_axis_x_y(array_polygons[i], 0, point_y)
-                new_polygons.append(array_polygons[i])
         else:
             new_polygons.append(array_polygons[i])
 
@@ -124,6 +116,11 @@ def heuristic_highest_side(polygon):
         angle = 90
     else:
         angle = math.degrees(math.atan((points_x[0] - points_x[1]) / (points_y[0] - points_y[1])))
+        if points_x[0] - points_x[1] < points_y[0] - points_y[1]:
+            if points_x[0] - points_x[1] == 0:
+                angle = 0
+            else:
+                angle = math.degrees(math.atan((points_y[0] - points_y[1]) / (points_x[0] - points_x[1]))) + 90
 
     polygon_rotated = Polygon.rotate_polygon(polygon, angle)
     angle2 = heuristic_highest_axis(polygon)
