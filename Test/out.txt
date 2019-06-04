@@ -2,403 +2,403 @@ TXT FILES
 
 File blaz.txt, sort_function: area_polygon, rotate_function: heuristic_highest_axis
 Objective Function: 40.00000000008999
-Time: 0.07094883918762207
+Time: 0.02543926239013672
 
 File blaz.txt, sort_function: area_polygon, rotate_function: heuristic_highest_side
 Objective Function: 40.00000000008999
-Time: 0.10428762435913086
+Time: 0.025977134704589844
 
 File blaz.txt, sort_function: area_no_used_of_polygon, rotate_function: heuristic_highest_axis
 Objective Function: 40.00000000008999
-Time: 0.03970932960510254
+Time: 0.025386810302734375
 
 File blaz.txt, sort_function: area_no_used_of_polygon, rotate_function: heuristic_highest_side
 Objective Function: 40.00000000008999
-Time: 0.06797266006469727
+Time: 0.025168418884277344
 
 File blaz.txt, sort_function: percent_area_no_used_of_polygon, rotate_function: heuristic_highest_axis
 Objective Function: 38.00000000007999
-Time: 0.06353044509887695
+Time: 0.023633241653442383
 
 File blaz.txt, sort_function: percent_area_no_used_of_polygon, rotate_function: heuristic_highest_side
 Objective Function: 38.00000000007999
-Time: 0.062454938888549805
+Time: 0.02421426773071289
 
 File blaz.txt, sort_function: ray_polygon, rotate_function: heuristic_highest_axis
 Objective Function: 40.00000000008999
-Time: 0.06031489372253418
+Time: 0.03302288055419922
 
 File blaz.txt, sort_function: ray_polygon, rotate_function: heuristic_highest_side
 Objective Function: 40.00000000008999
-Time: 0.07564496994018555
+Time: 0.025710582733154297
 
 File blaz.txt, sort_function: rectangle_polygon_area, rotate_function: heuristic_highest_axis
 Objective Function: 40.00000000008999
-Time: 0.04597616195678711
+Time: 0.037188053131103516
 
 File blaz.txt, sort_function: rectangle_polygon_area, rotate_function: heuristic_highest_side
 Objective Function: 40.00000000008999
-Time: 0.12250828742980957
+Time: 0.02602982521057129
 
 File shapes.txt, sort_function: area_polygon, rotate_function: heuristic_highest_axis
 Objective Function: 89.00000000008001
-Time: 0.13839435577392578
+Time: 0.0470738410949707
 
 File shapes.txt, sort_function: area_polygon, rotate_function: heuristic_highest_side
 Objective Function: 78.97056274855714
-Time: 0.15244388580322266
+Time: 0.045171499252319336
 
 File shapes.txt, sort_function: area_no_used_of_polygon, rotate_function: heuristic_highest_axis
 Objective Function: 89.00000000008001
-Time: 0.12895703315734863
+Time: 0.04818153381347656
 
 File shapes.txt, sort_function: area_no_used_of_polygon, rotate_function: heuristic_highest_side
 Objective Function: 81.97056274855714
-Time: 0.07561421394348145
+Time: 0.04602384567260742
 
 File shapes.txt, sort_function: percent_area_no_used_of_polygon, rotate_function: heuristic_highest_axis
 Objective Function: 100.00000000009
-Time: 0.12912201881408691
+Time: 0.04726600646972656
 
 File shapes.txt, sort_function: percent_area_no_used_of_polygon, rotate_function: heuristic_highest_side
 Objective Function: 86.97056274855714
-Time: 0.08108639717102051
+Time: 0.04978799819946289
 
 File shapes.txt, sort_function: ray_polygon, rotate_function: heuristic_highest_axis
 Objective Function: 89.00000000008001
-Time: 0.09150004386901855
+Time: 0.04736161231994629
 
 File shapes.txt, sort_function: ray_polygon, rotate_function: heuristic_highest_side
 Objective Function: 78.97056274855714
-Time: 0.1233980655670166
+Time: 0.04661154747009277
 
 File shapes.txt, sort_function: rectangle_polygon_area, rotate_function: heuristic_highest_axis
 Objective Function: 89.00000000008001
-Time: 0.15169525146484375
+Time: 0.04729151725769043
 
 File shapes.txt, sort_function: rectangle_polygon_area, rotate_function: heuristic_highest_side
 Objective Function: 78.97056274855714
-Time: 0.11794519424438477
+Time: 0.0461885929107666
 
 File shirts.txt, sort_function: area_polygon, rotate_function: heuristic_highest_axis
 Objective Function: 80.00000000008001
-Time: 0.2142941951751709
+Time: 0.1348578929901123
 
 File shirts.txt, sort_function: area_polygon, rotate_function: heuristic_highest_side
 Objective Function: 80.00000000008001
-Time: 0.39838624000549316
+Time: 0.13658618927001953
 
 File shirts.txt, sort_function: area_no_used_of_polygon, rotate_function: heuristic_highest_axis
 Objective Function: 76.00000000008001
-Time: 0.22672390937805176
+Time: 0.13995718955993652
 
 File shirts.txt, sort_function: area_no_used_of_polygon, rotate_function: heuristic_highest_side
 Objective Function: 76.00000000008001
-Time: 0.3830685615539551
+Time: 0.1417713165283203
 
 File shirts.txt, sort_function: percent_area_no_used_of_polygon, rotate_function: heuristic_highest_axis
 Objective Function: 76.00000000008001
-Time: 0.22279095649719238
+Time: 0.13229680061340332
 
 File shirts.txt, sort_function: percent_area_no_used_of_polygon, rotate_function: heuristic_highest_side
 Objective Function: 76.00000000008001
-Time: 0.3719470500946045
+Time: 0.13807249069213867
 
 File shirts.txt, sort_function: ray_polygon, rotate_function: heuristic_highest_axis
 Objective Function: 80.00000000008001
-Time: 0.370837926864624
+Time: 0.1331021785736084
 
 File shirts.txt, sort_function: ray_polygon, rotate_function: heuristic_highest_side
 Objective Function: 80.00000000008001
-Time: 0.21661019325256348
+Time: 0.13681983947753906
 
 File shirts.txt, sort_function: rectangle_polygon_area, rotate_function: heuristic_highest_axis
 Objective Function: 80.00000000008001
-Time: 0.35999083518981934
+Time: 0.1326141357421875
 
 File shirts.txt, sort_function: rectangle_polygon_area, rotate_function: heuristic_highest_side
 Objective Function: 80.00000000008001
-Time: 0.37643909454345703
+Time: 0.13360953330993652
 
 File swim.txt, sort_function: area_polygon, rotate_function: heuristic_highest_axis
 Objective Function: 10311.751181000067
-Time: 0.1279444694519043
+Time: 0.05128216743469238
 
 File swim.txt, sort_function: area_polygon, rotate_function: heuristic_highest_side
 Objective Function: 10387.576089439384
-Time: 0.08888983726501465
+Time: 0.053716182708740234
 
 File swim.txt, sort_function: area_no_used_of_polygon, rotate_function: heuristic_highest_axis
 Objective Function: 10311.751181000067
-Time: 0.1378190517425537
+Time: 0.0522913932800293
 
 File swim.txt, sort_function: area_no_used_of_polygon, rotate_function: heuristic_highest_side
 Objective Function: 10387.576089439384
-Time: 0.1518239974975586
+Time: 0.05514812469482422
 
 File swim.txt, sort_function: percent_area_no_used_of_polygon, rotate_function: heuristic_highest_axis
 Objective Function: 10402.987508000067
-Time: 0.1358630657196045
+Time: 0.05021262168884277
 
 File swim.txt, sort_function: percent_area_no_used_of_polygon, rotate_function: heuristic_highest_side
 Objective Function: 10510.973732101005
-Time: 0.1478738784790039
+Time: 0.052899837493896484
 
 File swim.txt, sort_function: ray_polygon, rotate_function: heuristic_highest_axis
 Objective Function: 9847.296279000067
-Time: 0.126542329788208
+Time: 0.04802203178405762
 
 File swim.txt, sort_function: ray_polygon, rotate_function: heuristic_highest_side
 Objective Function: 9923.121187439385
-Time: 0.13394951820373535
+Time: 0.04992866516113281
 
 File swim.txt, sort_function: rectangle_polygon_area, rotate_function: heuristic_highest_axis
 Objective Function: 10346.751181000067
-Time: 0.13093042373657227
+Time: 0.04845881462097168
 
 File swim.txt, sort_function: rectangle_polygon_area, rotate_function: heuristic_highest_side
 Objective Function: 10422.576089439384
-Time: 0.13029932975769043
+Time: 0.04877471923828125
 
 File trousers.txt, sort_function: area_polygon, rotate_function: heuristic_highest_axis
 Objective Function: 344.00000000009004
-Time: 0.13562417030334473
+Time: 0.07351517677307129
 
 File trousers.txt, sort_function: area_polygon, rotate_function: heuristic_highest_side
 Objective Function: 330.7804716964629
-Time: 0.19742894172668457
+Time: 0.07448482513427734
 
 File trousers.txt, sort_function: area_no_used_of_polygon, rotate_function: heuristic_highest_axis
 Objective Function: 367.00000000009004
-Time: 0.14078783988952637
+Time: 0.07837915420532227
 
 File trousers.txt, sort_function: area_no_used_of_polygon, rotate_function: heuristic_highest_side
 Objective Function: 331.25629700020284
-Time: 0.2009894847869873
+Time: 0.07616877555847168
 
 File trousers.txt, sort_function: percent_area_no_used_of_polygon, rotate_function: heuristic_highest_axis
 Objective Function: 336.00000000009004
-Time: 0.2232227325439453
+Time: 0.07664203643798828
 
 File trousers.txt, sort_function: percent_area_no_used_of_polygon, rotate_function: heuristic_highest_side
 Objective Function: 336.5241746963501
-Time: 0.24623942375183105
+Time: 0.07837390899658203
 
 File trousers.txt, sort_function: ray_polygon, rotate_function: heuristic_highest_axis
 Objective Function: 344.00000000009004
-Time: 0.23540854454040527
+Time: 0.07876992225646973
 
 File trousers.txt, sort_function: ray_polygon, rotate_function: heuristic_highest_side
 Objective Function: 342.00000000009004
-Time: 0.21235179901123047
+Time: 0.07697105407714844
 
 File trousers.txt, sort_function: rectangle_polygon_area, rotate_function: heuristic_highest_axis
 Objective Function: 344.00000000009004
-Time: 0.24409103393554688
+Time: 0.07735204696655273
 
 File trousers.txt, sort_function: rectangle_polygon_area, rotate_function: heuristic_highest_side
 Objective Function: 330.7804716964629
-Time: 0.18137121200561523
+Time: 0.07354211807250977
 
 XLS FILES
 
 File albano.xls, sort_function: area_polygon, rotate_function: heuristic_highest_axis
 Objective Function: 12718.000000000056
-Time: 0.062070608139038086
+Time: 0.02164626121520996
 
 File albano.xls, sort_function: area_polygon, rotate_function: heuristic_highest_side
 Objective Function: 12860.748369917774
-Time: 0.055844783782958984
+Time: 0.022689342498779297
 
 File albano.xls, sort_function: area_no_used_of_polygon, rotate_function: heuristic_highest_axis
 Objective Function: 13105.000000000047
-Time: 0.05957531929016113
+Time: 0.021555185317993164
 
 File albano.xls, sort_function: area_no_used_of_polygon, rotate_function: heuristic_highest_side
 Objective Function: 13247.748369917765
-Time: 0.07114315032958984
+Time: 0.022027969360351562
 
 File albano.xls, sort_function: percent_area_no_used_of_polygon, rotate_function: heuristic_highest_axis
 Objective Function: 14007.000000000056
-Time: 0.04116415977478027
+Time: 0.024794816970825195
 
 File albano.xls, sort_function: percent_area_no_used_of_polygon, rotate_function: heuristic_highest_side
 Objective Function: 14149.748369917774
-Time: 0.06857085227966309
+Time: 0.025900602340698242
 
 File albano.xls, sort_function: ray_polygon, rotate_function: heuristic_highest_axis
 Objective Function: 12522.000000000047
-Time: 0.03650712966918945
+Time: 0.02205371856689453
 
 File albano.xls, sort_function: ray_polygon, rotate_function: heuristic_highest_side
 Objective Function: 12593.374184958906
-Time: 0.05908560752868652
+Time: 0.021791458129882812
 
 File albano.xls, sort_function: rectangle_polygon_area, rotate_function: heuristic_highest_axis
 Objective Function: 12718.000000000056
-Time: 0.03682851791381836
+Time: 0.021918773651123047
 
 File albano.xls, sort_function: rectangle_polygon_area, rotate_function: heuristic_highest_side
 Objective Function: 12860.748369917774
-Time: 0.060758113861083984
+Time: 0.022378206253051758
 
 File mao.xls, sort_function: area_polygon, rotate_function: heuristic_highest_axis
 Objective Function: 2936.00000000003
-Time: 0.045264482498168945
+Time: 0.01669907569885254
 
 File mao.xls, sort_function: area_polygon, rotate_function: heuristic_highest_side
 Objective Function: 2936.386476936659
-Time: 0.04714012145996094
+Time: 0.017106056213378906
 
 File mao.xls, sort_function: area_no_used_of_polygon, rotate_function: heuristic_highest_axis
 Objective Function: 2510.00000000003
-Time: 0.045427560806274414
+Time: 0.016184568405151367
 
 File mao.xls, sort_function: area_no_used_of_polygon, rotate_function: heuristic_highest_side
 Objective Function: 2511.7278135589195
-Time: 0.04576873779296875
+Time: 0.016789913177490234
 
 File mao.xls, sort_function: percent_area_no_used_of_polygon, rotate_function: heuristic_highest_axis
 Objective Function: 2936.00000000003
-Time: 0.027521610260009766
+Time: 0.016882658004760742
 
 File mao.xls, sort_function: percent_area_no_used_of_polygon, rotate_function: heuristic_highest_side
 Objective Function: 2936.386476936659
-Time: 0.028769254684448242
+Time: 0.017504215240478516
 
 File mao.xls, sort_function: ray_polygon, rotate_function: heuristic_highest_axis
 Objective Function: 2939.00000000003
-Time: 0.04502677917480469
+Time: 0.01642465591430664
 
 File mao.xls, sort_function: ray_polygon, rotate_function: heuristic_highest_side
 Objective Function: 2939.386476936659
-Time: 0.046903371810913086
+Time: 0.01722574234008789
 
 File mao.xls, sort_function: rectangle_polygon_area, rotate_function: heuristic_highest_axis
 Objective Function: 2939.00000000003
-Time: 0.0460820198059082
+Time: 0.0166475772857666
 
 File mao.xls, sort_function: rectangle_polygon_area, rotate_function: heuristic_highest_side
 Objective Function: 2939.386476936659
-Time: 0.028456926345825195
+Time: 0.019443035125732422
 
 File dighe.xls, sort_function: area_polygon, rotate_function: heuristic_highest_axis
 Objective Function: 201.00000000003
-Time: 0.04173564910888672
+Time: 0.015159368515014648
 
 File dighe.xls, sort_function: area_polygon, rotate_function: heuristic_highest_side
 Objective Function: 202.93589255945102
-Time: 0.041481733322143555
+Time: 0.0154571533203125
 
 File dighe.xls, sort_function: area_no_used_of_polygon, rotate_function: heuristic_highest_axis
 Objective Function: 226.00000000004002
-Time: 0.043087005615234375
+Time: 0.015948057174682617
 
 File dighe.xls, sort_function: area_no_used_of_polygon, rotate_function: heuristic_highest_side
 Objective Function: 173.46903848940963
-Time: 0.025241851806640625
+Time: 0.014902114868164062
 
 File dighe.xls, sort_function: percent_area_no_used_of_polygon, rotate_function: heuristic_highest_axis
 Objective Function: 240.00000000004002
-Time: 0.04396629333496094
+Time: 0.016269207000732422
 
 File dighe.xls, sort_function: percent_area_no_used_of_polygon, rotate_function: heuristic_highest_side
 Objective Function: 202.93589255945102
-Time: 0.04197359085083008
+Time: 0.015806198120117188
 
 File dighe.xls, sort_function: ray_polygon, rotate_function: heuristic_highest_axis
 Objective Function: 204.00000000004002
-Time: 0.042282819747924805
+Time: 0.015280008316040039
 
 File dighe.xls, sort_function: ray_polygon, rotate_function: heuristic_highest_side
 Objective Function: 164.46903848940963
-Time: 0.04218292236328125
+Time: 0.015710830688476562
 
 File dighe.xls, sort_function: rectangle_polygon_area, rotate_function: heuristic_highest_axis
 Objective Function: 179.00000000003
-Time: 0.041393280029296875
+Time: 0.015155792236328125
 
 File dighe.xls, sort_function: rectangle_polygon_area, rotate_function: heuristic_highest_side
 Objective Function: 180.93589255945102
-Time: 0.04184269905090332
+Time: 0.01602768898010254
 
 File marques.xls, sort_function: area_polygon, rotate_function: heuristic_highest_axis
 Objective Function: 104.00000000003001
-Time: 0.047516822814941406
+Time: 0.017859935760498047
 
 File marques.xls, sort_function: area_polygon, rotate_function: heuristic_highest_side
 Objective Function: 104.00000000003001
-Time: 0.03018474578857422
+Time: 0.018601417541503906
 
 File marques.xls, sort_function: area_no_used_of_polygon, rotate_function: heuristic_highest_axis
 Objective Function: 104.00000000003001
-Time: 0.047049522399902344
+Time: 0.017890453338623047
 
 File marques.xls, sort_function: area_no_used_of_polygon, rotate_function: heuristic_highest_side
 Objective Function: 104.00000000003001
-Time: 0.049895286560058594
+Time: 0.0184938907623291
 
 File marques.xls, sort_function: percent_area_no_used_of_polygon, rotate_function: heuristic_highest_axis
 Objective Function: 109.00000000003001
-Time: 0.04961991310119629
+Time: 0.021564006805419922
 
 File marques.xls, sort_function: percent_area_no_used_of_polygon, rotate_function: heuristic_highest_side
 Objective Function: 109.00000000003001
-Time: 0.03122854232788086
+Time: 0.018736839294433594
 
 File marques.xls, sort_function: ray_polygon, rotate_function: heuristic_highest_axis
 Objective Function: 98.00000000003001
-Time: 0.04941964149475098
+Time: 0.017962932586669922
 
 File marques.xls, sort_function: ray_polygon, rotate_function: heuristic_highest_side
 Objective Function: 98.00000000003001
-Time: 0.050156593322753906
+Time: 0.01898789405822754
 
 File marques.xls, sort_function: rectangle_polygon_area, rotate_function: heuristic_highest_axis
 Objective Function: 104.00000000003001
-Time: 0.0480799674987793
+Time: 0.017825841903686523
 
 File marques.xls, sort_function: rectangle_polygon_area, rotate_function: heuristic_highest_side
 Objective Function: 104.00000000003001
-Time: 0.05026745796203613
+Time: 0.018445730209350586
 
 File han.xls, sort_function: area_polygon, rotate_function: heuristic_highest_axis
 Objective Function: 69.00000000004
-Time: 0.057290077209472656
+Time: 0.020666837692260742
 
 File han.xls, sort_function: area_polygon, rotate_function: heuristic_highest_side
 Objective Function: 66.00000000004
-Time: 0.05473661422729492
+Time: 0.02198934555053711
 
 File han.xls, sort_function: area_no_used_of_polygon, rotate_function: heuristic_highest_axis
 Objective Function: 80.00000000005001
-Time: 0.05735659599304199
+Time: 0.021495342254638672
 
 File han.xls, sort_function: area_no_used_of_polygon, rotate_function: heuristic_highest_side
 Objective Function: 78.97056274852714
-Time: 0.05963587760925293
+Time: 0.022090673446655273
 
 File han.xls, sort_function: percent_area_no_used_of_polygon, rotate_function: heuristic_highest_axis
 Objective Function: 68.00000000003999
-Time: 0.03429889678955078
+Time: 0.020858287811279297
 
 File han.xls, sort_function: percent_area_no_used_of_polygon, rotate_function: heuristic_highest_side
 Objective Function: 67.00000000004
-Time: 0.058447837829589844
+Time: 0.021544694900512695
 
 File han.xls, sort_function: ray_polygon, rotate_function: heuristic_highest_axis
 Objective Function: 66.00000000004
-Time: 0.03375411033630371
+Time: 0.02089715003967285
 
 File han.xls, sort_function: ray_polygon, rotate_function: heuristic_highest_side
 Objective Function: 66.00000000004
-Time: 0.05916094779968262
+Time: 0.021594762802124023
 
 File han.xls, sort_function: rectangle_polygon_area, rotate_function: heuristic_highest_axis
 Objective Function: 68.00000000004
-Time: 0.05847525596618652
+Time: 0.02139115333557129
 
 File han.xls, sort_function: rectangle_polygon_area, rotate_function: heuristic_highest_side
 Objective Function: 68.00000000004
-Time: 0.059723854064941406
+Time: 0.02182602882385254
 
