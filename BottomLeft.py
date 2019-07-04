@@ -1,5 +1,5 @@
 from random import shuffle
-import math
+import Heuristics
 import Polygon
 
 
@@ -7,7 +7,7 @@ def solution(array_polygons, x_lim, function):
     new_polygons = []
     for i in range(len(array_polygons)):
 
-        array_polygons[i] = rotate_polygon_heuristic(array_polygons[i], function)
+        array_polygons[i] = Heuristics.rotate_polygon_heuristic(array_polygons[i], function)
         if i == 0:
             new_polygons.append(array_polygons[i])
             continue
@@ -27,7 +27,7 @@ def solution(array_polygons, x_lim, function):
         current_max_point_x = max(current_list_x)
         current_min_point_x = min(current_list_x)
 
-        highest_y_point = return_line_y(new_polygons)
+        highest_y_point = Heuristics.calculate_function_objective(new_polygons)
         abstract_polygon = [(current_min_point_x, 0),
                             (current_max_point_x, 0),
                             (current_max_point_x, highest_y_point),
@@ -53,7 +53,7 @@ def solution(array_polygons, x_lim, function):
         else:
             new_polygons.append(array_polygons[i])
 
-    return Polygon.create_polygons_to_plot(new_polygons), return_line_y(new_polygons)
+    return Polygon.create_polygons_to_plot(new_polygons), Heuristics.calculate_function_objective(new_polygons)
 
 
 def random_solve(array_polygons, x_lim, function):
@@ -61,20 +61,9 @@ def random_solve(array_polygons, x_lim, function):
     return function(array_polygons, x_lim)
 
 
-def solve(array_polygons, x_lim, function, sort_function, rotate_function, reverse):
+def solve(array_polygons, x_lim, sort_function, rotate_function, reverse):
     array_polygons = Polygon.sort(array_polygons, sort_function, reverse=reverse)
-    return function(array_polygons, x_lim, rotate_function)
-
-
-def return_line_y(array_polygons):
-    line_y = 0
-
-    for polygon in array_polygons:
-        list_x, list_y = zip(*polygon)
-        highest_y = max(list_y)
-        if max(list_y) > line_y:
-            line_y = highest_y
-    return line_y
+    return solution(array_polygons, x_lim, rotate_function)
 
 
 def polygon_overlapping(polygon, polygons_to_analyze):
@@ -82,36 +71,3 @@ def polygon_overlapping(polygon, polygons_to_analyze):
         if Polygon.is_overlapping(polygon, p):
             return True
     return False
-
-
-def heuristic_highest_side(polygon):
-    points_x, points_y = Polygon.highest_side(polygon)
-    if points_x[0] - points_x[1] > points_y[0] - points_y[1]:
-        if points_y[0] - points_y[1] == 0:
-            angle = 90
-        else:
-            angle = math.degrees(math.atan((points_x[0] - points_x[1]) / (points_y[0] - points_y[1])))
-    else:
-        if points_x[0] - points_x[1] == 0:
-            angle = 0
-        else:
-            angle = 270 + math.degrees(math.atan((points_y[0] - points_y[1]) / (points_x[0] - points_x[1])))
-    polygon_rotated = Polygon.rotate_polygon(polygon, angle)
-    angle2 = heuristic_highest_axis(polygon)
-    polygon = Polygon.rotate_polygon(polygon, angle2)
-    min_x, max_x, min_y, max_y = Polygon.min_max_points_polygon(polygon)
-    r_min_x, r_max_x, r_min_y, r_max_y = Polygon.min_max_points_polygon(polygon_rotated)
-    if r_max_x - r_min_x > max_x - min_x:
-        return angle2
-    return angle
-
-
-def heuristic_highest_axis(polygon):
-    width, height = Polygon.width_height(polygon)
-    if height <= width:
-        return 90
-    return 0
-
-
-def rotate_polygon_heuristic(polygon, function):
-    return Polygon.rotate_polygon(polygon, function(polygon))
