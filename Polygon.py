@@ -3,9 +3,6 @@ import matplotlib.patches
 import numpy as np
 import shapely.geometry
 
-# CONST
-LAMBDA = .00000000001
-
 
 def create_polygon(polygons_points):
     polygon = matplotlib.patches.Polygon(polygons_points, True)
@@ -248,10 +245,28 @@ def return_real_ifp_between_two_polygons(polygons, index, index_p2):
 
 
 def return_best_point_in_ifp(ifp):
+    if not ifp:
+        return ()
     point = ifp[0]
     for p in ifp:
+        if p == ():
+            continue
         if p[2] < point[2]:
             point = p
         elif p[2] == point[2] and p[1] < point[1]:
             point = p
     return point
+
+
+def decide_best_position(polygons, index, limit_x):
+    best_points = []
+    for i in range(len(polygons)):
+        ifp = return_real_ifp_between_two_polygons(polygons, i, index)
+        point = return_best_point_in_ifp(ifp)
+        if point:
+            aux = move_polygon_by_reference_point(point[0], polygons[index], (point[1], point[2]))
+            list_points_x, list_points_y = zip(*aux)
+            if not max(list_points_x) > limit_x:
+                best_points.append(return_best_point_in_ifp(ifp))
+    best_point = return_best_point_in_ifp(best_points)
+    return move_polygon_by_reference_point(best_point[0], polygons[index], (best_point[1], best_point[2]))

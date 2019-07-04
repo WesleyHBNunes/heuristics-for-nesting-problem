@@ -3,29 +3,6 @@ import math
 import Polygon
 
 
-def solution(array_polygons, x_lim, function):
-    new_polygons = []
-    line_y = 0
-    for i in range(len(array_polygons)):
-
-        array_polygons[i] = rotate_polygon_heuristic(array_polygons[i], function)
-        if i == 0:
-            new_polygons.append(array_polygons[i])
-            continue
-        list_x, list_y = list(zip(*new_polygons[i - 1]))
-        max_point_x = max(list_x)
-
-        current_list_x, current_list_y = list(zip(*array_polygons[i]))
-        current_list_x = list(current_list_x)
-        if max(current_list_x) + max_point_x < x_lim:
-            new_polygons.append(Polygon.add_number_axis_x_y(array_polygons[i], max_point_x, line_y))
-        else:
-            line_y = return_line_y(new_polygons)
-            new_polygons.append(Polygon.add_number_axis_x_y(array_polygons[i], 0, line_y))
-
-    return Polygon.create_polygons_to_plot(new_polygons), return_line_y(new_polygons)
-
-
 def better_solution(array_polygons, x_lim, function):
     new_polygons = []
     for i in range(len(array_polygons)):
@@ -119,7 +96,6 @@ def heuristic_highest_side(polygon):
             angle = 0
         else:
             angle = 270 + math.degrees(math.atan((points_y[0] - points_y[1]) / (points_x[0] - points_x[1])))
-    # print(angle)
     polygon_rotated = Polygon.rotate_polygon(polygon, angle)
     angle2 = heuristic_highest_axis(polygon)
     polygon = Polygon.rotate_polygon(polygon, angle2)
