@@ -3,6 +3,9 @@ import matplotlib.patches
 import numpy as np
 import shapely.geometry
 
+# CONST
+LAMBDA = .00000000001
+
 
 def create_polygon(polygons_points):
     polygon = matplotlib.patches.Polygon(polygons_points, True)
@@ -129,6 +132,8 @@ def rotate_polygon(polygon, angle):
 def is_overlapping(current_polygon, polygon):
     current_polygon = shapely.geometry.Polygon(current_polygon)
     polygon = shapely.geometry.Polygon(polygon)
+    if current_polygon.touches(polygon):
+        return False
     return current_polygon.intersects(polygon)
 
 
@@ -193,3 +198,60 @@ def highest_side(polygon):
             final_points_y = (y_max, y_min)
 
     return final_points_x, final_points_y
+
+
+def move_polygon_by_reference_point(index, polygon, point_to_move):
+    point = polygon[index]
+    movements_x = point_to_move[0] - point[0]
+    movements_y = point_to_move[1] - point[1]
+    polygon_moved = []
+    for p in polygon:
+        polygon_moved.append((p[0] + movements_x, p[1] + movements_y))
+
+    return polygon_moved
+
+
+def negative_point(polygon):
+    for p in polygon:
+        if p[0] < 0 or p[1] < 0:
+            return True
+    return False
+
+
+def calculate_ifp_between_two_polygons(polygon, polygon2):
+    inner_fit_polygon = []
+    for p in polygon:
+        for i in range(len(polygon2)):
+            polygon2 = move_polygon_by_reference_point(i, polygon2, p)
+            if is_overlapping(polygon2, polygon) or negative_point(polygon2):
+                continue
+            else:
+                inner_fit_polygon.append((i, p[0], p[1]))
+    return inner_fit_polygon
+
+
+def return_real_ifp_between_two_polygons(polygons, index, index_p2):
+    ifp = calculate_ifp_between_two_polygons(polygons[index], polygons[index_p2])
+    real_ifp = []
+
+    for p in ifp:
+        aux = move_polygon_by_reference_point(p[0], polygons[index_p2], (p[1], p[2]))
+        overlapping = False
+        for i in range(len(polygons)):
+            if i != index and i != index_p2:
+                if is_overlapping(aux, polygons[i]):
+                    overlapping = True
+                    break
+        if not overlapping:
+            real_ifp.append(p)
+    return real_ifp
+
+
+def return_best_point_in_ifp(ifp):
+    point = ifp[0]
+    for p in ifp:
+        if p[2] < point[2]:
+            point = p
+        elif p[2] == point[2] and p[1] < point[1]:
+            point = p
+    return point

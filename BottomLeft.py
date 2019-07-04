@@ -2,9 +2,6 @@ from random import shuffle
 import math
 import Polygon
 
-# CONST
-LAMBDA = .00000000001
-
 
 def solution(array_polygons, x_lim, function):
     new_polygons = []
@@ -21,7 +18,7 @@ def solution(array_polygons, x_lim, function):
         current_list_x, current_list_y = list(zip(*array_polygons[i]))
         current_list_x = list(current_list_x)
         if max(current_list_x) + max_point_x < x_lim:
-            new_polygons.append(Polygon.add_number_axis_x_y(array_polygons[i], max_point_x + LAMBDA, line_y))
+            new_polygons.append(Polygon.add_number_axis_x_y(array_polygons[i], max_point_x, line_y))
         else:
             line_y = return_line_y(new_polygons)
             new_polygons.append(Polygon.add_number_axis_x_y(array_polygons[i], 0, line_y))
@@ -43,7 +40,7 @@ def better_solution(array_polygons, x_lim, function):
         current_list_x, current_list_y = list(zip(*array_polygons[i]))
 
         if max(current_list_x) + max_point_x < x_lim:
-            point_x = max_point_x + LAMBDA
+            point_x = max_point_x
         else:
             point_x = 0
 
@@ -70,10 +67,10 @@ def better_solution(array_polygons, x_lim, function):
                 list_x, list_y = list(zip(*polygon_overlapped))
                 max_point_y = max(list_y)
                 array_polygons[i] = original_polygon
-                array_polygons[i] = Polygon.add_number_axis_x_y(array_polygons[i], 0, max_point_y + LAMBDA)
+                array_polygons[i] = Polygon.add_number_axis_x_y(array_polygons[i], 0, max_point_y)
                 if not polygon_overlapping(array_polygons[i], polygons_to_analyze):
                     array_polygons[i] = original_polygon
-                    array_polygons[i] = Polygon.add_number_axis_x_y(array_polygons[i], 0, max_point_y + LAMBDA)
+                    array_polygons[i] = Polygon.add_number_axis_x_y(array_polygons[i], 0, max_point_y)
                     new_polygons.append(array_polygons[i])
                     break
         else:
@@ -100,7 +97,7 @@ def return_line_y(array_polygons):
         highest_y = max(list_y)
         if max(list_y) > line_y:
             line_y = highest_y
-    return line_y + LAMBDA
+    return line_y
 
 
 def polygon_overlapping(polygon, polygons_to_analyze):
