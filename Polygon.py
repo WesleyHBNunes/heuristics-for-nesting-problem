@@ -118,8 +118,9 @@ def rotate_polygon(polygon, angle):
     angle = math.radians(angle)
     rotated_polygon = []
     for points in polygon:
-        rotated_polygon.append((points[0] * math.cos(angle) - points[1] * math.sin(angle),
-                                points[0] * math.sin(angle) + points[1] * math.cos(angle)))
+        point_x = points[0] * math.cos(angle) - points[1] * math.sin(angle)
+        point_y = points[0] * math.sin(angle) + points[1] * math.cos(angle)
+        rotated_polygon.append((int(point_x*100)/100, int(point_y*100)/100))
 
     rotated_polygon = set_points_to_positive(rotated_polygon)
     rotated_polygon = return_to_origin(rotated_polygon)
@@ -227,7 +228,7 @@ def calculate_ifp_between_two_polygons(polygon, polygon2):
     return inner_fit_polygon
 
 
-def return_real_ifp_between_two_polygons(polygons, index, index_p2):
+def return_real_ifp_between_two_polygons(polygons, index, index_p2, placed):
     ifp = calculate_ifp_between_two_polygons(polygons[index], polygons[index_p2])
     real_ifp = []
 
@@ -237,8 +238,9 @@ def return_real_ifp_between_two_polygons(polygons, index, index_p2):
         for i in range(len(polygons)):
             if i != index and i != index_p2:
                 if is_overlapping(aux, polygons[i]):
-                    overlapping = True
-                    break
+                    if placed[i]:
+                        overlapping = True
+                        break
         if not overlapping:
             real_ifp.append(p)
     return real_ifp
@@ -258,15 +260,17 @@ def return_best_point_in_ifp(ifp):
     return point
 
 
-def decide_best_position(polygons, index, limit_x):
+def decide_best_position(polygons, index, limit_x, placed):
     best_points = []
     for i in range(len(polygons)):
-        ifp = return_real_ifp_between_two_polygons(polygons, i, index)
-        point = return_best_point_in_ifp(ifp)
-        if point:
-            aux = move_polygon_by_reference_point(point[0], polygons[index], (point[1], point[2]))
-            list_points_x, list_points_y = zip(*aux)
-            if not max(list_points_x) > limit_x:
-                best_points.append(return_best_point_in_ifp(ifp))
+        if index != i and placed[i]:
+            ifp = return_real_ifp_between_two_polygons(polygons, i, index, placed)
+            for p in ifp:
+                aux = move_polygon_by_reference_point(p[0], polygons[index], (p[1], p[2]))
+                list_points_x, list_points_y = zip(*aux)
+                if not max(list_points_x) > limit_x:
+                    best_points.append(p)
     best_point = return_best_point_in_ifp(best_points)
+    if best_point == ():
+        return polygons[index]
     return move_polygon_by_reference_point(best_point[0], polygons[index], (best_point[1], best_point[2]))

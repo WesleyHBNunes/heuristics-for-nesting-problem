@@ -3,7 +3,7 @@ import math
 import Polygon
 
 
-def better_solution(array_polygons, x_lim, function):
+def solution(array_polygons, x_lim, function):
     new_polygons = []
     for i in range(len(array_polygons)):
 
