@@ -109,16 +109,17 @@ def polygon_overlapping(polygon, polygons_to_analyze):
 
 def heuristic_highest_side(polygon):
     points_x, points_y = Polygon.highest_side(polygon)
-    if points_y[0] - points_y[1] == 0:
-        angle = 90
+    if points_x[0] - points_x[1] > points_y[0] - points_y[1]:
+        if points_y[0] - points_y[1] == 0:
+            angle = 90
+        else:
+            angle = math.degrees(math.atan((points_x[0] - points_x[1]) / (points_y[0] - points_y[1])))
     else:
-        angle = math.degrees(math.atan((points_x[0] - points_x[1]) / (points_y[0] - points_y[1])))
-        if points_x[0] - points_x[1] < points_y[0] - points_y[1]:
-            if points_x[0] - points_x[1] == 0:
-                angle = 0
-            else:
-                angle = math.degrees(math.atan((points_y[0] - points_y[1]) / (points_x[0] - points_x[1]))) + 90
-
+        if points_x[0] - points_x[1] == 0:
+            angle = 0
+        else:
+            angle = 270 + math.degrees(math.atan((points_y[0] - points_y[1]) / (points_x[0] - points_x[1])))
+    # print(angle)
     polygon_rotated = Polygon.rotate_polygon(polygon, angle)
     angle2 = heuristic_highest_axis(polygon)
     polygon = Polygon.rotate_polygon(polygon, angle2)
