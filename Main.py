@@ -27,3 +27,4 @@ if __name__ == "__main__":
 # polygon3 = [(0, 0), (6, 0), (6, 2), (0, 2)]
 # p_list = [polygon, polygon, polygon2, polygon2, polygon2, polygon2, polygon2, polygon2, polygon2, polygon2,
 # polygon2, polygon2, polygon3]
+# limit_x = 10

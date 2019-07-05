@@ -47,3 +47,15 @@ class Visualizer:
                                       repeat=False)
         plt.show()
         return ani
+
+    def save_fig(self, name_image):
+        p = PatchCollection(self.__array_polygons, alpha=.5)
+        p.set_facecolor([0, 0, 0])
+        p.set_edgecolor([0, 0, 0])
+        self.__ax.set_xlim((0, self.__x_lim))
+        self.__ax.set_ylim((0, self.__y_lim))
+        self.__ax.set_title(self.__title)
+        self.__ax.add_collection(p)
+        plt.title(self.__title)
+        plt.plot()
+        plt.savefig('../Results/Images/' + name_image)
