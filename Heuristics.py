@@ -17,7 +17,7 @@ def solve_with_new_heuristic(array_polygons, x_lim, sort_function, rotate_functi
     placed = [False for _ in range(len(array_polygons))]
     for i in range(len(array_polygons)):
         array_polygons[i] = rotate_polygon_heuristic(array_polygons[i], rotate_function)
-        array_polygons[i] = Polygon.decide_best_position(array_polygons, i, x_lim, placed)
+        array_polygons[i] = decide_best_position(array_polygons, i, x_lim, placed)
         placed[i] = True
     return Polygon.create_polygons_to_plot(array_polygons), calculate_function_objective(array_polygons)
 
@@ -63,3 +63,24 @@ def calculate_function_objective(array_polygons):
         if max(list_y) > fo:
             fo = highest_y
     return fo
+
+
+def decide_best_position(polygons, index, limit_x, placed):
+    best_points = []
+    for i in range(len(polygons)):
+        if index != i and placed[i]:
+            ifp = Polygon.return_real_ifp_between_two_polygons(polygons, i, index, placed)
+            for p in ifp:
+                aux = Polygon.move_polygon_by_reference_point(p[0], polygons[index], (p[1], p[2]))
+                list_points_x, list_points_y = zip(*aux)
+                if not max(list_points_x) > limit_x:
+                    best_points.append(p)
+    best_point = Polygon.return_best_point_in_ifp(best_points)
+    if best_point == ():
+        aux_polygon = []
+        for i in range(len(polygons)):
+            if placed[i]:
+                aux_polygon.append(polygons[i])
+        point_y = calculate_function_objective(aux_polygon)
+        return Polygon.add_number_axis_x_y(polygons[index], 0, point_y)
+    return Polygon.move_polygon_by_reference_point(best_point[0], polygons[index], (best_point[1], best_point[2]))
