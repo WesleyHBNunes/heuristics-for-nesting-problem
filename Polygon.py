@@ -25,10 +25,12 @@ def set_points_to_positive(polygons_point):
     if min_x < 0:
         for i in range(len(list_points_x)):
             list_points_x[i] += (min_x * -1)
+            list_points_x[i] = int(list_points_x[i] * 100)/100
 
     if min_y < 0:
         for i in range(len(list_points_y)):
             list_points_y[i] += (min_y * -1)
+            list_points_y[i] = int(list_points_y[i] * 100) / 100
 
     return list(zip(list_points_x, list_points_y))
 
@@ -48,10 +50,12 @@ def return_to_origin(polygons_point):
     if min_x > .00000000001:
         for i in range(len(list_points_x)):
             list_points_x[i] -= min_x
+            list_points_x[i] = int(list_points_x[i] * 100) / 100
 
     if min_y > .00000000001:
         for i in range(len(list_points_y)):
             list_points_y[i] -= min_y
+            list_points_y[i] = int(list_points_y[i] * 100) / 100
 
     return list(zip(list_points_x, list_points_y))
 
@@ -121,7 +125,7 @@ def rotate_polygon(polygon, angle):
     for points in polygon:
         point_x = points[0] * math.cos(angle) - points[1] * math.sin(angle)
         point_y = points[0] * math.sin(angle) + points[1] * math.cos(angle)
-        rotated_polygon.append((int(point_x*100)/100, int(point_y*100)/100))
+        rotated_polygon.append((int(point_x * 100)/100, int(point_y * 100)/100))
 
     rotated_polygon = set_points_to_positive(rotated_polygon)
     rotated_polygon = return_to_origin(rotated_polygon)
@@ -205,7 +209,9 @@ def move_polygon_by_reference_point(index, polygon, point_to_move):
     movements_y = point_to_move[1] - point[1]
     polygon_moved = []
     for p in polygon:
-        polygon_moved.append((p[0] + movements_x, p[1] + movements_y))
+        point_x = int((p[0] + movements_x) * 100) / 100
+        point_y = int((p[1] + movements_y) * 100) / 100
+        polygon_moved.append((point_x, point_y))
 
     return polygon_moved
 

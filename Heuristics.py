@@ -57,7 +57,6 @@ def rotate_polygon_heuristic(polygon, function):
 
 def calculate_function_objective(array_polygons):
     fo = 0
-
     for polygon in array_polygons:
         list_x, list_y = zip(*polygon)
         highest_y = max(list_y)
