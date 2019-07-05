@@ -1,4 +1,4 @@
-import BottomLeft
+import Heuristics
 import File
 import Polygon
 import sys
@@ -20,11 +20,10 @@ def main():
                       Polygon.percent_area_no_used_of_polygon, Polygon.ray_polygon,
                       Polygon.rectangle_polygon_area]
 
-    rotate_function = [BottomLeft.heuristic_highest_axis, BottomLeft.heuristic_highest_side]
-    polygons_to_plot, limit_y = BottomLeft.solve(
+    rotate_function = [Heuristics.heuristic_highest_axis, Heuristics.heuristic_highest_side]
+    polygons_to_plot, limit_y = Heuristics.solve_with_bottom_left(
         array_polygons=polygons,
         x_lim=limit_x,
-        function=BottomLeft.better_solution,
         sort_function=sort_functions[index_sort_function],
         rotate_function=rotate_function[index_rotate_function],
         reverse=True)
