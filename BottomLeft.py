@@ -27,7 +27,7 @@ def solution(array_polygons, x_lim, function):
         current_max_point_x = max(current_list_x)
         current_min_point_x = min(current_list_x)
 
-        highest_y_point = Heuristics.calculate_function_objective(new_polygons)
+        highest_y_point = Heuristics.return_line_y(new_polygons)
         abstract_polygon = [(current_min_point_x, 0),
                             (current_max_point_x, 0),
                             (current_max_point_x, highest_y_point),
@@ -53,7 +53,7 @@ def solution(array_polygons, x_lim, function):
         else:
             new_polygons.append(array_polygons[i])
 
-    return Polygon.create_polygons_to_plot(new_polygons), Heuristics.calculate_function_objective(new_polygons)
+    return Polygon.create_polygons_to_plot(new_polygons), Heuristics.return_line_y(new_polygons)
 
 
 def random_solve(array_polygons, x_lim, function):

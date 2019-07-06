@@ -58,4 +58,4 @@ class Visualizer:
         self.__ax.add_collection(p)
         plt.title(self.__title)
         plt.plot()
-        plt.savefig('../Results/Images/' + name_image)
+        plt.savefig('../Results/Images/' + name_image + ".svg")

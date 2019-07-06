@@ -19,7 +19,7 @@ def solve_with_new_heuristic(array_polygons, x_lim, sort_function, rotate_functi
         array_polygons[i] = rotate_polygon_heuristic(array_polygons[i], rotate_function)
         array_polygons[i] = decide_best_position(array_polygons, i, x_lim, placed)
         placed[i] = True
-    return Polygon.create_polygons_to_plot(array_polygons), calculate_function_objective(array_polygons)
+    return Polygon.create_polygons_to_plot(array_polygons), calculate_function_objective(array_polygons, placed)
 
 
 def heuristic_highest_side(polygon):
@@ -55,14 +55,26 @@ def rotate_polygon_heuristic(polygon, function):
     return Polygon.rotate_polygon(polygon, function(polygon))
 
 
-def calculate_function_objective(array_polygons):
-    fo = 0
+def calculate_function_objective(array_polygons, placed):
+    of = 0
+    for i in range(len(array_polygons)):
+        if placed[i]:
+            list_x, list_y = zip(*array_polygons[i])
+            highest_y = max(list_y)
+            if max(list_y) > of:
+                of = highest_y
+    return of
+
+
+def return_line_y(array_polygons):
+    line_y = 0
+
     for polygon in array_polygons:
         list_x, list_y = zip(*polygon)
         highest_y = max(list_y)
-        if max(list_y) > fo:
-            fo = highest_y
-    return fo
+        if max(list_y) > line_y:
+            line_y = highest_y
+    return line_y
 
 
 def decide_best_position(polygons, index, limit_x, placed):
@@ -81,6 +93,6 @@ def decide_best_position(polygons, index, limit_x, placed):
         for i in range(len(polygons)):
             if placed[i]:
                 aux_polygon.append(polygons[i])
-        point_y = calculate_function_objective(aux_polygon)
+        point_y = return_line_y(aux_polygon)
         return Polygon.add_number_axis_x_y(polygons[index], 0, point_y)
     return Polygon.move_polygon_by_reference_point(best_point[0], polygons[index], (best_point[1], best_point[2]))
