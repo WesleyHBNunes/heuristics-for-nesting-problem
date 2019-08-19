@@ -22,7 +22,7 @@ def main():
     sort_functions = [Polygon.area_polygon, Polygon.area_no_used_of_polygon,
                       Polygon.percent_area_no_used_of_polygon, Polygon.ray_polygon,
                       Polygon.rectangle_polygon_area]
-    heuristc = ["Bottom-Left", "New-Heuristic"]
+    heuristic = ["Bottom-Left", "New-Heuristic"]
     rotate_function = [Heuristics.heuristic_highest_axis, Heuristics.heuristic_highest_side]
     if index_heuristic == 0:
         polygons_to_plot, limit_y = Heuristics.solve_with_bottom_left(
@@ -48,8 +48,8 @@ def main():
     rotate_method = str(rotate_function[index_rotate_function]).split(' ')[1]
     print(sort_method)
     print(rotate_method)
-    print(heuristc[index_heuristic] + "/" + sys.argv[1] + "_" + sort_method + "_" + rotate_method)
-    visualizer.save_fig(heuristc[index_heuristic] + "/" + sys.argv[1] + "_" +
+    print(heuristic[index_heuristic] + "/" + sys.argv[1] + "_" + sort_method + "_" + rotate_method)
+    visualizer.save_fig(heuristic[index_heuristic] + "/" + sys.argv[1] + "_" +
                         sort_method + "_" + rotate_method)
 
 

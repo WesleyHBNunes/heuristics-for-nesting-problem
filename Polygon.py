@@ -2,7 +2,6 @@ import math
 import matplotlib.patches
 import numpy as np
 import shapely.geometry
-import Heuristics
 
 
 def create_polygon(polygons_points):
@@ -265,4 +264,3 @@ def return_best_point_in_ifp(ifp):
         elif p[2] == point[2] and p[1] < point[1]:
             point = p
     return point
-
