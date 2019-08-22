@@ -6,13 +6,13 @@ from Visualizer import Visualizer
 
 def main():
     polygons, limit_x = File.polygons_from_txt("Test/shirts.txt")
-    polygons_to_plot, limit_y = Heuristics.solve_with_new_heuristic(
+    polygons, limit_y = Heuristics.solve_with_new_heuristic(
         array_polygons=polygons,
         x_lim=limit_x,
         sort_function=Polygon.ray_polygon,
         rotate_function=Heuristics.heuristic_highest_side,
         reverse=True)
-    visualizer = Visualizer(polygons_to_plot, limit_x, limit_y, "Test of instances")
+    visualizer = Visualizer(polygons, limit_x, limit_y, "Test of instances")
     print(limit_y)
     # visualizer.plot_polygons()
     visualizer.plot_animation()

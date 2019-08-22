@@ -53,7 +53,7 @@ def solution(array_polygons, x_lim, function):
         else:
             new_polygons.append(array_polygons[i])
 
-    return Polygon.create_polygons_to_plot(new_polygons), Heuristics.return_line_y(new_polygons)
+    return new_polygons, Heuristics.return_line_y(new_polygons)
 
 
 def random_solve(array_polygons, x_lim, function):

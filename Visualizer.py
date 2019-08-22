@@ -1,13 +1,21 @@
 import matplotlib.pyplot as plt
 import numpy as np
+import matplotlib.patches
 from matplotlib import animation
 from matplotlib.collections import PatchCollection
+
+
+def create_polygons_to_plot(polygons):
+    polygons_object = []
+    for polygon in polygons:
+        polygons_object.append(matplotlib.patches.Polygon(np.array(polygon), True))
+    return polygons_object
 
 
 class Visualizer:
 
     def __init__(self, array_polygons, x_lim, y_lim, title):
-        self.__array_polygons = array_polygons
+        self.__array_polygons = create_polygons_to_plot(array_polygons)
         self.__x_lim = x_lim
         self.__y_lim = y_lim
         self.__title = title

@@ -18,8 +18,9 @@ def solve_with_new_heuristic(array_polygons, x_lim, sort_function, rotate_functi
     for i in range(len(array_polygons)):
         array_polygons[i] = rotate_polygon_heuristic(array_polygons[i], rotate_function)
         array_polygons[i] = decide_best_position(array_polygons, i, x_lim, placed)
+        # array_polygons[i] = slide_polygon(array_polygons, placed, i)
         placed[i] = True
-    return Polygon.create_polygons_to_plot(array_polygons), calculate_function_objective(array_polygons, placed)
+    return array_polygons, calculate_function_objective(array_polygons, placed)
 
 
 def heuristic_highest_side(polygon):
@@ -96,3 +97,20 @@ def decide_best_position(polygons, index, limit_x, placed):
         point_y = return_line_y(aux_polygon)
         return Polygon.add_number_axis_x_y(polygons[index], 0, point_y)
     return Polygon.move_polygon_by_reference_point(best_point[0], polygons[index], (best_point[1], best_point[2]))
+
+
+def slide_polygon(array_polygon, polygons_placed, i):
+    placed = False
+    while not placed:
+        array_polygon[i] = Polygon.add_number_axis_x_y(array_polygon[i], 0, -0.1)
+        overlapping = False
+        for j in range(len(array_polygon)):
+            if i != j and polygons_placed[j]:
+                if Polygon.is_overlapping(array_polygon[i], array_polygon[j]):
+                    overlapping = True
+        if overlapping or Polygon.negative_point(array_polygon[i]):
+            array_polygon[i] = Polygon.add_number_axis_x_y(array_polygon[i], 0, 0.1)
+            placed = True
+    return  array_polygon[i]
+
+

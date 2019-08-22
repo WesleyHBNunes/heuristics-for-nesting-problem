@@ -1,12 +1,5 @@
 import math
-import matplotlib.patches
-import numpy as np
 import shapely.geometry
-
-
-def create_polygon(polygons_points):
-    polygon = matplotlib.patches.Polygon(polygons_points, True)
-    return polygon
 
 
 def set_points_to_positive(polygons_point):
@@ -137,13 +130,6 @@ def is_overlapping(current_polygon, polygon):
     if current_polygon.touches(polygon):
         return False
     return current_polygon.intersects(polygon)
-
-
-def create_polygons_to_plot(polygons):
-    polygons_object = []
-    for polygon in polygons:
-        polygons_object.append(create_polygon(np.array(polygon)))
-    return polygons_object
 
 
 def min_max_points_polygon(polygon):
