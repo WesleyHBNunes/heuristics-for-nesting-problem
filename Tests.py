@@ -46,9 +46,6 @@ def main():
                             + "  FO: " + str(limit_y))
     sort_method = str(sort_functions[index_sort_function]).split(' ')[1]
     rotate_method = str(rotate_function[index_rotate_function]).split(' ')[1]
-    print(sort_method)
-    print(rotate_method)
-    print(heuristic[index_heuristic] + "/" + sys.argv[1] + "_" + sort_method + "_" + rotate_method)
     visualizer.save_fig(heuristic[index_heuristic] + "/" + sys.argv[1] + "_" +
                         sort_method + "_" + rotate_method)
 

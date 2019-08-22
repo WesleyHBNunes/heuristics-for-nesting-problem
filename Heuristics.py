@@ -18,7 +18,7 @@ def solve_with_new_heuristic(array_polygons, x_lim, sort_function, rotate_functi
     for i in range(len(array_polygons)):
         array_polygons[i] = rotate_polygon_heuristic(array_polygons[i], rotate_function)
         array_polygons[i] = decide_best_position(array_polygons, i, x_lim, placed)
-        # array_polygons[i] = slide_polygon(array_polygons, placed, i)
+        array_polygons[i] = slide_polygon(array_polygons, placed, i)
         placed[i] = True
     return array_polygons, calculate_function_objective(array_polygons, placed)
 
@@ -111,6 +111,6 @@ def slide_polygon(array_polygon, polygons_placed, i):
         if overlapping or Polygon.negative_point(array_polygon[i]):
             array_polygon[i] = Polygon.add_number_axis_x_y(array_polygon[i], 0, 0.1)
             placed = True
-    return  array_polygon[i]
+    return array_polygon[i]
 
 

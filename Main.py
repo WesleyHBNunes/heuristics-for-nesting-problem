@@ -5,7 +5,7 @@ from Visualizer import Visualizer
 
 
 def main():
-    polygons, limit_x = File.polygons_from_txt("Test/shirts.txt")
+    polygons, limit_x = File.polygons_from_txt("Test/trousers.txt")
     polygons, limit_y = Heuristics.solve_with_new_heuristic(
         array_polygons=polygons,
         x_lim=limit_x,
