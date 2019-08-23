@@ -41,7 +41,7 @@ do
 	    	for k in {0..1}
 	    	do
 	    		echo "File ${txt_files[i]}, sort_function: ${sort_function[j]}, rotate_function: ${rotate_function[k]}"
-	      		python3 ../Tests.py ${txt_files[i]} $j $k $h
+	      		python3 ../Tests.py ${txt_files[i]} $j $k $h 2>/dev/null
 	      		echo 
 	   		done
 		done
@@ -56,7 +56,7 @@ do
 	    	for k in {0..1}
 	    	do
 	    		echo "File ${xls_files[i]}, sort_function: ${sort_function[j]}, rotate_function: ${rotate_function[k]}"
-	      		python3 ../Tests.py ${xls_files[i]} ${sheets[i]} $j $k $h
+	      		python3 ../Tests.py ${xls_files[i]} ${sheets[i]} $j $k $h 2>/dev/null
 	      		echo 
 	   		done
 		done
