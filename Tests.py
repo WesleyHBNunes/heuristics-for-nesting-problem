@@ -3,13 +3,10 @@ import File
 from Visualizer import Visualizer
 import Polygon
 import sys
-import os
 import time
 
 
 def main():
-    # f = open(os.devnull, 'w')
-    # sys.stderr = f
     begin = time.time()
     if len(sys.argv) == 5:
         polygons, limit_x = File.polygons_from_txt(sys.argv[1] + ".txt")

@@ -102,6 +102,17 @@ def decide_best_position(polygons, index, limit_x, placed):
 def slide_polygon(array_polygon, polygons_placed, i):
     placed = False
     while not placed:
+        moved_below, array_polygon[i] = slide_polygon_below(array_polygon, polygons_placed, i)
+        moved_left, array_polygon[i] = slide_polygon_left(array_polygon, polygons_placed, i)
+        if not moved_below and not moved_left:
+            placed = True
+    return array_polygon[i]
+
+
+def slide_polygon_below(array_polygon, polygons_placed, i):
+    placed = False
+    count = 0
+    while not placed:
         array_polygon[i] = Polygon.add_number_axis_x_y(array_polygon[i], 0, -0.1)
         overlapping = False
         for j in range(len(array_polygon)):
@@ -111,6 +122,30 @@ def slide_polygon(array_polygon, polygons_placed, i):
         if overlapping or Polygon.negative_point(array_polygon[i]):
             array_polygon[i] = Polygon.add_number_axis_x_y(array_polygon[i], 0, 0.1)
             placed = True
-    return array_polygon[i]
+        else:
+            count += 1
+    if count > 0:
+        return True, array_polygon[i]
+    return False, array_polygon[i]
+
+
+def slide_polygon_left(array_polygon, polygons_placed, i):
+    placed = False
+    count = 0
+    while not placed:
+        array_polygon[i] = Polygon.add_number_axis_x_y(array_polygon[i], -0.1, 0)
+        overlapping = False
+        for j in range(len(array_polygon)):
+            if i != j and polygons_placed[j]:
+                if Polygon.is_overlapping(array_polygon[i], array_polygon[j]):
+                    overlapping = True
+        if overlapping or Polygon.negative_point(array_polygon[i]):
+            array_polygon[i] = Polygon.add_number_axis_x_y(array_polygon[i], 0.1, 0)
+            placed = True
+        else:
+            count += 1
+    if count > 0:
+        return True, array_polygon[i]
+    return False, array_polygon[i]
 
 
