@@ -212,7 +212,7 @@ def move_polygon_by_reference_point(index, polygon, point_to_move):
 
 def negative_point(polygon):
     for p in polygon:
-        if p[0] < 0 or p[1] < 0:
+        if p[0] < -0.00000002 or p[1] < -0.00000002:
             return True
     return False
 

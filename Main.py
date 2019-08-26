@@ -6,7 +6,7 @@ from Visualizer import Visualizer
 
 def main():
     polygons, limit_x = File.polygons_from_txt("Test/shapes.txt")
-    polygons, limit_y = Heuristics.solve_with_bottom_left(
+    polygons, limit_y = Heuristics.solve_with_new_heuristic(
         array_polygons=polygons,
         x_lim=limit_x,
         sort_function=Polygon.ray_polygon,
