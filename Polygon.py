@@ -18,12 +18,13 @@ def set_points_to_positive(polygons_point):
         for i in range(len(list_points_x)):
             list_points_x[i] += (min_x * -1)
             list_points_x[i] = list_points_x[i]
+            list_points_x[i] = int(list_points_x[i] * 100000) / 100000
 
     if min_y < 0:
         for i in range(len(list_points_y)):
             list_points_y[i] += (min_y * -1)
             list_points_y[i] = list_points_y[i]
-
+            list_points_y[i] = int(list_points_y[i] * 100000) / 100000
     return list(zip(list_points_x, list_points_y))
 
 
@@ -43,11 +44,13 @@ def return_to_origin(polygons_point):
         for i in range(len(list_points_x)):
             list_points_x[i] -= min_x
             list_points_x[i] = list_points_x[i]
+            list_points_x[i] = int(list_points_x[i] * 100000) / 100000
 
     if min_y > .00000000001:
         for i in range(len(list_points_y)):
             list_points_y[i] -= min_y
             list_points_y[i] = list_points_y[i]
+            list_points_y[i] = int(list_points_y[i] * 100000) / 100000
 
     return list(zip(list_points_x, list_points_y))
 
@@ -58,7 +61,9 @@ def add_number_axis_x_y(polygon, number_x, number_y):
     list_y = list(list_y)
     for i in range(len(list_x)):
         list_x[i] = list_x[i] + number_x
+        list_x[i] = int(list_x[i] * 100000) / 100000
         list_y[i] = list_y[i] + number_y
+        list_y[i] = int(list_y[i] * 100000) / 100000
     return list(zip(list_x, list_y))
 
 
@@ -118,27 +123,18 @@ def rotate_polygon(polygon, angle):
         point_x = points[0] * math.cos(angle) - points[1] * math.sin(angle)
         point_y = points[0] * math.sin(angle) + points[1] * math.cos(angle)
         rotated_polygon.append((point_x, point_y))
-
     rotated_polygon = set_points_to_positive(rotated_polygon)
     rotated_polygon = return_to_origin(rotated_polygon)
+    rotated_polygon = truncate_point(rotated_polygon)
     return rotated_polygon
 
 
 def is_overlapping(current_polygon, polygon):
-    try:
-        polygon1 = shapely.geometry.Polygon(current_polygon)
-        polygon2 = shapely.geometry.Polygon(polygon)
-        if polygon1.touches(polygon2):
-            return False
-        return polygon1.intersects(polygon2)
-    except:
-        current_polygon = truncate_point(current_polygon)
-        polygon = truncate_point(polygon)
-        polygon1 = shapely.geometry.Polygon(current_polygon)
-        polygon2 = shapely.geometry.Polygon(polygon)
-        if polygon1.touches(polygon2):
-            return False
-        return polygon1.intersects(polygon2)
+    polygon1 = shapely.geometry.Polygon(current_polygon)
+    polygon2 = shapely.geometry.Polygon(polygon)
+    if polygon1.touches(polygon2):
+        return False
+    return polygon1.intersects(polygon2)
 
 
 def min_max_points_polygon(polygon):
@@ -204,7 +200,9 @@ def move_polygon_by_reference_point(index, polygon, point_to_move):
     polygon_moved = []
     for p in polygon:
         point_x = p[0] + movements_x
+        point_x = int(point_x * 100000) / 100000
         point_y = p[1] + movements_y
+        point_y = int(point_y * 100000) / 100000
         polygon_moved.append((point_x, point_y))
 
     return polygon_moved
@@ -212,7 +210,7 @@ def move_polygon_by_reference_point(index, polygon, point_to_move):
 
 def negative_point(polygon):
     for p in polygon:
-        if p[0] < -0.00000002 or p[1] < -0.00000002:
+        if p[0] < 0 or p[1] < 0:
             return True
     return False
 
