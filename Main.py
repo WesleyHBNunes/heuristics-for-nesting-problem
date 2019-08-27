@@ -5,11 +5,11 @@ from Visualizer import Visualizer
 
 
 def main():
-    polygons, limit_x = File.polygons_from_txt("Test/trousers.txt")
+    polygons, limit_x = File.polygons_from_txt("Test/shirts.txt")
     polygons, limit_y = Heuristics.solve_with_new_heuristic(
         array_polygons=polygons,
         x_lim=limit_x,
-        sort_function=Polygon.ray_polygon,
+        sort_function=Polygon.percent_area_no_used_of_polygon,
         rotate_function=Heuristics.heuristic_highest_side,
         reverse=True)
     visualizer = Visualizer(polygons, limit_x, limit_y, "Test of instances")

@@ -6,7 +6,6 @@ import Polygon
 def solution(array_polygons, x_lim, function):
     new_polygons = []
     for i in range(len(array_polygons)):
-
         array_polygons[i] = Heuristics.rotate_polygon_heuristic(array_polygons[i], function)
         if i == 0:
             new_polygons.append(array_polygons[i])
@@ -44,7 +43,7 @@ def solution(array_polygons, x_lim, function):
                 list_x, list_y = list(zip(*polygon_overlapped))
                 max_point_y = max(list_y)
                 array_polygons[i] = original_polygon
-                array_polygons[i] = Polygon.add_number_axis_x_y(array_polygons[i], 0, max_point_y)
+                array_polygons[i] = Polygon.add_number_axis_x_y(array_polygons[i], 0, max_point_y + 0.000001)
                 if not polygon_overlapping(array_polygons[i], polygons_to_analyze):
                     array_polygons[i] = original_polygon
                     array_polygons[i] = Polygon.add_number_axis_x_y(array_polygons[i], 0, max_point_y)
