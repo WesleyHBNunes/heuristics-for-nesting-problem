@@ -125,6 +125,7 @@ def rotate_polygon(polygon, angle):
         rotated_polygon.append((point_x, point_y))
     rotated_polygon = set_points_to_positive(rotated_polygon)
     rotated_polygon = return_to_origin(rotated_polygon)
+    rotated_polygon = truncate_point(rotated_polygon)
     return rotated_polygon
 
 
@@ -209,7 +210,7 @@ def move_polygon_by_reference_point(index, polygon, point_to_move):
 
 def negative_point(polygon):
     for p in polygon:
-        if p[0] < -.00000000001 or p[1] < -.00000000001:
+        if p[0] < 0 or p[1] < 0:
             return True
     return False
 

@@ -102,6 +102,7 @@ def decide_best_position(polygons, index, limit_x, placed):
 def slide_polygon(array_polygon, polygons_placed, i):
     placed = False
     while not placed:
+        array_polygon[i] = Polygon.add_number_axis_x_y(array_polygon[i], 0, .00001)
         moved_below, array_polygon[i] = slide_polygon_below(array_polygon, polygons_placed, i)
         moved_left, array_polygon[i] = slide_polygon_left(array_polygon, polygons_placed, i)
         if not moved_below and not moved_left:
@@ -147,5 +148,3 @@ def slide_polygon_left(array_polygon, polygons_placed, i):
     if count > 0:
         return True, array_polygon[i]
     return False, array_polygon[i]
-
-

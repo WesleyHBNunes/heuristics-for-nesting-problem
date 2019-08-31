@@ -9,7 +9,7 @@ def main():
     polygons, limit_y = Heuristics.solve_with_new_heuristic(
         array_polygons=polygons,
         x_lim=limit_x,
-        sort_function=Polygon.area_no_used_of_polygon,
+        sort_function=Polygon.ray_polygon,
         rotate_function=Heuristics.heuristic_highest_side,
         reverse=True)
     visualizer = Visualizer(polygons, limit_x, limit_y, "Test of instances")
