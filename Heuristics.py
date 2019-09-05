@@ -12,7 +12,7 @@ def solve_with_bottom_left(array_polygons, x_lim, sort_function, rotate_function
         reverse=reverse)
 
 
-def solve_with_new_heuristic(array_polygons, x_lim, sort_function, reverse):
+def solve_with_new_heuristic_modified(array_polygons, x_lim, sort_function, reverse):
     array_polygons = Polygon.sort(array_polygons, sort_function, reverse=reverse)
     placed = [False for _ in range(len(array_polygons))]
     for i in range(len(array_polygons)):
@@ -42,6 +42,17 @@ def solve_with_new_heuristic(array_polygons, x_lim, sort_function, reverse):
                 if max_y < max_y2:
                     final_polygon = array_polygons[i]
         array_polygons[i] = final_polygon
+    return array_polygons, calculate_function_objective(array_polygons, placed)
+
+
+def solve_with_new_heuristic(array_polygons, x_lim, sort_function, rotate_function, reverse):
+    array_polygons = Polygon.sort(array_polygons, sort_function, reverse=reverse)
+    placed = [False for _ in range(len(array_polygons))]
+    for i in range(len(array_polygons)):
+        array_polygons[i] = rotate_polygon_heuristic(array_polygons[i], rotate_function)
+        array_polygons[i] = decide_best_position(array_polygons, i, x_lim, placed)
+        array_polygons[i] = slide_polygon(array_polygons, placed, i)
+        placed[i] = True
     return array_polygons, calculate_function_objective(array_polygons, placed)
 
 

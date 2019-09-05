@@ -8,7 +8,7 @@ from Visualizer import Visualizer
 def main():
     polygons, limit_x = File.polygons_from_txt("Test/blaz.txt")
     random.shuffle(polygons)
-    polygons, limit_y = Heuristics.solve_with_new_heuristic(
+    polygons, limit_y = Heuristics.solve_with_new_heuristic_modified(
         array_polygons=polygons,
         x_lim=limit_x,
         sort_function=Polygon.ray_polygon,
