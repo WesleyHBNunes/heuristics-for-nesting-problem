@@ -38,7 +38,6 @@ def main():
             array_polygons=polygons,
             x_lim=limit_x,
             sort_function=sort_functions[index_sort_function],
-            rotate_function=rotate_function[index_rotate_function],
             reverse=True)
         print("Objective Function: " + str(limit_y))
         print("Time: " + str(time.time() - begin))

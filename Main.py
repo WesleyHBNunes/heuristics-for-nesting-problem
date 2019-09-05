@@ -1,22 +1,45 @@
 import Heuristics
 import File
 import Polygon
+import random
 from Visualizer import Visualizer
 
 
 def main():
-    polygons, limit_x = File.polygons_from_txt("Test/trousers.txt")
+    polygons, limit_x = File.polygons_from_txt("Test/blaz.txt")
+    random.shuffle(polygons)
     polygons, limit_y = Heuristics.solve_with_new_heuristic(
         array_polygons=polygons,
         x_lim=limit_x,
         sort_function=Polygon.ray_polygon,
-        rotate_function=Heuristics.heuristic_highest_side,
         reverse=True)
     visualizer = Visualizer(polygons, limit_x, limit_y, "Test of instances")
     print(limit_y)
     # visualizer.plot_polygons()
     visualizer.plot_animation()
 
+
+# def main():
+#     best_fo = 99999999
+#     best_solution = None
+#     limit_x = 0
+#     for i in range(100):
+#         polygons, limit_x = File.polygons_from_txt("Test/blaz.txt")
+#         random.shuffle(polygons)
+#         polygons, limit_y = Heuristics.solve_with_new_heuristic(
+#             array_polygons=polygons,
+#             x_lim=limit_x,
+#             sort_function=Polygon.ray_polygon,
+#             reverse=True)
+#         print(str(i) + " " + str(limit_y))
+#         if limit_y < best_fo:
+#             best_fo = limit_y
+#             best_solution = polygons
+#     visualizer = Visualizer(best_solution, limit_x, best_fo, "Test of instances")
+#     print()
+#     print(best_fo)
+#     # visualizer.plot_polygons()
+#     visualizer.plot_animation()
 
 if __name__ == "__main__":
     main()

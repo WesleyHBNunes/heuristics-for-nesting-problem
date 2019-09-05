@@ -1,0 +1,507 @@
+Bottom-Left
+
+TXT FILES
+
+File blaz, sort_function: area_polygon, rotate_function: heuristic_highest_axis
+Objective Function: 40.0
+Time: 0.052100181579589844
+
+File blaz, sort_function: area_polygon, rotate_function: heuristic_highest_side
+Objective Function: 40.0
+Time: 0.053679466247558594
+
+File blaz, sort_function: area_no_used_of_polygon, rotate_function: heuristic_highest_axis
+Objective Function: 40.0
+Time: 0.05094408988952637
+
+File blaz, sort_function: area_no_used_of_polygon, rotate_function: heuristic_highest_side
+Objective Function: 40.0
+Time: 0.050765275955200195
+
+File blaz, sort_function: percent_area_no_used_of_polygon, rotate_function: heuristic_highest_axis
+Objective Function: 38.0
+Time: 0.04863238334655762
+
+File blaz, sort_function: percent_area_no_used_of_polygon, rotate_function: heuristic_highest_side
+Objective Function: 38.0
+Time: 0.06540656089782715
+
+File blaz, sort_function: ray_polygon, rotate_function: heuristic_highest_axis
+Objective Function: 40.0
+Time: 0.05129408836364746
+
+File blaz, sort_function: ray_polygon, rotate_function: heuristic_highest_side
+Objective Function: 40.0
+Time: 0.05308127403259277
+
+File blaz, sort_function: rectangle_polygon_area, rotate_function: heuristic_highest_axis
+Objective Function: 40.0
+Time: 0.04915881156921387
+
+File blaz, sort_function: rectangle_polygon_area, rotate_function: heuristic_highest_side
+Objective Function: 40.0
+Time: 0.05193185806274414
+
+File shapes, sort_function: area_polygon, rotate_function: heuristic_highest_axis
+Objective Function: 89.0
+Time: 0.09598207473754883
+
+File shapes, sort_function: area_polygon, rotate_function: heuristic_highest_side
+Objective Function: 78.97056
+Time: 0.09898972511291504
+
+File shapes, sort_function: area_no_used_of_polygon, rotate_function: heuristic_highest_axis
+Objective Function: 89.0
+Time: 0.09357285499572754
+
+File shapes, sort_function: area_no_used_of_polygon, rotate_function: heuristic_highest_side
+Objective Function: 81.97056
+Time: 0.09675383567810059
+
+File shapes, sort_function: percent_area_no_used_of_polygon, rotate_function: heuristic_highest_axis
+Objective Function: 100.0
+Time: 0.09395146369934082
+
+File shapes, sort_function: percent_area_no_used_of_polygon, rotate_function: heuristic_highest_side
+Objective Function: 86.97056
+Time: 0.10403156280517578
+
+File shapes, sort_function: ray_polygon, rotate_function: heuristic_highest_axis
+Objective Function: 89.0
+Time: 0.10544514656066895
+
+File shapes, sort_function: ray_polygon, rotate_function: heuristic_highest_side
+Objective Function: 78.97056
+Time: 0.1015176773071289
+
+File shapes, sort_function: rectangle_polygon_area, rotate_function: heuristic_highest_axis
+Objective Function: 89.0
+Time: 0.09519219398498535
+
+File shapes, sort_function: rectangle_polygon_area, rotate_function: heuristic_highest_side
+Objective Function: 78.97056
+Time: 0.08926582336425781
+
+File shirts, sort_function: area_polygon, rotate_function: heuristic_highest_axis
+Objective Function: 80.0
+Time: 0.25574827194213867
+
+File shirts, sort_function: area_polygon, rotate_function: heuristic_highest_side
+Objective Function: 80.0
+Time: 0.25438475608825684
+
+File shirts, sort_function: area_no_used_of_polygon, rotate_function: heuristic_highest_axis
+Objective Function: 75.0
+Time: 0.24099993705749512
+
+File shirts, sort_function: area_no_used_of_polygon, rotate_function: heuristic_highest_side
+Objective Function: 75.0
+Time: 0.23453736305236816
+
+File shirts, sort_function: percent_area_no_used_of_polygon, rotate_function: heuristic_highest_axis
+Objective Function: 76.0
+Time: 0.25556159019470215
+
+File shirts, sort_function: percent_area_no_used_of_polygon, rotate_function: heuristic_highest_side
+Objective Function: 76.0
+Time: 0.3060877323150635
+
+File shirts, sort_function: ray_polygon, rotate_function: heuristic_highest_axis
+Objective Function: 80.0
+Time: 0.23634004592895508
+
+File shirts, sort_function: ray_polygon, rotate_function: heuristic_highest_side
+Objective Function: 80.0
+Time: 0.25235652923583984
+
+File shirts, sort_function: rectangle_polygon_area, rotate_function: heuristic_highest_axis
+Objective Function: 80.0
+Time: 0.23510360717773438
+
+File shirts, sort_function: rectangle_polygon_area, rotate_function: heuristic_highest_side
+Objective Function: 80.0
+Time: 0.24081897735595703
+
+File swim, sort_function: area_polygon, rotate_function: heuristic_highest_axis
+Objective Function: 10311.75115
+Time: 0.09601163864135742
+
+File swim, sort_function: area_polygon, rotate_function: heuristic_highest_side
+Objective Function: 10387.57605
+Time: 0.11540794372558594
+
+File swim, sort_function: area_no_used_of_polygon, rotate_function: heuristic_highest_axis
+Objective Function: 10311.75115
+Time: 0.10293722152709961
+
+File swim, sort_function: area_no_used_of_polygon, rotate_function: heuristic_highest_side
+Objective Function: 10387.57604
+Time: 0.11755037307739258
+
+File swim, sort_function: percent_area_no_used_of_polygon, rotate_function: heuristic_highest_axis
+Objective Function: 10402.98748
+Time: 0.10984492301940918
+
+File swim, sort_function: percent_area_no_used_of_polygon, rotate_function: heuristic_highest_side
+Objective Function: 10510.97367
+Time: 0.1192014217376709
+
+File swim, sort_function: ray_polygon, rotate_function: heuristic_highest_axis
+Objective Function: 9847.29625
+Time: 0.10320115089416504
+
+File swim, sort_function: ray_polygon, rotate_function: heuristic_highest_side
+Objective Function: 9923.12113
+Time: 0.08988666534423828
+
+File swim, sort_function: rectangle_polygon_area, rotate_function: heuristic_highest_axis
+Objective Function: 10346.75115
+Time: 0.08274435997009277
+
+File swim, sort_function: rectangle_polygon_area, rotate_function: heuristic_highest_side
+Objective Function: 10422.57605
+Time: 0.08156609535217285
+
+File trousers, sort_function: area_polygon, rotate_function: heuristic_highest_axis
+Objective Function: 344.0
+Time: 0.11350870132446289
+
+File trousers, sort_function: area_polygon, rotate_function: heuristic_highest_side
+Objective Function: 330.78046
+Time: 0.1199488639831543
+
+File trousers, sort_function: area_no_used_of_polygon, rotate_function: heuristic_highest_axis
+Objective Function: 367.0
+Time: 0.1263585090637207
+
+File trousers, sort_function: area_no_used_of_polygon, rotate_function: heuristic_highest_side
+Objective Function: 331.25628
+Time: 0.11754393577575684
+
+File trousers, sort_function: percent_area_no_used_of_polygon, rotate_function: heuristic_highest_axis
+Objective Function: 336.0
+Time: 0.12099146842956543
+
+File trousers, sort_function: percent_area_no_used_of_polygon, rotate_function: heuristic_highest_side
+Objective Function: 336.52417
+Time: 0.1269991397857666
+
+File trousers, sort_function: ray_polygon, rotate_function: heuristic_highest_axis
+Objective Function: 344.0
+Time: 0.12474632263183594
+
+File trousers, sort_function: ray_polygon, rotate_function: heuristic_highest_side
+Objective Function: 342.0
+Time: 0.11669158935546875
+
+File trousers, sort_function: rectangle_polygon_area, rotate_function: heuristic_highest_axis
+Objective Function: 344.0
+Time: 0.12154746055603027
+
+File trousers, sort_function: rectangle_polygon_area, rotate_function: heuristic_highest_side
+Objective Function: 330.78046
+Time: 0.11762309074401855
+
+XLS FILES
+
+File albano, sort_function: area_polygon, rotate_function: heuristic_highest_axis
+Objective Function: 12718.0
+Time: 0.030788421630859375
+
+File albano, sort_function: area_polygon, rotate_function: heuristic_highest_side
+Objective Function: 12860.74834
+Time: 0.0320436954498291
+
+File albano, sort_function: area_no_used_of_polygon, rotate_function: heuristic_highest_axis
+Objective Function: 13105.0
+Time: 0.03058314323425293
+
+File albano, sort_function: area_no_used_of_polygon, rotate_function: heuristic_highest_side
+Objective Function: 13247.74834
+Time: 0.031327247619628906
+
+File albano, sort_function: percent_area_no_used_of_polygon, rotate_function: heuristic_highest_axis
+Objective Function: 14007.0
+Time: 0.03542900085449219
+
+File albano, sort_function: percent_area_no_used_of_polygon, rotate_function: heuristic_highest_side
+Objective Function: 14149.74834
+Time: 0.036301374435424805
+
+File albano, sort_function: ray_polygon, rotate_function: heuristic_highest_axis
+Objective Function: 12522.0
+Time: 0.030464649200439453
+
+File albano, sort_function: ray_polygon, rotate_function: heuristic_highest_side
+Objective Function: 12593.37417
+Time: 0.030419111251831055
+
+File albano, sort_function: rectangle_polygon_area, rotate_function: heuristic_highest_axis
+Objective Function: 12718.0
+Time: 0.031020641326904297
+
+File albano, sort_function: rectangle_polygon_area, rotate_function: heuristic_highest_side
+Objective Function: 12860.74834
+Time: 0.03245663642883301
+
+File mao, sort_function: area_polygon, rotate_function: heuristic_highest_axis
+Objective Function: 2936.0
+Time: 0.02040696144104004
+
+File mao, sort_function: area_polygon, rotate_function: heuristic_highest_side
+Objective Function: 2936.38647
+Time: 0.021204471588134766
+
+File mao, sort_function: area_no_used_of_polygon, rotate_function: heuristic_highest_axis
+Objective Function: 2510.0
+Time: 0.019416093826293945
+
+File mao, sort_function: area_no_used_of_polygon, rotate_function: heuristic_highest_side
+Objective Function: 2511.7278
+Time: 0.020417451858520508
+
+File mao, sort_function: percent_area_no_used_of_polygon, rotate_function: heuristic_highest_axis
+Objective Function: 2936.0
+Time: 0.020995378494262695
+
+File mao, sort_function: percent_area_no_used_of_polygon, rotate_function: heuristic_highest_side
+Objective Function: 2936.38647
+Time: 0.021427392959594727
+
+File mao, sort_function: ray_polygon, rotate_function: heuristic_highest_axis
+Objective Function: 2939.0
+Time: 0.020945310592651367
+
+File mao, sort_function: ray_polygon, rotate_function: heuristic_highest_side
+Objective Function: 2939.38647
+Time: 0.021533727645874023
+
+File mao, sort_function: rectangle_polygon_area, rotate_function: heuristic_highest_axis
+Objective Function: 2939.0
+Time: 0.020164012908935547
+
+File mao, sort_function: rectangle_polygon_area, rotate_function: heuristic_highest_side
+Objective Function: 2939.38647
+Time: 0.02099442481994629
+
+File dighe, sort_function: area_polygon, rotate_function: heuristic_highest_axis
+Objective Function: 201.0
+Time: 0.016753435134887695
+
+File dighe, sort_function: area_polygon, rotate_function: heuristic_highest_side
+Objective Function: 202.93589
+Time: 0.01650857925415039
+
+File dighe, sort_function: area_no_used_of_polygon, rotate_function: heuristic_highest_axis
+Objective Function: 226.0
+Time: 0.017231225967407227
+
+File dighe, sort_function: area_no_used_of_polygon, rotate_function: heuristic_highest_side
+Objective Function: 173.46903
+Time: 0.016340017318725586
+
+File dighe, sort_function: percent_area_no_used_of_polygon, rotate_function: heuristic_highest_axis
+Objective Function: 240.0
+Time: 0.01827263832092285
+
+File dighe, sort_function: percent_area_no_used_of_polygon, rotate_function: heuristic_highest_side
+Objective Function: 202.93589
+Time: 0.017245769500732422
+
+File dighe, sort_function: ray_polygon, rotate_function: heuristic_highest_axis
+Objective Function: 204.0
+Time: 0.017042875289916992
+
+File dighe, sort_function: ray_polygon, rotate_function: heuristic_highest_side
+Objective Function: 164.46903
+Time: 0.016907930374145508
+
+File dighe, sort_function: rectangle_polygon_area, rotate_function: heuristic_highest_axis
+Objective Function: 179.0
+Time: 0.01664447784423828
+
+File dighe, sort_function: rectangle_polygon_area, rotate_function: heuristic_highest_side
+Objective Function: 180.93589
+Time: 0.016623258590698242
+
+File marques, sort_function: area_polygon, rotate_function: heuristic_highest_axis
+Objective Function: 104.0
+Time: 0.023389339447021484
+
+File marques, sort_function: area_polygon, rotate_function: heuristic_highest_side
+Objective Function: 104.0
+Time: 0.023472070693969727
+
+File marques, sort_function: area_no_used_of_polygon, rotate_function: heuristic_highest_axis
+Objective Function: 104.0
+Time: 0.022934436798095703
+
+File marques, sort_function: area_no_used_of_polygon, rotate_function: heuristic_highest_side
+Objective Function: 104.0
+Time: 0.024004697799682617
+
+File marques, sort_function: percent_area_no_used_of_polygon, rotate_function: heuristic_highest_axis
+Objective Function: 109.0
+Time: 0.025219202041625977
+
+File marques, sort_function: percent_area_no_used_of_polygon, rotate_function: heuristic_highest_side
+Objective Function: 109.0
+Time: 0.025799274444580078
+
+File marques, sort_function: ray_polygon, rotate_function: heuristic_highest_axis
+Objective Function: 98.0
+Time: 0.023752689361572266
+
+File marques, sort_function: ray_polygon, rotate_function: heuristic_highest_side
+Objective Function: 98.0
+Time: 0.02452993392944336
+
+File marques, sort_function: rectangle_polygon_area, rotate_function: heuristic_highest_axis
+Objective Function: 104.0
+Time: 0.02268528938293457
+
+File marques, sort_function: rectangle_polygon_area, rotate_function: heuristic_highest_side
+Objective Function: 104.0
+Time: 0.02380228042602539
+
+File han, sort_function: area_polygon, rotate_function: heuristic_highest_axis
+Objective Function: 66.0
+Time: 0.02832508087158203
+
+File han, sort_function: area_polygon, rotate_function: heuristic_highest_side
+Objective Function: 66.0
+Time: 0.029428958892822266
+
+File han, sort_function: area_no_used_of_polygon, rotate_function: heuristic_highest_axis
+Objective Function: 80.0
+Time: 0.0291595458984375
+
+File han, sort_function: area_no_used_of_polygon, rotate_function: heuristic_highest_side
+Objective Function: 78.97056
+Time: 0.02978205680847168
+
+File han, sort_function: percent_area_no_used_of_polygon, rotate_function: heuristic_highest_axis
+Objective Function: 68.0
+Time: 0.02735161781311035
+
+File han, sort_function: percent_area_no_used_of_polygon, rotate_function: heuristic_highest_side
+Objective Function: 67.0
+Time: 0.028826475143432617
+
+File han, sort_function: ray_polygon, rotate_function: heuristic_highest_axis
+Objective Function: 66.0
+Time: 0.028177738189697266
+
+File han, sort_function: ray_polygon, rotate_function: heuristic_highest_side
+Objective Function: 66.0
+Time: 0.028664827346801758
+
+File han, sort_function: rectangle_polygon_area, rotate_function: heuristic_highest_axis
+Objective Function: 68.0
+Time: 0.027119874954223633
+
+File han, sort_function: rectangle_polygon_area, rotate_function: heuristic_highest_side
+Objective Function: 68.0
+Time: 0.028633832931518555
+
+
+
+New-Heuristic
+
+TXT FILES
+
+File blaz, sort_function: area_polygon, rotate_function: heuristic_highest_axis
+Objective Function: 33.01303
+Time: 12.515873432159424
+
+File blaz, sort_function: area_polygon, rotate_function: heuristic_highest_side
+Objective Function: 33.01303
+Time: 12.238957166671753
+
+File blaz, sort_function: area_no_used_of_polygon, rotate_function: heuristic_highest_axis
+Objective Function: 34.71282
+Time: 13.093126773834229
+
+File blaz, sort_function: area_no_used_of_polygon, rotate_function: heuristic_highest_side
+Objective Function: 34.71282
+Time: 13.232890844345093
+
+File blaz, sort_function: percent_area_no_used_of_polygon, rotate_function: heuristic_highest_axis
+Objective Function: 37.06758
+Time: 13.910534858703613
+
+File blaz, sort_function: percent_area_no_used_of_polygon, rotate_function: heuristic_highest_side
+Objective Function: 37.06758
+Time: 13.326717615127563
+
+File blaz, sort_function: ray_polygon, rotate_function: heuristic_highest_axis
+Objective Function: 33.96056
+Time: 12.696304321289062
+
+File blaz, sort_function: ray_polygon, rotate_function: heuristic_highest_side
+Objective Function: 33.96056
+Time: 12.690960884094238
+
+File blaz, sort_function: rectangle_polygon_area, rotate_function: heuristic_highest_axis
+Objective Function: 33.96056
+Time: 12.378836154937744
+
+File blaz, sort_function: rectangle_polygon_area, rotate_function: heuristic_highest_side
+Objective Function: 33.96056
+Time: 12.578121185302734
+
+File shapes, sort_function: area_polygon, rotate_function: heuristic_highest_axis
+Objective Function: 66.98546
+Time: 164.532710313797
+
+File shapes, sort_function: area_polygon, rotate_function: heuristic_highest_side
+Objective Function: 66.98546
+Time: 163.2524824142456
+
+File shapes, sort_function: area_no_used_of_polygon, rotate_function: heuristic_highest_axis
+Objective Function: 65.00005
+Time: 151.96770334243774
+
+File shapes, sort_function: area_no_used_of_polygon, rotate_function: heuristic_highest_side
+Objective Function: 65.00005
+Time: 150.01774644851685
+
+File shapes, sort_function: percent_area_no_used_of_polygon, rotate_function: heuristic_highest_axis
+Objective Function: 71.17068
+Time: 127.05830812454224
+
+File shapes, sort_function: percent_area_no_used_of_polygon, rotate_function: heuristic_highest_side
+Objective Function: 71.17068
+Time: 127.2680447101593
+
+File shapes, sort_function: ray_polygon, rotate_function: heuristic_highest_axis
+Objective Function: 66.98546
+Time: 169.09726285934448
+
+File shapes, sort_function: ray_polygon, rotate_function: heuristic_highest_side
+Objective Function: 66.98546
+Time: 175.04291009902954
+
+File shapes, sort_function: rectangle_polygon_area, rotate_function: heuristic_highest_axis
+Objective Function: 66.98546
+Time: 170.16925811767578
+
+File shapes, sort_function: rectangle_polygon_area, rotate_function: heuristic_highest_side
+Objective Function: 67.9706
+Time: 170.8218138217926
+
+File shirts, sort_function: area_polygon, rotate_function: heuristic_highest_axis
+Objective Function: 70.62639
+Time: 250.47360157966614
+
+File shirts, sort_function: area_polygon, rotate_function: heuristic_highest_side
+Objective Function: 70.62639
+Time: 240.3998682498932
+
+File shirts, sort_function: area_no_used_of_polygon, rotate_function: heuristic_highest_axis
+Objective Function: 70.62639
+Time: 242.66164827346802
+
+File shirts, sort_function: area_no_used_of_polygon, rotate_function: heuristic_highest_side
+
+File shirts, sort_function: percent_area_no_used_of_polygon, rotate_function: heuristic_highest_axis
