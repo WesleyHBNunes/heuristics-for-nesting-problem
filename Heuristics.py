@@ -1,5 +1,6 @@
 import BottomLeft
 import math
+import random
 import Polygon
 
 
@@ -10,6 +11,54 @@ def solve_with_bottom_left(array_polygons, x_lim, sort_function, rotate_function
         sort_function=sort_function,
         rotate_function=rotate_function,
         reverse=reverse)
+
+
+def solve_with_new_heuristic_modified_random(array_polygons, x_lim, iteration):
+    best_fo = 99999999
+    best_solution = None
+    for i in range(iteration):
+        polygons = array_polygons
+        random.shuffle(polygons)
+        polygons, limit_y = new_heuristic_modified_no_sorted(
+            array_polygons=polygons,
+            x_lim=x_lim)
+        print(str(i) + " " + str(limit_y))
+        if limit_y < best_fo:
+            best_fo = limit_y
+            best_solution = polygons
+    return best_solution, best_fo
+
+
+def new_heuristic_modified_no_sorted(array_polygons, x_lim):
+    placed = [False for _ in range(len(array_polygons))]
+    for i in range(len(array_polygons)):
+        best_fo = 99999999999
+        original_polygon = array_polygons[i]
+        final_polygon = array_polygons[i]
+        for j in range(len(array_polygons[i])):
+            placed[i] = False
+            array_polygons[i] = original_polygon
+            if j == len(array_polygons[i]) - 1:
+                angle = rotate_new_heuristic((array_polygons[i][j][0], array_polygons[i][0][0]),
+                                             (array_polygons[i][j][1], array_polygons[i][0][1]))
+            else:
+                angle = rotate_new_heuristic((array_polygons[i][j][0], array_polygons[i][j + 1][0]),
+                                             (array_polygons[i][j][1], array_polygons[i][j + 1][1]))
+            array_polygons[i] = Polygon.rotate_polygon(array_polygons[i], angle)
+            array_polygons[i] = decide_best_position(array_polygons, i, x_lim, placed)
+            array_polygons[i] = slide_polygon(array_polygons, placed, i)
+            placed[i] = True
+            current_fo = calculate_function_objective(array_polygons, placed)
+            if current_fo < best_fo:
+                final_polygon = array_polygons[i]
+                best_fo = current_fo
+            elif current_fo == best_fo:
+                min_x, max_x, min_y, max_y = Polygon.min_max_points_polygon(array_polygons[i])
+                min_x, max_x, min_y, max_y2 = Polygon.min_max_points_polygon(final_polygon)
+                if max_y < max_y2:
+                    final_polygon = array_polygons[i]
+        array_polygons[i] = final_polygon
+    return array_polygons, calculate_function_objective(array_polygons, placed)
 
 
 def solve_with_new_heuristic_modified(array_polygons, x_lim, sort_function, reverse):

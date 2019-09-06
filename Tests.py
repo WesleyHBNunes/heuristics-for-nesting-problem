@@ -21,8 +21,8 @@ def main():
 
     sort_functions = [Polygon.area_polygon, Polygon.area_no_used_of_polygon,
                       Polygon.percent_area_no_used_of_polygon, Polygon.ray_polygon,
-                      Polygon.rectangle_polygon_area]
-    heuristic = ["Bottom-Left", "New-Heuristic", "New-Heuristic-Modified"]
+                      Polygon.rectangle_polygon_area, ""]
+    heuristic = ["Bottom-Left", "New-Heuristic", "New-Heuristic-Modified", "New-Heuristic-Modified-Random"]
     rotate_function = [Heuristics.heuristic_highest_axis, Heuristics.heuristic_highest_side]
     limit_y = 0
     polygons_to_plot = None
@@ -50,6 +50,13 @@ def main():
             x_lim=limit_x,
             sort_function=sort_functions[index_sort_function],
             reverse=True)
+        print("Objective Function: " + str(limit_y))
+        print("Time: " + str(time.time() - begin))
+    elif index_heuristic == 3:
+        polygons_to_plot, limit_y = Heuristics.solve_with_new_heuristic_modified_random(
+            array_polygons=polygons,
+            x_lim=limit_x,
+            iteration=1)
         print("Objective Function: " + str(limit_y))
         print("Time: " + str(time.time() - begin))
 
