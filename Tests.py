@@ -56,7 +56,7 @@ def main():
         polygons_to_plot, limit_y = Heuristics.solve_with_new_heuristic_modified_random(
             array_polygons=polygons,
             x_lim=limit_x,
-            iteration=1)
+            iteration=100)
         print("Objective Function: " + str(limit_y))
         print("Time: " + str(time.time() - begin))
 
