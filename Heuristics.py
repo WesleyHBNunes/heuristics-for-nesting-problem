@@ -23,7 +23,6 @@ def solve_with_new_heuristic_modified_random(array_polygons, x_lim, iteration):
         polygons, limit_y = new_heuristic_modified_random(
             array_polygons=polygons,
             x_lim=x_lim)
-        print(str(i) + " " + str(limit_y))
         if limit_y < best_fo:
             best_fo = limit_y
             best_solution = copy.deepcopy(polygons)
