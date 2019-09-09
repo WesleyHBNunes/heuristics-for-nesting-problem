@@ -2,6 +2,7 @@ import BottomLeft
 import math
 import random
 import Polygon
+import copy
 
 
 def solve_with_bottom_left(array_polygons, x_lim, sort_function, rotate_function, reverse):
@@ -17,19 +18,19 @@ def solve_with_new_heuristic_modified_random(array_polygons, x_lim, iteration):
     best_fo = 99999999
     best_solution = None
     for i in range(iteration):
-        polygons = array_polygons
+        polygons = copy.deepcopy(array_polygons)
         random.shuffle(polygons)
-        polygons, limit_y = new_heuristic_modified_no_sorted(
+        polygons, limit_y = new_heuristic_modified_random(
             array_polygons=polygons,
             x_lim=x_lim)
         print(str(i) + " " + str(limit_y))
         if limit_y < best_fo:
             best_fo = limit_y
-            best_solution = polygons
+            best_solution = copy.deepcopy(polygons)
     return best_solution, best_fo
 
 
-def new_heuristic_modified_no_sorted(array_polygons, x_lim):
+def new_heuristic_modified_random(array_polygons, x_lim):
     placed = [False for _ in range(len(array_polygons))]
     for i in range(len(array_polygons)):
         best_fo = 99999999999
