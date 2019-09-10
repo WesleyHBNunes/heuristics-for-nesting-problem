@@ -6,7 +6,7 @@ from Visualizer import Visualizer
 
 def main():
     polygons, limit_x = File.polygons_from_xls("Test/marques.xls", "Marques")
-    polygons, limit_y = Heuristics.solve_with_new_heuristic_modified(
+    polygons, limit_y = Heuristics.solve_with_new_heuristic_modified_xy(
         array_polygons=polygons,
         x_lim=limit_x,
         sort_function=Polygon.ray_polygon,
