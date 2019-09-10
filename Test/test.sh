@@ -67,6 +67,10 @@ do
     echo
     echo
 done
+
+
+
+
 for h in {2..4}
 do
     echo "${heuristic[h]}"
