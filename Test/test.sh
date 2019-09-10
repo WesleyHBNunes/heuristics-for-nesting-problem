@@ -28,8 +28,9 @@ sheets[4]=Han
 
 heuristic[0]=Bottom-Left
 heuristic[1]=New-Heuristic
-heuristic[2]=New-Heuristic-Modified
-heuristic[3]=New-Heuristic-Modified-Random
+heuristic[2]=New-Heuristic-Modified_x
+heuristic[3]=New-Heuristic-Modified_y
+heuristic[4]=New-Heuristic-Modified_xy
 
 for h in {0..1}
 do
@@ -66,53 +67,33 @@ do
     echo
     echo
 done
-
-echo "${heuristic[2]}"
-echo
-echo "TXT FILES"
-echo
-for i in {0..4}
+for h in {2..4}
 do
-	for j in {0..4}
-	do
-    	echo "File ${txt_files[i]}, sort_function: ${sort_function[j]}"
-      	python3 ../Tests.py ${txt_files[i]} $j 1 2 2>/dev/null
-      	echo
-	done
-done
+    echo "${heuristic[h]}"
+    echo
+    echo "TXT FILES"
+    echo
+    for i in {0..4}
+    do
+        for j in {0..4}
+        do
+            echo "File ${txt_files[i]}, sort_function: ${sort_function[j]}"
+            python3 ../Tests.py ${txt_files[i]} $j 2 $h 2>/dev/null
+            echo
+        done
+    done
 
-echo "XLS FILES"
-echo
-for i in {0..4}
-do
-	for j in {0..4}
-	do
-    	echo "File ${xls_files[i]}, sort_function: ${sort_function[j]}"
-      	python3 ../Tests.py ${xls_files[i]} ${sheets[i]} $j 1 2 2>/dev/null
-      	echo
-	done
-done
-echo
-echo
-
-echo "${heuristic[3]}"
-echo
-echo "TXT FILES"
-echo
-for i in {0..4}
-do
-    echo "File ${txt_files[i]}"
-    python3 ../Tests.py ${txt_files[i]} 0 0 3 2>/dev/null
+    echo "XLS FILES"
+    echo
+    for i in {0..4}
+    do
+        for j in {0..4}
+        do
+            echo "File ${xls_files[i]}, sort_function: ${sort_function[j]}"
+            python3 ../Tests.py ${xls_files[i]} ${sheets[i]} $j 2 $h 2>/dev/null
+            echo
+        done
+    done
+    echo
     echo
 done
-
-echo "XLS FILES"
-echo
-for i in {0..4}
-do
-    echo "File ${xls_files[i]}"
-    python3 ../Tests.py ${xls_files[i]} ${sheets[i]} 0 0 3 2>/dev/null
-	echo
-done
-echo
-echo
