@@ -71,12 +71,9 @@ def solve_with_new_heuristic_modified(array_polygons, x_lim, sort_function, reve
         for j in range(len(array_polygons[i])):
             placed[i] = False
             array_polygons[i] = original_polygon
-            if j == len(array_polygons[i]) - 1:
-                angle = rotate_new_heuristic((array_polygons[i][j][0], array_polygons[i][0][0]),
-                                             (array_polygons[i][j][1], array_polygons[i][0][1]))
-            else:
-                angle = rotate_new_heuristic((array_polygons[i][j][0], array_polygons[i][j + 1][0]),
-                                             (array_polygons[i][j][1], array_polygons[i][j + 1][1]))
+            angle = rotate_new_heuristic(
+                                    (array_polygons[i][j][0], array_polygons[i][(j + 1) % len(array_polygons[i])][0]),
+                                    (array_polygons[i][j][1], array_polygons[i][(j + 1) % len(array_polygons[i])][1]))
             array_polygons[i] = Polygon.rotate_polygon(array_polygons[i], angle)
             array_polygons[i] = decide_best_position(array_polygons, i, x_lim, placed)
             array_polygons[i] = slide_polygon(array_polygons, placed, i)
