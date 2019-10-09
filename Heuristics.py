@@ -1,5 +1,6 @@
 import BottomLeft
 import NewHeuristic
+import Greedy
 import math
 # import random
 import Polygon
@@ -17,6 +18,15 @@ def solve_with_bottom_left(array_polygons, x_lim, sort_function, rotate_function
 
 def solve_with_bottom_left_slide(array_polygons, x_lim, sort_function, rotate_function, reverse):
     return BottomLeft.solution_slide(
+        array_polygons=array_polygons,
+        x_lim=x_lim,
+        sort_function=sort_function,
+        rotate_function=rotate_function,
+        reverse=reverse)
+
+
+def solve_with_greedy(array_polygons, x_lim, sort_function, rotate_function, reverse):
+    return Greedy.solve(
         array_polygons=array_polygons,
         x_lim=x_lim,
         sort_function=sort_function,

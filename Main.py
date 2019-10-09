@@ -5,8 +5,8 @@ from Visualizer import Visualizer
 
 
 def main():
-    polygons, limit_x = File.polygons_from_txt("Test/shirts.txt")
-    polygons, limit_y = Heuristics.solve_with_bottom_left_slide(
+    polygons, limit_x = File.polygons_from_xls("Test/marques.xls", "Marques")
+    polygons, limit_y = Heuristics.solve_with_greedy(
         array_polygons=polygons,
         x_lim=limit_x,
         sort_function=Polygon.ray_polygon,

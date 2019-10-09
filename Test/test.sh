@@ -28,10 +28,11 @@ sheets[4]=Han
 
 heuristic[0]=Bottom-Left
 heuristic[1]=Bottom-Left-Slide
-heuristic[2]=New-Heuristic
-heuristic[3]=New-Heuristic-Modified
+heuristic[2]=Greedy
+heuristic[3]=New-Heuristic
+heuristic[4]=New-Heuristic-Modified
 
-for h in {0..2}
+for h in {0..3}
 do
     echo "${heuristic[h]}"
     echo
@@ -70,7 +71,7 @@ done
 
 
 
-for h in {3..3}
+for h in {4..4}
 do
     echo "${heuristic[h]}"
     echo
