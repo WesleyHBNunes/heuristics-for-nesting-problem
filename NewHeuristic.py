@@ -50,6 +50,8 @@ def decide_best_position(polygons, index, limit_x, placed):
     best_points = []
     for i in range(len(polygons)):
         if index != i and placed[i]:
+            if not placed[i]:
+                break
             ifp = Polygon.return_real_ifp_between_two_polygons(polygons, i, index, placed)
             for p in ifp:
                 aux = Polygon.move_polygon_by_reference_point(p[0], polygons[index], (p[1], p[2]))
@@ -58,10 +60,6 @@ def decide_best_position(polygons, index, limit_x, placed):
                     best_points.append(p)
     best_point = Polygon.return_best_point_in_ifp(best_points)
     if best_point == ():
-        aux_polygon = []
-        for i in range(len(polygons)):
-            if placed[i]:
-                aux_polygon.append(polygons[i])
-        point_y = Heuristics.return_line_y(aux_polygon)
+        point_y = Heuristics.calculate_function_objective(polygons, placed)
         return Polygon.add_number_axis_x_y(polygons[index], 0, point_y)
     return Polygon.move_polygon_by_reference_point(best_point[0], polygons[index], (best_point[1], best_point[2]))

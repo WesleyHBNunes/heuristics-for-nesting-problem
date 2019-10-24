@@ -2,20 +2,23 @@ import Heuristics
 import File
 import Polygon
 from Visualizer import Visualizer
+import time
 
 
 def main():
-    polygons, limit_x = File.polygons_from_xls("Test/marques.xls", "Marques")
-    polygons, limit_y = Heuristics.solve_with_greedy(
+    begin = time.time()
+    polygons, limit_x = File.polygons_from_xls("Test/dighe.xls", "Dighe2")
+    print("Length instance: " + str(len(polygons)))
+    polygons, limit_y = Heuristics.solve_with_new_heuristic_modified(
         array_polygons=polygons,
         x_lim=limit_x,
         sort_function=Polygon.ray_polygon,
-        reverse=True,
-        rotate_function=Heuristics.heuristic_highest_axis
+        reverse=True
     )
     visualizer = Visualizer(polygons, limit_x, limit_y, "Test of instances")
     print(limit_y)
     # visualizer.plot_polygons()
+    print(time.time() - begin)
     visualizer.plot_animation()
 
 
