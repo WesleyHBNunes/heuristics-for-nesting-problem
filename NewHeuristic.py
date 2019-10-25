@@ -47,18 +47,13 @@ def solve(array_polygons, x_lim, sort_function, rotate_function, reverse):
 
 
 def decide_best_position(polygons, index, limit_x, placed):
-    best_points = []
+    ifp = []
     for i in range(len(polygons)):
         if index != i and placed[i]:
             if not placed[i]:
                 break
-            ifp = Polygon.return_real_ifp_between_two_polygons(polygons, i, index, placed)
-            for p in ifp:
-                aux = Polygon.move_polygon_by_reference_point(p[0], polygons[index], (p[1], p[2]))
-                list_points_x, list_points_y = zip(*aux)
-                if not max(list_points_x) > limit_x:
-                    best_points.append(p)
-    best_point = Polygon.return_best_point_in_ifp(best_points)
+            ifp += Polygon.calculate_ifp_between_two_polygons(polygons, polygons[i], polygons[index], placed, limit_x)
+    best_point = Polygon.return_best_point_in_ifp(ifp)
     if best_point == ():
         point_y = Heuristics.calculate_function_objective(polygons, placed)
         return Polygon.add_number_axis_x_y(polygons[index], 0, point_y)

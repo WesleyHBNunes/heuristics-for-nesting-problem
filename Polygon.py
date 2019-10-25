@@ -215,34 +215,24 @@ def negative_point(polygon):
     return False
 
 
-def calculate_ifp_between_two_polygons(polygon, polygon2):
+def calculate_ifp_between_two_polygons(polygons, polygon, polygon2, placed, limit_x):
     inner_fit_polygon = []
     for p in polygon:
         for i in range(len(polygon2)):
             polygon2 = move_polygon_by_reference_point(i, polygon2, p)
-            if is_overlapping(polygon2, polygon) or negative_point(polygon2):
+            list_points_x, list_points_y = zip(*polygon2)
+            if is_overlapping(polygon2, polygon) or negative_point(polygon2) or max(list_points_x) > limit_x:
                 continue
             else:
-                inner_fit_polygon.append((i, p[0], p[1]))
+                overlapping = False
+                for j in range(len(polygons)):
+                    if polygon != polygons[j] and polygon2 != polygons[j] and placed[j]:
+                        if is_overlapping(polygons[j], polygon2):
+                            overlapping = True
+                            break
+                if not overlapping:
+                    inner_fit_polygon.append((i, p[0], p[1]))
     return inner_fit_polygon
-
-
-def return_real_ifp_between_two_polygons(polygons, index, index_p2, placed):
-    ifp = calculate_ifp_between_two_polygons(polygons[index], polygons[index_p2])
-    real_ifp = []
-
-    for p in ifp:
-        aux = move_polygon_by_reference_point(p[0], polygons[index_p2], (p[1], p[2]))
-        overlapping = False
-        for i in range(len(polygons)):
-            if i != index and i != index_p2:
-                if is_overlapping(aux, polygons[i]):
-                    if placed[i]:
-                        overlapping = True
-                        break
-        if not overlapping:
-            real_ifp.append(p)
-    return real_ifp
 
 
 def return_best_point_in_ifp(ifp):
