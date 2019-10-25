@@ -49,10 +49,10 @@ def solve(array_polygons, x_lim, sort_function, rotate_function, reverse):
 def decide_best_position(polygons, index, limit_x, placed):
     ifp = []
     for i in range(len(polygons)):
-        if index != i and placed[i]:
-            if not placed[i]:
-                break
-            ifp += Polygon.calculate_ifp_between_two_polygons(polygons, polygons[i], polygons[index], placed, limit_x)
+        if not placed[i]:
+            break
+        if index != i:
+            ifp += Polygon.calculate_ifp_between_two_polygons(polygons, i, index, placed, limit_x)
     best_point = Polygon.return_best_point_in_ifp(ifp)
     if best_point == ():
         point_y = Heuristics.calculate_function_objective(polygons, placed)

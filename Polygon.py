@@ -215,7 +215,9 @@ def negative_point(polygon):
     return False
 
 
-def calculate_ifp_between_two_polygons(polygons, polygon, polygon2, placed, limit_x):
+def calculate_ifp_between_two_polygons(polygons, index_fixed_polygon, index, placed, limit_x):
+    polygon = polygons[index_fixed_polygon]
+    polygon2 = polygons[index]
     inner_fit_polygon = []
     for p in polygon:
         for i in range(len(polygon2)):
@@ -226,7 +228,9 @@ def calculate_ifp_between_two_polygons(polygons, polygon, polygon2, placed, limi
             else:
                 overlapping = False
                 for j in range(len(polygons)):
-                    if polygon != polygons[j] and polygon2 != polygons[j] and placed[j]:
+                    if not placed[j]:
+                        break
+                    if index != j and index_fixed_polygon != j:
                         if is_overlapping(polygons[j], polygon2):
                             overlapping = True
                             break
