@@ -7,7 +7,6 @@ def solve(array_polygons, x_lim, sort_function, rotate_function, reverse):
     new_polygons = []
     placed = [False for _ in array_polygons]
     for i in range(len(array_polygons)):
-        print(i)
         array_polygons[i] = Heuristics.rotate_polygon_heuristic(array_polygons[i], rotate_function)
         if i == 0:
             new_polygons.append(array_polygons[i])
