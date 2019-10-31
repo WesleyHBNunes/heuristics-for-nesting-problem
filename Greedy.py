@@ -3,6 +3,10 @@ import Polygon
 
 
 def solve(array_polygons, x_lim, sort_function, rotate_function, reverse):
+    if x_lim > 1000:
+        jump = 10
+    else:
+        jump = 1
     array_polygons = Polygon.sort(array_polygons, sort_function, reverse)
     new_polygons = []
     placed = [False for _ in array_polygons]
@@ -14,12 +18,12 @@ def solve(array_polygons, x_lim, sort_function, rotate_function, reverse):
             continue
         overlapping = True
         while overlapping:
-            array_polygons[i] = Polygon.add_number_axis_x_y(array_polygons[i], 1, 0)
+            array_polygons[i] = Polygon.add_number_axis_x_y(array_polygons[i], jump, 0)
             list_x, list_y = list(zip(*array_polygons[i]))
             max_point_x = max(list_x)
             min_point_x = min(list_x)
             if max_point_x > x_lim:
-                array_polygons[i] = Polygon.add_number_axis_x_y(array_polygons[i], -min_point_x, 1)
+                array_polygons[i] = Polygon.add_number_axis_x_y(array_polygons[i], -min_point_x, jump)
             for j in range(len(array_polygons)):
                 overlapping = False
                 if placed[j] and i != j:
