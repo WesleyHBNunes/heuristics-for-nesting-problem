@@ -137,6 +137,13 @@ def is_overlapping(current_polygon, polygon):
     return polygon1.intersects(polygon2)
 
 
+def polygon_overlapping(polygon, polygons_to_analyze):
+    for p in polygons_to_analyze:
+        if is_overlapping(polygon, p):
+            return True
+    return False
+
+
 def min_max_points_polygon(polygon):
     list_points_x, list_points_y = zip(*polygon)
 

@@ -1,5 +1,6 @@
 import Heuristics
 import Polygon
+import Placements
 
 
 def solve_modified(array_polygons, x_lim, sort_function, reverse):
@@ -19,7 +20,7 @@ def solve_modified(array_polygons, x_lim, sort_function, reverse):
                 if k == 0:
                     angle += 90
                 array_polygons[i] = Polygon.rotate_polygon(array_polygons[i], angle)
-                array_polygons[i] = decide_best_position(array_polygons, i, x_lim, placed)
+                array_polygons[i] = Placements.placement_vertex(array_polygons, i, x_lim, placed)
                 array_polygons[i] = Heuristics.slide_polygon(array_polygons, placed, i)
                 placed[i] = True
                 current_fo = Heuristics.calculate_function_objective(array_polygons, placed)
@@ -40,21 +41,7 @@ def solve(array_polygons, x_lim, sort_function, rotate_function, reverse):
     placed = [False for _ in range(len(array_polygons))]
     for i in range(len(array_polygons)):
         array_polygons[i] = Heuristics.rotate_polygon_heuristic(array_polygons[i], rotate_function)
-        array_polygons[i] = decide_best_position(array_polygons, i, x_lim, placed)
+        array_polygons[i] = Placements.placement_vertex(array_polygons, i, x_lim, placed)
         array_polygons[i] = Heuristics.slide_polygon(array_polygons, placed, i)
         placed[i] = True
     return array_polygons, Heuristics.calculate_function_objective(array_polygons, placed)
-
-
-def decide_best_position(polygons, index, limit_x, placed):
-    ifp = []
-    for i in range(len(polygons)):
-        if not placed[i]:
-            break
-        if index != i:
-            ifp += Polygon.calculate_ifp_between_two_polygons(polygons, i, index, placed, limit_x)
-    best_point = Polygon.return_best_point_in_ifp(ifp)
-    if best_point == ():
-        point_y = Heuristics.calculate_function_objective(polygons, placed)
-        return Polygon.add_number_axis_x_y(polygons[index], 0, point_y)
-    return Polygon.move_polygon_by_reference_point(best_point[0], polygons[index], (best_point[1], best_point[2]))
