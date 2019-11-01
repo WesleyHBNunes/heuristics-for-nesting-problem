@@ -4,7 +4,7 @@ import Polygon
 
 def placement_vertex(polygons, index, limit_x, placed):
     polygons[index] = Heuristics.decide_best_position(polygons, index, limit_x, placed)
-    polygons[index] = Heuristics.slide_polygon(polygons, placed, index)
+    polygons[index] = Heuristics.slide_polygon(polygons, placed, index, limit_x)
     return polygons[index]
 
 
@@ -30,7 +30,7 @@ def placement_greedy(polygons, index, limit_x, placed):
                     overlapping = True
                     break
 
-    polygons[index] = Heuristics.slide_polygon(polygons, placed, index)
+    polygons[index] = Heuristics.slide_polygon(polygons, placed, index, limit_x)
     return polygons[index]
 
 
@@ -41,7 +41,7 @@ def placement_bottom_left_slide(polygons, index, limit_x, placed):
     max_point_x = max(list_x)
     polygons[index] = Polygon.add_number_axis_x_y(polygons[index], limit_x - max_point_x,
                                                   Heuristics.calculate_function_objective(polygons, placed))
-    polygons[index] = Heuristics.slide_polygon(polygons, placed, index)
+    polygons[index] = Heuristics.slide_polygon(polygons, placed, index, limit_x)
     return polygons[index]
 
 
