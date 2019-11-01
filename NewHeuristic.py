@@ -21,7 +21,6 @@ def solve_modified(array_polygons, x_lim, sort_function, reverse):
                     angle += 90
                 array_polygons[i] = Polygon.rotate_polygon(array_polygons[i], angle)
                 array_polygons[i] = Placements.placement_vertex(array_polygons, i, x_lim, placed)
-                array_polygons[i] = Heuristics.slide_polygon(array_polygons, placed, i)
                 placed[i] = True
                 current_fo = Heuristics.calculate_function_objective(array_polygons, placed)
                 if current_fo < best_fo:
@@ -42,6 +41,5 @@ def solve(array_polygons, x_lim, sort_function, rotate_function, reverse):
     for i in range(len(array_polygons)):
         array_polygons[i] = Heuristics.rotate_polygon_heuristic(array_polygons[i], rotate_function)
         array_polygons[i] = Placements.placement_vertex(array_polygons, i, x_lim, placed)
-        array_polygons[i] = Heuristics.slide_polygon(array_polygons, placed, i)
         placed[i] = True
     return array_polygons, Heuristics.calculate_function_objective(array_polygons, placed)

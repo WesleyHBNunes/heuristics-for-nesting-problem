@@ -120,6 +120,20 @@ def return_line_y(array_polygons):
     return line_y
 
 
+def decide_best_position(polygons, index, limit_x, placed):
+    ifp = []
+    for i in range(len(polygons)):
+        if not placed[i]:
+            break
+        if index != i:
+            ifp += Polygon.calculate_ifp_between_two_polygons(polygons, i, index, placed, limit_x)
+    best_point = Polygon.return_best_point_in_ifp(ifp)
+    if best_point == ():
+        point_y = calculate_function_objective(polygons, placed)
+        return Polygon.add_number_axis_x_y(polygons[index], 0, point_y)
+    return Polygon.move_polygon_by_reference_point(best_point[0], polygons[index], (best_point[1], best_point[2]))
+
+
 def slide_polygon(array_polygon, polygons_placed, i):
     placed = False
     while not placed:
