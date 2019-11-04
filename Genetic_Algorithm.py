@@ -4,6 +4,13 @@ import random
 import Placements
 import copy
 
+sort_functions = [Polygon.area_polygon, Polygon.area_no_used_of_polygon,
+                  Polygon.percent_area_no_used_of_polygon, Polygon.ray_polygon,
+                  Polygon.rectangle_polygon_area]
+placement_functions = [Placements.placement_bottom_left, Placements.placement_bottom_left_slide,
+                       Placements.placement_greedy, Placements.placement_vertex]
+rotate_axis = [0, 90]  # 0 == Y, 90 == X
+
 
 def solve(polygons, x_lim, length_population, iterations):
     initial_population = generate_initial_population(polygons, x_lim, length_population)
@@ -11,16 +18,11 @@ def solve(polygons, x_lim, length_population, iterations):
 
 
 def generate_individual(polygons, x_lim):
-    sort_functions = [Polygon.area_polygon, Polygon.area_no_used_of_polygon,
-                      Polygon.percent_area_no_used_of_polygon, Polygon.ray_polygon,
-                      Polygon.rectangle_polygon_area]
-    placement_functions = [Placements.placement_bottom_left, Placements.placement_bottom_left_slide,
-                           Placements.placement_greedy, Placements.placement_vertex]
-    rotate_axis = [0, 90]
     n = len(polygons)
     amount_polygons = - 1
     placed = []
     new_polygons = []
+    genome = []
     for i in range(n):
         sort_function = random.randint(0, len(sort_functions) - 1)
         place_function = random.randint(0, len(placement_functions) - 1)
@@ -36,15 +38,16 @@ def generate_individual(polygons, x_lim):
             place_polygon(new_polygons, amount_polygons, x_lim, placement_functions[place_function], placed)
         new_polygons[amount_polygons] = Heuristics.slide_polygon(new_polygons, placed, amount_polygons, x_lim)
         placed[amount_polygons] = True
-    return new_polygons, Heuristics.calculate_function_objective(new_polygons, placed)
+        genome.append((sort_function, place_function, axis_to_rotate, edge_to_rotate))
+    return new_polygons, Heuristics.calculate_function_objective(new_polygons, placed), genome
 
 
 def generate_initial_population(polygons, x_lim, length_population):
     population = []
     for i in range(length_population):
-        individual, fo_individual = generate_individual(polygons, x_lim)
-        population.append((individual, fo_individual))
-    population.sort(key=lambda tup: tup[1])
+        individual, fo_individual, genome = generate_individual(polygons, x_lim)
+        population.append((individual, genome, fo_individual))
+    population.sort(key=lambda tup: tup[2])
     return population
 
 
