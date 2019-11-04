@@ -1,4 +1,4 @@
-import BottomLeft
+import Bottom_Left
 import NewHeuristic
 import Greedy
 import math
@@ -8,7 +8,7 @@ import Polygon
 
 
 def solve_with_bottom_left(array_polygons, x_lim, sort_function, rotate_function, reverse):
-    return BottomLeft.solution(
+    return Bottom_Left.solution(
         array_polygons=array_polygons,
         x_lim=x_lim,
         sort_function=sort_function,
@@ -17,7 +17,7 @@ def solve_with_bottom_left(array_polygons, x_lim, sort_function, rotate_function
 
 
 def solve_with_bottom_left_slide(array_polygons, x_lim, sort_function, rotate_function, reverse):
-    return BottomLeft.solution_slide(
+    return Bottom_Left.solution_slide(
         array_polygons=array_polygons,
         x_lim=x_lim,
         sort_function=sort_function,
