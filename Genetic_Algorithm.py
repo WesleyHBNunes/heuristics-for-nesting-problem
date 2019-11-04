@@ -29,6 +29,7 @@ def generate_individual(polygons, x_lim):
         placed.append(False)
         new_polygons[amount_polygons] = \
             place_polygon(new_polygons, amount_polygons, x_lim, placement_functions[place_function], placed)
+        new_polygons[amount_polygons] = Heuristics.slide_polygon(new_polygons, placed, amount_polygons, x_lim)
         placed[amount_polygons] = True
     return new_polygons, Heuristics.calculate_function_objective(new_polygons, placed)
 
@@ -43,7 +44,7 @@ def place_polygon(new_polygons, amount_polygons, x_lim, sort_function, placed):
         return Placements.placement_bottom_left_slide(new_polygons, amount_polygons, x_lim, placed)
     elif sort_function == Placements.placement_bottom_left:
         aux = copy.deepcopy(new_polygons)
-        return Placements.placement_bottom_left(aux, amount_polygons, x_lim, new_polygons)
+        return Placements.placement_bottom_left(aux, amount_polygons, x_lim, new_polygons[:len(new_polygons) - 1])
     elif sort_function == Placements.placement_greedy:
         return Placements.placement_greedy(new_polygons, amount_polygons, x_lim, placed)
     elif sort_function == Placements.placement_vertex:
