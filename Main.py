@@ -3,6 +3,7 @@ import File
 import Polygon
 from Visualizer import Visualizer
 import time
+# import Genetic_Algorithm
 
 
 def main():
@@ -14,6 +15,7 @@ def main():
         sort_function=Polygon.ray_polygon,
         reverse=True
     )
+    # polygons, limit_y = Genetic_Algorithm.generate_individual(polygons, limit_x)
     visualizer = Visualizer(polygons, limit_x, limit_y, "Test of instances")
     print(limit_y)
     # visualizer.plot_polygons()
