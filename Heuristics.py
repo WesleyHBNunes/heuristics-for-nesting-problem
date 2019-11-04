@@ -1,5 +1,5 @@
 import Bottom_Left
-import NewHeuristic
+import New_Heuristic
 import Greedy
 import math
 # import random
@@ -35,7 +35,7 @@ def solve_with_greedy(array_polygons, x_lim, sort_function, rotate_function, rev
 
 
 def solve_with_new_heuristic_modified(array_polygons, x_lim, sort_function, reverse):
-    return NewHeuristic.solve_modified(
+    return New_Heuristic.solve_modified(
         array_polygons=array_polygons,
         x_lim=x_lim,
         sort_function=sort_function,
@@ -43,7 +43,7 @@ def solve_with_new_heuristic_modified(array_polygons, x_lim, sort_function, reve
 
 
 def solve_with_new_heuristic(array_polygons, x_lim, sort_function, rotate_function, reverse):
-    return NewHeuristic.solve(
+    return New_Heuristic.solve(
         array_polygons=array_polygons,
         x_lim=x_lim,
         sort_function=sort_function,
