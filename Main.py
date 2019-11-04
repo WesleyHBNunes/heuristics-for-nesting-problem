@@ -16,7 +16,7 @@ def main():
         sort_function=Polygon.ray_polygon,
         reverse=True
     )
-    # polygons, limit_y = Genetic_Algorithm.generate_individual(polygons, limit_x)
+    # polygons, limit_y = Genetic_Algorithm.solve(polygons, limit_x, 10, 10)
     visualizer = Visualizer(polygons, limit_x, limit_y, "Test of instances")
     print(limit_y)
     print(time.time() - begin)

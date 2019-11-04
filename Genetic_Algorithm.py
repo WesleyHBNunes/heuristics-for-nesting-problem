@@ -5,16 +5,9 @@ import Placements
 import copy
 
 
-def solve(polygons, x_lim, iterations):
-    best_individual = []
-    best_fo = 99999
-    for i in range(iterations):
-        print(i)
-        individual, fo_individual = generate_individual(polygons, x_lim)
-        if fo_individual < best_fo:
-            best_individual = individual
-            best_fo = fo_individual
-    return best_individual, best_fo
+def solve(polygons, x_lim, length_population, iterations):
+    initial_population = generate_initial_population(polygons, x_lim, length_population)
+    return initial_population[0][0], initial_population[0][1]
 
 
 def generate_individual(polygons, x_lim):
@@ -44,6 +37,15 @@ def generate_individual(polygons, x_lim):
         new_polygons[amount_polygons] = Heuristics.slide_polygon(new_polygons, placed, amount_polygons, x_lim)
         placed[amount_polygons] = True
     return new_polygons, Heuristics.calculate_function_objective(new_polygons, placed)
+
+
+def generate_initial_population(polygons, x_lim, length_population):
+    population = []
+    for i in range(length_population):
+        individual, fo_individual = generate_individual(polygons, x_lim)
+        population.append((individual, fo_individual))
+    population.sort(key=lambda tup: tup[1])
+    return population
 
 
 def return_next_polygon(polygons, function_to_sort):
