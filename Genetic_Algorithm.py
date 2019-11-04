@@ -5,6 +5,18 @@ import Placements
 import copy
 
 
+def solve(polygons, x_lim, iterations):
+    best_individual = []
+    best_fo = 99999
+    for i in range(iterations):
+        print(i)
+        individual, fo_individual = generate_individual(polygons, x_lim)
+        if fo_individual < best_fo:
+            best_individual = individual
+            best_fo = fo_individual
+    return best_individual, best_fo
+
+
 def generate_individual(polygons, x_lim):
     sort_functions = [Polygon.area_polygon, Polygon.area_no_used_of_polygon,
                       Polygon.percent_area_no_used_of_polygon, Polygon.ray_polygon,
