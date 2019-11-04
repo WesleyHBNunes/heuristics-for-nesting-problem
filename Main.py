@@ -33,10 +33,8 @@ def run():
         reverse=True
     )
     # polygons, limit_y = Genetic_Algorithm.generate_individual(polygons, limit_x)
-    # visualizer = Visualizer(polygons, limit_x, limit_y, "Test of instances")
     print(limit_y)
     print(time.time() - begin)
-    # visualizer.plot_animation()
 
 
 if __name__ == "__main__":
