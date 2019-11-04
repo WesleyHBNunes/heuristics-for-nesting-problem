@@ -42,6 +42,7 @@ def generate_individual(polygons, x_lim):
 def generate_initial_population(polygons, x_lim, length_population):
     population = []
     for i in range(length_population):
+        print(i)
         individual, fo_individual = generate_individual(polygons, x_lim)
         population.append((individual, fo_individual))
     population.sort(key=lambda tup: tup[1])
