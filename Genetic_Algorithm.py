@@ -104,4 +104,12 @@ def sort(polygons, function):
 
 
 def generate_individual(current_population, amount_new_individual, mutation_value):
+    father = random.randint(0, len(current_population) - 1)
+    mother = random.randint(0, len(current_population) - 1)
+    father = current_population[father]
+    mother = current_population[mother]
+    new_individual = []
+    length_new_individual = len(current_population[0][0])
+    for j in range(length_new_individual):
+        pass
     return current_population[:amount_new_individual]
