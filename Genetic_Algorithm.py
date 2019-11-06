@@ -12,12 +12,21 @@ placement_functions = [Placements.placement_bottom_left, Placements.placement_bo
 rotate_axis = [0, 90]  # 0 == Y, 90 == X
 
 
-def solve(polygons, x_lim, length_population, iterations):
+def solve(polygons, x_lim, length_population, iterations, percent_elitism, mutation_value):
     initial_population = generate_initial_population(polygons, x_lim, length_population)
+    current_population = initial_population
+    for _ in range(iterations):
+        n = len(current_population)
+        elite = int(percent_elitism * n)
+        current_population = current_population[:elite]
+        amount_new_individual = n - elite
+        new_individuals = generate_individual(current_population, amount_new_individual, mutation_value)
+        current_population += new_individuals
+        current_population.sort(key=lambda tup: tup[2])
     return initial_population[0][0], initial_population[0][2]
 
 
-def generate_individual(polygons, x_lim):
+def generate_individual_initial(polygons, x_lim):
     n = len(polygons)
     amount_polygons = - 1
     placed = []
@@ -50,7 +59,7 @@ def generate_individual(polygons, x_lim):
 def generate_initial_population(polygons, x_lim, length_population):
     population = []
     for i in range(length_population):
-        individual, fo_individual, genome = generate_individual(polygons, x_lim)
+        individual, fo_individual, genome = generate_individual_initial(polygons, x_lim)
         population.append((individual, genome, fo_individual))
     population.sort(key=lambda tup: tup[2])
     return population
@@ -92,3 +101,7 @@ def sort(polygons, function):
             if p_value[0] == p[0]:
                 polygons_sorted.append((p_value[0], p[1]))
     return polygons_sorted
+
+
+def generate_individual(current_population, amount_new_individual, mutation_value):
+    return current_population[:amount_new_individual]
