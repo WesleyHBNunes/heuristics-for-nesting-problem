@@ -93,7 +93,7 @@ def area_no_used_of_polygon(polygon):
 
 
 def percent_area_no_used_of_polygon(polygon):
-    return (rectangle_polygon_area(polygon) - area_polygon(polygon) * 100000) / rectangle_polygon_area(polygon)
+    return ((rectangle_polygon_area(polygon) - area_polygon(polygon)) * 100) / rectangle_polygon_area(polygon)
 
 
 def minimum_y(polygon):
