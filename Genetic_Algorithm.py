@@ -20,10 +20,11 @@ def solve(polygons, x_lim, length_population, iterations, percent_elitism, mutat
         elite = int(percent_elitism * n)
         current_population = current_population[:elite]
         amount_new_individual = n - elite
-        new_individuals = generate_individual(current_population, amount_new_individual, mutation_value)
+        new_individuals = \
+            generate_individual(current_population, amount_new_individual, mutation_value, polygons, x_lim)
         current_population += new_individuals
         current_population.sort(key=lambda tup: tup[2])
-    return initial_population[0][0], initial_population[0][2]
+    return current_population[0][0], current_population[0][2]
 
 
 def generate_individual_initial(polygons, x_lim):
@@ -32,16 +33,11 @@ def generate_individual_initial(polygons, x_lim):
     placed = []
     new_polygons = []
     genome = []
-    polygons_with_index = []
-    for i in range(n):
-        polygons_with_index.append((i, polygons[i]))
     for i in range(n):
         sort_function = random.randint(0, len(sort_functions) - 1)
         place_function = random.randint(0, len(placement_functions) - 1)
         axis_to_rotate = random.randint(0, len(rotate_axis) - 1)
-        next_polygon, polygons_with_index = return_next_polygon(polygons_with_index, sort_functions[sort_function])
-        index = next_polygon[0]
-        next_polygon = next_polygon[1]
+        next_polygon, polygons = return_next_polygon(polygons, sort_functions[sort_function])
         new_polygons.append(next_polygon)
         amount_polygons += 1
         edge_to_rotate = random.randint(0, len(next_polygon) - 1)
@@ -52,21 +48,21 @@ def generate_individual_initial(polygons, x_lim):
             place_polygon(new_polygons, amount_polygons, x_lim, placement_functions[place_function], placed)
         new_polygons[amount_polygons] = Heuristics.slide_polygon(new_polygons, placed, amount_polygons, x_lim)
         placed[amount_polygons] = True
-        genome.append((sort_function, place_function, axis_to_rotate, edge_to_rotate, index))
-    return new_polygons, Heuristics.calculate_function_objective(new_polygons, placed), genome
+        genome.append((sort_function, place_function, axis_to_rotate))
+    return new_polygons, genome, Heuristics.calculate_function_objective(new_polygons, placed)
 
 
 def generate_initial_population(polygons, x_lim, length_population):
     population = []
     for i in range(length_population):
-        individual, fo_individual, genome = generate_individual_initial(polygons, x_lim)
+        individual, genome, fo_individual = generate_individual_initial(polygons, x_lim)
         population.append((individual, genome, fo_individual))
     population.sort(key=lambda tup: tup[2])
     return population
 
 
 def return_next_polygon(polygons, function_to_sort):
-    polygons = sort(polygons, function_to_sort)
+    polygons = Polygon.sort(polygons, function_to_sort, True)
     return polygons.pop(0), polygons
 
 
@@ -90,26 +86,64 @@ def rotate_polygon(polygon, edge_to_rotate, axis):
     return Polygon.rotate_polygon(polygon, angle)
 
 
-def sort(polygons, function):
-    list_areas_index = []
-    for polygon in polygons:
-        list_areas_index.append((polygon[0], function(polygon[1])))
-    list_areas_index.sort(key=lambda tup: tup[1], reverse=True)
-    polygons_sorted = []
-    for p_value in list_areas_index:
-        for p in polygons:
-            if p_value[0] == p[0]:
-                polygons_sorted.append((p_value[0], p[1]))
-    return polygons_sorted
+def generate_individual(current_population, amount_new_individual, mutation_value, original_polygons, x_lim):
+    new_individuals = []
+    for i in range(amount_new_individual):
+        father = random.randint(0, len(current_population) - 1)
+        mother = random.randint(0, len(current_population) - 1)
+        father = current_population[father]
+        mother = current_population[mother]
+        new_genome = []
+        length_new_individual = len(current_population[0][0])
+        for j in range(length_new_individual):
+            random_number = random.randint(0, 1)
+            if random_number == 0:
+                new_genome.append(mother[1][j])
+            else:
+                new_genome.append(father[1][j])
+            mutation_chance = random.uniform(0, 1)
+            if mutation_chance < mutation_value:
+                new_genome[j] = make_mutation(new_genome[j])
+        new_individual = apply_changes(new_genome, original_polygons, x_lim)
+        new_individuals.append(new_individual)
+    return new_individuals
 
 
-def generate_individual(current_population, amount_new_individual, mutation_value):
-    father = random.randint(0, len(current_population) - 1)
-    mother = random.randint(0, len(current_population) - 1)
-    father = current_population[father]
-    mother = current_population[mother]
-    new_individual = []
-    length_new_individual = len(current_population[0][0])
-    for j in range(length_new_individual):
-        pass
-    return current_population[:amount_new_individual]
+def apply_changes(genome, polygons, x_lim):
+    n = len(polygons)
+    amount_polygons = - 1
+    placed = []
+    new_polygons = []
+    for i in range(n):
+        sort_function = genome[i][0]
+        place_function = genome[i][1]
+        axis_to_rotate = genome[i][2]
+        next_polygon, polygons = return_next_polygon(polygons, sort_functions[sort_function])
+        new_polygons.append(next_polygon)
+        amount_polygons += 1
+        edge_to_rotate = random.randint(0, len(next_polygon) - 1)
+        new_polygons[amount_polygons] = \
+            rotate_polygon(new_polygons[amount_polygons], edge_to_rotate, rotate_axis[axis_to_rotate])
+        placed.append(False)
+        new_polygons[amount_polygons] = \
+            place_polygon(new_polygons, amount_polygons, x_lim, placement_functions[place_function], placed)
+        new_polygons[amount_polygons] = Heuristics.slide_polygon(new_polygons, placed, amount_polygons, x_lim)
+        placed[amount_polygons] = True
+    return new_polygons, genome, Heuristics.calculate_function_objective(new_polygons, placed)
+
+
+def make_mutation(genome):
+    index_of_genome = random.randint(0, 2)
+    if index_of_genome == 0:
+        sort_function = random.randint(0, len(sort_functions) - 1)
+        new_genome = (sort_function, genome[1], genome[2])
+        return new_genome
+    elif index_of_genome == 1:
+        place_function = random.randint(0, len(placement_functions) - 1)
+        new_genome = (genome[0], place_function, genome[2])
+        return new_genome
+    elif index_of_genome == 2:
+        axis_to_rotate = random.randint(0, len(rotate_axis) - 1)
+        new_genome = (genome[0], genome[1], axis_to_rotate)
+        return new_genome
+    return None
