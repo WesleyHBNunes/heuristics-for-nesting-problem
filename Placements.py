@@ -87,3 +87,58 @@ def placement_bottom_left(polygons, index, limit_x, new_polygons):
                 return polygons[index]
     else:
         return polygons[index]
+
+
+def placement_bottom_left_greedy(polygons, index, limit_x, placed):
+    if index == 0:
+        return polygons[index]
+    if limit_x > 1000:
+        jump_value = 1
+    else:
+        jump_value = .1
+    stop = False
+    original_polygon = polygons[index]
+    possibles_positions = []
+    jump = -jump_value
+    while not stop:
+        polygons[index] = original_polygon
+        polygons[index] = Polygon.add_number_axis_x_y(polygons[index], jump, 0)
+        current_list_x, current_list_y = list(zip(*polygons[index]))
+        if max(current_list_x) > limit_x:
+            stop = True
+            print(jump)
+            continue
+        jump += jump_value
+        jump = int(jump * 100)/100
+        if jump == 37.08:
+            print('a')
+            a = len(possibles_positions)
+        highest_y_point = Heuristics.return_line_y(polygons)
+        current_max_point_x = max(current_list_x)
+        current_min_point_x = min(current_list_x)
+        abstract_polygon = [(current_min_point_x, 0),
+                            (current_max_point_x, 0),
+                            (current_max_point_x, highest_y_point),
+                            (current_min_point_x, highest_y_point)]
+
+        polygons_to_analyze = []
+        for i in range(len(polygons)):
+            if Polygon.is_overlapping(abstract_polygon, polygons[i]) and placed[i] and index != i:
+                polygons_to_analyze.append(polygons[i])
+        aux_polygon = polygons[index]
+        if not Polygon.polygon_overlapping(polygons[index], polygons_to_analyze):
+            possibles_positions.append(polygons[index])
+        else:
+            polygons_to_analyze = Polygon.sort(polygons_to_analyze, Polygon.minimum_y, False)
+            for polygon_overlapped in polygons_to_analyze:
+                list_x, list_y = list(zip(*polygon_overlapped))
+                max_point_y = max(list_y)
+                polygons[index] = aux_polygon
+                polygons[index] = Polygon.add_number_axis_x_y(polygons[index], 0, max_point_y)
+                if not Polygon.polygon_overlapping(polygons[index], polygons_to_analyze):
+                    polygons[index] = aux_polygon
+                    polygons[index] = Polygon.add_number_axis_x_y(polygons[index], 0, max_point_y)
+                    possibles_positions.append(polygons[index])
+                    break
+
+    return possibles_positions[305]
