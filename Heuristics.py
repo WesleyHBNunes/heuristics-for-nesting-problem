@@ -25,12 +25,11 @@ def solve_with_bottom_left_slide(array_polygons, x_lim, sort_function, rotate_fu
         reverse=reverse)
 
 
-def solve_with_bottom_left_greedy(array_polygons, x_lim, sort_function, rotate_function, reverse):
+def solve_with_bottom_left_greedy(array_polygons, x_lim, sort_function, reverse):
     return Bottom_Left.solution_bottom_left_greedy(
         array_polygons=array_polygons,
         x_lim=x_lim,
         sort_function=sort_function,
-        rotate_function=rotate_function,
         reverse=reverse)
 
 

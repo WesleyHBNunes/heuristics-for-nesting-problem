@@ -31,6 +31,7 @@ heuristic[1]=Bottom-Left-Slide
 heuristic[2]=Greedy
 heuristic[3]=New-Heuristic
 heuristic[4]=New-Heuristic-Modified
+heuristic[5]=Bottom-Left-Greedy
 
 for h in {0..3}
 do
@@ -71,7 +72,7 @@ done
 
 
 
-for h in {4..4}
+for h in {5..5}
 do
     echo "${heuristic[h]}"
     echo

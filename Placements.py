@@ -93,26 +93,22 @@ def placement_bottom_left_greedy(polygons, index, limit_x, placed):
     if index == 0:
         return polygons[index]
     if limit_x > 1000:
-        jump_value = 1
+        jump_value = 10
     else:
-        jump_value = .1
+        jump_value = .5
     stop = False
     original_polygon = polygons[index]
     possibles_positions = []
-    jump = -jump_value
+    jump = 0
     while not stop:
         polygons[index] = original_polygon
         polygons[index] = Polygon.add_number_axis_x_y(polygons[index], jump, 0)
         current_list_x, current_list_y = list(zip(*polygons[index]))
         if max(current_list_x) > limit_x:
             stop = True
-            print(jump)
             continue
         jump += jump_value
         jump = int(jump * 100)/100
-        if jump == 37.08:
-            print('a')
-            a = len(possibles_positions)
         highest_y_point = Heuristics.return_line_y(polygons)
         current_max_point_x = max(current_list_x)
         current_min_point_x = min(current_list_x)
@@ -140,5 +136,17 @@ def placement_bottom_left_greedy(polygons, index, limit_x, placed):
                     polygons[index] = Polygon.add_number_axis_x_y(polygons[index], 0, max_point_y)
                     possibles_positions.append(polygons[index])
                     break
-
-    return possibles_positions[305]
+    best_fo = 99999
+    result = []
+    i = -1
+    placed[index] = True
+    for p in possibles_positions:
+        i += 1
+        polygons[index] = p
+        fo = Heuristics.calculate_function_objective(polygons, placed)
+        if fo < best_fo:
+            result = p
+            best_fo = fo
+    polygons[index] = result
+    polygons[index] = Heuristics.slide_polygon(polygons, placed, index, limit_x)
+    return polygons[index]

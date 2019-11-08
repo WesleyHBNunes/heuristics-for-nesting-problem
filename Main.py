@@ -13,10 +13,8 @@ def main():
     polygons, limit_y = Heuristics.solve_with_bottom_left_greedy(
         array_polygons=polygons,
         x_lim=limit_x,
-        sort_function=Polygon.ray_polygon,
-        reverse=True,
-        rotate_function=Heuristics.heuristic_highest_axis
-    )
+        sort_function=Polygon.area_polygon,
+        reverse=True)
     # polygons, limit_y = Genetic_Algorithm.solve(polygons, limit_x, 10, 10, .8, .3)
     visualizer = Visualizer(polygons, limit_x, limit_y, "Test of instances")
     print(limit_y)
