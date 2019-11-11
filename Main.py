@@ -9,7 +9,7 @@ from Visualizer import Visualizer
 
 def main():
     begin = time.time()
-    polygons, limit_x = File.polygons_from_xls("Test/mao.xls", "Mao")
+    polygons, limit_x = File.polygons_from_xls("Test/dighe.xls", "Dighe2")
     polygons, limit_y = Heuristics.solve_with_bottom_left_greedy(
         array_polygons=polygons,
         x_lim=limit_x,
