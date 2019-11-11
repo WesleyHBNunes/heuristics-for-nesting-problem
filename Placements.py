@@ -93,7 +93,7 @@ def placement_bottom_left_greedy(polygons, index, limit_x, placed):
     if index == 0:
         return polygons[index]
     if limit_x > 1000:
-        jump_value = 10
+        jump_value = 50
     else:
         jump_value = .5
     stop = False

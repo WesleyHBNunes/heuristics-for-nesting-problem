@@ -72,7 +72,7 @@ done
 
 
 
-for h in {5..5}
+for h in {4..5}
 do
     echo "${heuristic[h]}"
     echo
