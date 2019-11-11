@@ -11,7 +11,9 @@ def placement_vertex(polygons, index, limit_x, placed):
 def placement_greedy(polygons, index, limit_x, placed):
     if index == 0:
         return polygons[index]
-    if limit_x > 1000:
+    if limit_x > 5000:
+        jump = 100
+    elif 5000 <= limit_x < 500:
         jump = 10
     else:
         jump = 1
@@ -92,10 +94,12 @@ def placement_bottom_left(polygons, index, limit_x, new_polygons):
 def placement_bottom_left_greedy(polygons, index, limit_x, placed):
     if index == 0:
         return polygons[index]
-    if limit_x > 1000:
-        jump_value = 50
+    if limit_x > 5000:
+        jump_value = 100
+    elif 5000 <= limit_x < 500:
+        jump_value = 10
     else:
-        jump_value = .5
+        jump_value = 1
     stop = False
     original_polygon = polygons[index]
     possibles_positions = []
@@ -138,10 +142,8 @@ def placement_bottom_left_greedy(polygons, index, limit_x, placed):
                     break
     best_fo = 99999
     result = []
-    i = -1
     placed[index] = True
     for p in possibles_positions:
-        i += 1
         polygons[index] = p
         fo = Heuristics.calculate_function_objective(polygons, placed)
         if fo < best_fo:
