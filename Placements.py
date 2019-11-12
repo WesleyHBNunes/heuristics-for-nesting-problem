@@ -13,7 +13,7 @@ def placement_greedy(polygons, index, limit_x, placed):
         return polygons[index]
     if limit_x > 5000:
         jump = 100
-    elif 5000 <= limit_x < 500:
+    elif 500 <= limit_x < 5000:
         jump = 10
     else:
         jump = 1
@@ -96,7 +96,7 @@ def placement_bottom_left_greedy(polygons, index, limit_x, placed):
         return polygons[index]
     if limit_x > 5000:
         jump_value = 100
-    elif 5000 <= limit_x < 500:
+    elif 500 <= limit_x < 5000:
         jump_value = 10
     else:
         jump_value = 1
