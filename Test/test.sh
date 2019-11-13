@@ -97,7 +97,7 @@ do
 
     echo "XLS FILES"
     echo
-    for i in {0..4}
+    for i in {0..7}
     do
         for j in {0..4}
         do
