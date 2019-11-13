@@ -8,12 +8,14 @@ import time
 
 def main():
     begin = time.time()
+    file_name = sys.argv[1]
     if len(sys.argv) == 5:
         polygons, limit_x = File.polygons_from_txt(sys.argv[1] + ".txt")
         index_sort_function = int(sys.argv[2])
         index_rotate_function = int(sys.argv[3])
         index_heuristic = int(sys.argv[4])
     else:
+        file_name = sys.argv[2]
         polygons, limit_x = File.polygons_from_xls(sys.argv[1] + ".xls", sys.argv[2])
         index_sort_function = int(sys.argv[3])
         index_rotate_function = int(sys.argv[4])
@@ -80,7 +82,7 @@ def main():
         print("Objective Function: " + str(limit_y))
         print("Time: " + str(time.time() - begin))
 
-    visualizer = Visualizer(polygons_to_plot, limit_x, limit_y, "Test of instance: " + sys.argv[1]
+    visualizer = Visualizer(polygons_to_plot, limit_x, limit_y, "Test of instance: " + file_name
                             + "  FO: " + str(limit_y))
 
     sort_method = str(sort_functions[index_sort_function]).split(' ')[1]
@@ -88,7 +90,7 @@ def main():
         rotate_method = str(rotate_function[index_rotate_function]).split(' ')[1]
     else:
         rotate_method = ""
-    visualizer.save_fig(heuristic[index_heuristic] + "/" + sys.argv[1] + "_" +
+    visualizer.save_fig(heuristic[index_heuristic] + "/" + file_name + "_" +
                         sort_method + "_" + rotate_method)
 
 

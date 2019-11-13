@@ -19,12 +19,19 @@ xls_files[1]=mao
 xls_files[2]=dighe
 xls_files[3]=marques
 xls_files[4]=han
+xls_files[5]=jakobs
+xls_files[6]=jakobs
+xls_files[7]=test_data_irreg
+
 
 sheets[0]=Albano
 sheets[1]=Mao
 sheets[2]=Dighe2
 sheets[3]=Marques
 sheets[4]=Han
+sheets[5]=Jakobs
+sheets[6]=Jakobs2
+sheets[7]=poly1a
 
 heuristic[0]=Bottom-Left
 heuristic[1]=Bottom-Left-Slide
@@ -53,7 +60,7 @@ do
     done
     echo "XLS FILES"
     echo
-    for i in {0..4}
+    for i in {0..7}
     do
         for j in {0..4}
         do

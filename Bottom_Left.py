@@ -1,4 +1,3 @@
-from random import shuffle
 import Heuristics
 import Polygon
 import Placements
