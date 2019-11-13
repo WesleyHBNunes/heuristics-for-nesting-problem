@@ -11,9 +11,9 @@ def placement_vertex(polygons, index, limit_x, placed):
 def placement_greedy(polygons, index, limit_x, placed):
     if index == 0:
         return polygons[index]
-    if limit_x > 5000:
+    if limit_x >= 4900:
         jump = 100
-    elif 500 <= limit_x < 5000:
+    elif 500 <= limit_x < 4900:
         jump = 10
     else:
         jump = 1
@@ -94,9 +94,9 @@ def placement_bottom_left(polygons, index, limit_x, new_polygons):
 def placement_bottom_left_greedy(polygons, index, limit_x, placed):
     if index == 0:
         return polygons[index]
-    if limit_x > 5000:
+    if limit_x >= 4900:
         jump_value = 100
-    elif 500 <= limit_x < 5000:
+    elif 500 <= limit_x < 4900:
         jump_value = 10
     else:
         jump_value = 1
