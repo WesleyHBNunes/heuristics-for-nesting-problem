@@ -8,7 +8,7 @@ sort_functions = [Polygon.area_polygon, Polygon.area_no_used_of_polygon,
                   Polygon.percent_area_no_used_of_polygon, Polygon.ray_polygon,
                   Polygon.rectangle_polygon_area]
 placement_functions = [Placements.placement_bottom_left, Placements.placement_bottom_left_slide,
-                       Placements.placement_greedy, Placements.placement_vertex]
+                       Placements.placement_greedy, Placements.placement_vertex, Placements.placement_bottom_left_greedy]
 rotate_axis = [0, 90]  # 0 == Y, 90 == X
 
 
@@ -76,6 +76,8 @@ def place_polygon(new_polygons, amount_polygons, x_lim, sort_function, placed):
         return Placements.placement_greedy(new_polygons, amount_polygons, x_lim, placed)
     elif sort_function == Placements.placement_vertex:
         return Placements.placement_vertex(new_polygons, amount_polygons, x_lim, placed)
+    elif sort_function == Placements.placement_bottom_left_greedy:
+        return Placements.placement_bottom_left_greedy(new_polygons, amount_polygons, x_lim, placed)
     return new_polygons[amount_polygons]
 
 
