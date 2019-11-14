@@ -8,7 +8,8 @@ sort_functions = [Polygon.area_polygon, Polygon.area_no_used_of_polygon,
                   Polygon.percent_area_no_used_of_polygon, Polygon.ray_polygon,
                   Polygon.rectangle_polygon_area]
 placement_functions = [Placements.placement_bottom_left, Placements.placement_bottom_left_slide,
-                       Placements.placement_greedy, Placements.placement_vertex, Placements.placement_bottom_left_greedy]
+                       Placements.placement_greedy, Placements.placement_vertex,
+                       Placements.placement_bottom_left_greedy]
 rotate_axis = [0, 90]  # 0 == Y, 90 == X
 
 
