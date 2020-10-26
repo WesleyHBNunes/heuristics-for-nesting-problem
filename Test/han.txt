@@ -1,0 +1,333 @@
+58.0
+PIECE 1
+QUANTITY
+1
+NUMBER OF VERTICES
+4
+VERTICES (X,Y)
+0    0
+5    0
+5    13
+0    13
+
+PIECE 2
+QUANTITY
+1
+NUMBER OF VERTICES
+12
+VERTICES (X,Y)
+9    0
+13    1
+17    5
+18    9
+17    13
+13    17
+9    18
+5    17
+1    13
+0    9
+1    5
+5    1
+
+PIECE 3
+QUANTITY
+1
+NUMBER OF VERTICES
+8
+VERTICES (X,Y)
+2    0
+6    0
+8    2
+8    9
+6    11
+2    11
+0    9
+0    2
+
+PIECE 4
+QUANTITY
+1
+NUMBER OF VERTICES
+4
+VERTICES (X,Y)
+0    0
+5    0
+5    6
+0    6
+
+PIECE 5
+QUANTITY
+1
+NUMBER OF VERTICES
+12
+VERTICES (X,Y)
+5    0
+7    0
+4    3
+2    6
+2    9
+4    12
+7    15
+5    15
+2    12
+0    9
+0    6
+2    3
+
+PIECE 6
+QUANTITY
+1
+NUMBER OF VERTICES
+4
+VERTICES (X,Y)
+0    0
+8    0
+8    17
+0    17
+
+PIECE 7
+QUANTITY
+1
+NUMBER OF VERTICES
+9
+VERTICES (X,Y)
+0    0
+5    0
+6    2
+6    3
+3    3
+3    6
+8    6
+8    11
+0    11
+
+PIECE 8
+QUANTITY
+1
+NUMBER OF VERTICES
+9
+VERTICES (X,Y)
+0    0
+5    0
+6    2
+6    3
+3    3
+3    6
+8    6
+8    11
+0    11
+
+PIECE 9
+QUANTITY
+1
+NUMBER OF VERTICES
+9
+VERTICES (X,Y)
+0    0
+5    0
+6    2
+6    3
+3    3
+3    6
+8    6
+8    11
+0    11
+
+PIECE 10
+QUANTITY
+1
+NUMBER OF VERTICES
+10
+VERTICES (X,Y)
+0    0
+1    0
+3    5
+3    8
+1    13
+0    13
+0    9
+2    9
+2    4
+0    4
+
+PIECE 11
+QUANTITY
+1
+NUMBER OF VERTICES
+3
+VERTICES (X,Y)
+0    0
+11    0
+0    10
+
+PIECE 12
+QUANTITY
+1
+NUMBER OF VERTICES
+11
+VERTICES (X,Y)
+6    0
+6    2
+11    2
+11    0
+23    0
+20    3
+20    5
+8    10
+8    15
+5    15
+0    7
+
+PIECE 13
+QUANTITY
+1
+NUMBER OF VERTICES
+6
+VERTICES (X,Y)
+6    0
+15    0
+15    12
+0    12
+0    8
+6    8
+
+PIECE 14
+QUANTITY
+1
+NUMBER OF VERTICES
+6
+VERTICES (X,Y)
+0    0
+6    0
+6    16
+2    16
+2    7
+0    5
+
+PIECE 15
+QUANTITY
+1
+NUMBER OF VERTICES
+9
+VERTICES (X,Y)
+6    2
+11    0
+15    5
+12    10
+12    13
+0    13
+0    11
+2    10
+3    10
+
+PIECE 16
+QUANTITY
+1
+NUMBER OF VERTICES
+7
+VERTICES (X,Y)
+0    8
+0    2
+3    0
+5    3
+8    6
+11    6
+11    8
+
+PIECE 17
+QUANTITY
+1
+NUMBER OF VERTICES
+6
+VERTICES (X,Y)
+0    5
+4    0
+6    0
+2    5
+6    10
+4    10
+
+PIECE 18
+QUANTITY
+1
+NUMBER OF VERTICES
+13
+VERTICES (X,Y)
+11    0
+17    0
+17    5
+15    5
+15    8
+17    8
+17    10
+14    10
+3    15
+0    12
+2    11
+3    8
+6    8
+
+PIECE 19
+QUANTITY
+1
+NUMBER OF VERTICES
+10
+VERTICES (X,Y)
+0    13
+0    0
+19    0
+19    13
+6    13
+6    11
+16    11
+16    3
+2    3
+2    13
+
+PIECE 20
+QUANTITY
+1
+NUMBER OF VERTICES
+5
+VERTICES (X,Y)
+0    8
+0    0
+5    0
+12    7
+12    8
+
+PIECE 21
+QUANTITY
+1
+NUMBER OF VERTICES
+5
+VERTICES (X,Y)
+0    8
+0    0
+5    0
+12    7
+12    8
+
+PIECE 22
+QUANTITY
+1
+NUMBER OF VERTICES
+4
+VERTICES (X,Y)
+0    13
+0    0
+10    0
+10    13
+
+PIECE 23
+QUANTITY
+1
+NUMBER OF VERTICES
+4
+VERTICES (X,Y)
+0    5
+0    0
+7    0
+7    5
+
+#
