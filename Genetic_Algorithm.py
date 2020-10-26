@@ -21,8 +21,8 @@ def solve(polygons, x_lim, length_population, iterations, percent_elitism, mutat
         n = len(current_population)
         elite = int(percent_elitism * n)
         if elite == 0:
-            current_population = current_population[:1]
-            elite = 1
+            current_population = current_population[:2]
+            elite = 2
         else:
             current_population = current_population[:elite]
         amount_new_individual = n - elite
