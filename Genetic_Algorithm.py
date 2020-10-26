@@ -20,9 +20,11 @@ def solve(polygons, x_lim, length_population, iterations, percent_elitism, mutat
     for x in range(iterations):
         n = len(current_population)
         elite = int(percent_elitism * n)
-        current_population = current_population[:elite]
-        if len(current_population) <= 1:
-            current_population = current_population[:elite + 1]
+        if elite == 0:
+            current_population = current_population[:1]
+            elite = 1
+        else:
+            current_population = current_population[:elite]
         amount_new_individual = n - elite
         new_individuals = generate_individual(current_population, amount_new_individual, mutation_value, polygons,
                                               copy.deepcopy(triangles_polygons), x_lim, sort_functions)
