@@ -5,6 +5,11 @@ import Polygon
 import time
 import os
 
+GENERATIONS = 50
+INDIVIDUALS = 15
+MUTATION_PERCENT = .25
+ELITISM_PERCENT = .25
+
 
 def main():
     all_instances = ["albano", "blaz", "dighe2", "han", "jakobs", "jakobs2", "mao", "marques", "poly1a", "shapes",
@@ -124,7 +129,8 @@ def main():
         for i in range(len(sort_functions)):
             begin = time.time()
             polygons, limit_x = File.polygons_from_txt("Test/" + instance + ".txt")
-            polygons, limit_y = Genetic_Algorithm.solve(polygons, limit_x, 2, 2, .8, .3, sort_functions[i])
+            polygons, limit_y = Genetic_Algorithm.solve(
+                polygons, limit_x, INDIVIDUALS, GENERATIONS, ELITISM_PERCENT, MUTATION_PERCENT, sort_functions[i])
             final_time = time.time() - begin
             File.export_polygons_to_txt_result("Visualizer_Module/polygons", polygons, limit_x, limit_y,
                                                instance, final_time)
