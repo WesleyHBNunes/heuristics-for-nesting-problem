@@ -4,7 +4,6 @@ import random
 import Placements
 import copy
 
-# sort_functions = [Polygon.area_polygon]
 placement_functions = [Placements.placement_vertex,
                        Placements.placement_bottom_left_greedy]
 rotate_axis = [0, 90]  # 0 == Y, 90 == X
@@ -20,11 +19,7 @@ def solve(polygons, x_lim, length_population, iterations, percent_elitism, mutat
     for x in range(iterations):
         n = len(current_population)
         elite = int(percent_elitism * n)
-        if elite == 0:
-            current_population = current_population[:2]
-            elite = 2
-        else:
-            current_population = current_population[:elite]
+        current_population = current_population[:elite]
         amount_new_individual = n - elite
         new_individuals = generate_individual(current_population, amount_new_individual, mutation_value, polygons,
                                               copy.deepcopy(triangles_polygons), x_lim, sort_functions)
@@ -42,12 +37,6 @@ def generate_individual_initial(polygons, x_lim, sort_functions, triangles_polyg
     for i in range(n):
         axis_to_rotate = -1
         place_function = random.randint(0, len(placement_functions) - 1)
-        # if random.randint(0, n) <= i:
-        #     x = random.randint(0, 2)
-        #     if i < n - x:
-        #         aux = polygons[i + x]
-        #         del (polygons[i + x])
-        #         polygons.insert(i, aux)
         next_polygon = polygons[i]
         new_polygons.append(next_polygon)
         amount_polygons += 1
@@ -148,7 +137,7 @@ def generate_individual(current_population, amount_new_individual,
             mutation_chance = random.uniform(0, 1)
             if mutation_chance < mutation_value:
                 new_genome[j] = make_mutation(new_genome[j], sort_functions)
-        new_individual = apply_changes(new_genome, original_polygons, x_lim, original_triangles)
+        new_individual = apply_changes(new_genome, original_polygons, x_lim, copy.deepcopy(original_triangles))
         new_individuals.append(new_individual)
     return new_individuals
 
@@ -160,12 +149,6 @@ def apply_changes(genome, polygons, x_lim, triangles_polygons):
     new_polygons = []
     for i in range(n):
         place_function = genome[i][1]
-        # if random.randint(0, n) <= i:
-        #     x = random.randint(0, 2)
-        #     if i < n - x:
-        #         aux = polygons[i + x]
-        #         del (polygons[i + x])
-        #         polygons.insert(i, aux)
         next_polygon = polygons[i]
         new_polygons.append(next_polygon)
         amount_polygons += 1

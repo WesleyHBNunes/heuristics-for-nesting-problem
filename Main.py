@@ -9,15 +9,14 @@ import os
 
 def main():
     begin = time.time()
-    polygons, limit_x = File.polygons_from_txt("Test/blaz.txt")
-    print("Blaz")
-    polygons, limit_y = Heuristics.solve_with_greedy(
+    polygons, limit_x = File.polygons_from_txt("Test/albano.txt")
+    print("Albano")
+    polygons, limit_y = Heuristics.solve_with_new_heuristic_modified(
         array_polygons=polygons,
         x_lim=limit_x,
         sort_function=Polygon.rectangle_polygon_area,
-        reverse=True,
-        rotate_function=Heuristics.heuristic_highest_side)
-    # polygons, limit_y = Genetic_Algorithm.solve(polygons, limit_x, 50, 10, .3, .3, Polygon.rectangle_polygon_area)
+        reverse=True)
+    # polygons, limit_y = Genetic_Algorithm.solve(polygons, limit_x, 15, 50, .25, .25, Polygon.rectangle_polygon_area)
     final_time = time.time() - begin
     print(final_time)
     print(limit_y)
