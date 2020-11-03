@@ -1,5 +1,5 @@
 import math
-
+import Heuristic_Mutiples_Placements
 import Bottom_Left
 import Greedy
 import New_Heuristic
@@ -57,6 +57,29 @@ def solve_with_new_heuristic(array_polygons, x_lim, sort_function, rotate_functi
         sort_function=sort_function,
         rotate_function=rotate_function,
         reverse=reverse)
+
+
+def solve_with_heuristic_multiples_placements(array_polygons, x_lim, sort_function, reverse):
+    return Heuristic_Mutiples_Placements.solution(
+        array_polygons=array_polygons,
+        x_lim=x_lim,
+        sort_function=sort_function,
+        reverse=reverse)
+
+
+def solve_with_heuristic_multiples_placements_random(array_polygons, x_lim, sort_function, reverse, iteration):
+    best_results = 99999
+    best_polygons = []
+    for i in range(iteration):
+        polygons, limit_y = Heuristic_Mutiples_Placements.solution(
+            array_polygons=array_polygons,
+            x_lim=x_lim,
+            sort_function=sort_function,
+            reverse=reverse)
+        if limit_y < best_results:
+            best_polygons = polygons
+            best_results = limit_y
+    return best_polygons, best_results
 
 
 def heuristic_highest_side(polygon_original):

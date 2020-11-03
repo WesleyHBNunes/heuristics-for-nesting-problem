@@ -16,7 +16,10 @@ def solve(polygons, x_lim, length_population, iterations, percent_elitism, mutat
     initial_population = generate_initial_population(
         polygons, x_lim, length_population, sort_functions, triangles_polygons)
     current_population = initial_population
+    times_repeat_best = 0
+    best_solution = current_population[0][2]
     for x in range(iterations):
+        print(x)
         n = len(current_population)
         elite = int(percent_elitism * n)
         current_population = current_population[:elite]
@@ -25,6 +28,14 @@ def solve(polygons, x_lim, length_population, iterations, percent_elitism, mutat
                                               copy.deepcopy(triangles_polygons), x_lim, sort_functions)
         current_population += new_individuals
         current_population.sort(key=lambda tup: tup[2])
+        if best_solution > current_population[0][2]:
+            best_solution = current_population[0][2]
+            times_repeat_best = 0
+        if best_solution == current_population[0][2]:
+            times_repeat_best += 1
+        if times_repeat_best == 5:
+            return current_population[0][0], current_population[0][2]
+
     return current_population[0][0], current_population[0][2]
 
 

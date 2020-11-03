@@ -13,7 +13,7 @@ ELITISM_PERCENT = .25
 
 def main():
     all_instances = ["albano", "blaz", "dighe2", "han", "jakobs", "jakobs2", "mao", "marques", "poly1a", "shapes",
-                     "shirts", "swim", "trousers"]
+                     "shirts", "trousers"]
 
     sort_functions = [Polygon.area_polygon, Polygon.area_no_used_of_polygon,
                       Polygon.percent_area_no_used_of_polygon, Polygon.ray_polygon,
