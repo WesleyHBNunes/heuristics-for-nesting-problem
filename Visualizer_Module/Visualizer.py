@@ -108,5 +108,5 @@ def main_for_tests():
 
 
 if __name__ == '__main__':
-    # main()
-    main_for_tests()
+    main()
+    # main_for_tests()

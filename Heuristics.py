@@ -73,7 +73,7 @@ def solve_with_heuristic_multiples_placements_random(array_polygons, x_lim, sort
     best_results = 99999
     best_polygons = []
     for i in range(iteration):
-        polygons, limit_y = Heuristic_Multiples_Placements.solution(
+        polygons, limit_y = Heuristic_Multiples_Placements.solution_random(
             array_polygons=array_polygons,
             x_lim=x_lim,
             sort_function=sort_function,
