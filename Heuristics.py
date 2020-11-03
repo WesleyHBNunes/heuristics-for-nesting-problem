@@ -1,10 +1,11 @@
 import math
-import Heuristic_Mutiples_Placements
+import Heuristic_Multiples_Placements
 import Bottom_Left
 import Greedy
 import New_Heuristic
 import Polygon
 import copy
+import time
 
 
 def solve_with_bottom_left(array_polygons, x_lim, sort_function, rotate_function, reverse):
@@ -60,7 +61,7 @@ def solve_with_new_heuristic(array_polygons, x_lim, sort_function, rotate_functi
 
 
 def solve_with_heuristic_multiples_placements(array_polygons, x_lim, sort_function, reverse):
-    return Heuristic_Mutiples_Placements.solution(
+    return Heuristic_Multiples_Placements.solution(
         array_polygons=array_polygons,
         x_lim=x_lim,
         sort_function=sort_function,
@@ -68,10 +69,11 @@ def solve_with_heuristic_multiples_placements(array_polygons, x_lim, sort_functi
 
 
 def solve_with_heuristic_multiples_placements_random(array_polygons, x_lim, sort_function, reverse, iteration):
+    begin = time.time()
     best_results = 99999
     best_polygons = []
     for i in range(iteration):
-        polygons, limit_y = Heuristic_Mutiples_Placements.solution(
+        polygons, limit_y = Heuristic_Multiples_Placements.solution(
             array_polygons=array_polygons,
             x_lim=x_lim,
             sort_function=sort_function,
@@ -79,6 +81,8 @@ def solve_with_heuristic_multiples_placements_random(array_polygons, x_lim, sort
         if limit_y < best_results:
             best_polygons = polygons
             best_results = limit_y
+        if time.time() - begin >= 3600:
+            return best_polygons, best_results
     return best_polygons, best_results
 
 

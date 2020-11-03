@@ -123,6 +123,45 @@ def main():
             os.system("python3 Visualizer_Module/Visualizer.py " + "New-Heuristic-Modified " + string_sort_function)
         print()
 
+    print("Heuristic_Multiples_Placements")
+    for instance in all_instances:
+        print(instance)
+        for i in range(len(sort_functions)):
+            begin = time.time()
+            polygons, limit_x = File.polygons_from_txt("Test/" + instance + ".txt")
+            polygons, limit_y = Heuristics.solve_with_heuristic_multiples_placements(
+                array_polygons=polygons,
+                x_lim=limit_x,
+                sort_function=sort_functions[i],
+                reverse=True)
+            final_time = time.time() - begin
+            File.export_polygons_to_txt_result("Visualizer_Module/polygons", polygons, limit_x, limit_y,
+                                               instance, final_time)
+            string_sort_function = str(sort_functions[i]).split()[1]
+            os.system("python3 Visualizer_Module/Visualizer.py " +
+                      "Heuristic_Multiples_Placements " + string_sort_function)
+        print()
+
+    print("Heuristic_Multiples_Placements_Random")
+    for instance in all_instances:
+        print(instance)
+        for i in range(len(sort_functions)):
+            begin = time.time()
+            polygons, limit_x = File.polygons_from_txt("Test/" + instance + ".txt")
+            polygons, limit_y = Heuristics.solve_with_heuristic_multiples_placements_random(
+                array_polygons=polygons,
+                x_lim=limit_x,
+                sort_function=sort_functions[i],
+                reverse=True,
+                iteration=100)
+            final_time = time.time() - begin
+            File.export_polygons_to_txt_result("Visualizer_Module/polygons", polygons, limit_x, limit_y,
+                                               instance, final_time)
+            string_sort_function = str(sort_functions[i]).split()[1]
+            os.system("python3 Visualizer_Module/Visualizer.py " + "HHeuristic_Multiples_Placements_Random "
+                      + string_sort_function)
+        print()
+
     print("Genetic-Algorithm")
     for instance in all_instances:
         print(instance)
