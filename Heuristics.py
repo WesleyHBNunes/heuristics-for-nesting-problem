@@ -81,7 +81,7 @@ def solve_with_heuristic_multiples_placements_random(array_polygons, x_lim, sort
         if limit_y < best_results:
             best_polygons = polygons
             best_results = limit_y
-        if time.time() - begin >= 3600:
+        if time.time() - begin >= 1800:
             return best_polygons, best_results
     return best_polygons, best_results
 

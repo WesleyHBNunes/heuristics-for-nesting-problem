@@ -158,7 +158,7 @@ def main():
             File.export_polygons_to_txt_result("Visualizer_Module/polygons", polygons, limit_x, limit_y,
                                                instance, final_time)
             string_sort_function = str(sort_functions[i]).split()[1]
-            os.system("python3 Visualizer_Module/Visualizer.py " + "HHeuristic_Multiples_Placements_Random "
+            os.system("python3 Visualizer_Module/Visualizer.py " + "Heuristic_Multiples_Placements_Random "
                       + string_sort_function)
         print()
 
