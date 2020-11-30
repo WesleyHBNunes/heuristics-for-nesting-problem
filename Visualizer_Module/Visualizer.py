@@ -76,7 +76,7 @@ class Visualizer:
 
 def main():
     polygons, limit_x, y_result, instance, time = File.polygons_from_txt_result("Visualizer_Module/polygons.txt")
-    visualizer = Visualizer(polygons, limit_x, y_result, instance + "FO: " + str(y_result) + "  Time: " + str(time))
+    visualizer = Visualizer(polygons, limit_x, y_result, instance + " FO: " + str(y_result) + "  Time: " + str(time))
     visualizer.save_fig(instance, "Results/")
     # visualizer.plot_animation()
     os.system("rm Visualizer_Module/polygons.txt")
@@ -90,7 +90,7 @@ def main_for_tests():
         title = "\n" + heuristic + " " + sort_function + " " + rotate_function
         polygons, limit_x, y_result, instance, time = File.polygons_from_txt_result("Visualizer_Module/polygons.txt")
         visualizer = Visualizer(
-            polygons, limit_x, y_result, instance + "FO: " + str(y_result) + "  Time: " + str(time) + title)
+            polygons, limit_x, y_result, instance + " FO: " + str(y_result) + "  Time: " + str(time) + title)
         visualizer.save_fig(instance + "_" + sort_function + "_" + rotate_function, "Results/" + heuristic + "/")
         # visualizer.plot_animation()
         os.system("rm Visualizer_Module/polygons.txt")
@@ -101,7 +101,7 @@ def main_for_tests():
         title = "\n" + heuristic + " " + sort_function
         polygons, limit_x, y_result, instance, time = File.polygons_from_txt_result("Visualizer_Module/polygons.txt")
         visualizer = Visualizer(
-            polygons, limit_x, y_result, instance + "FO: " + str(y_result) + "  Time: " + str(time) + title)
+            polygons, limit_x, y_result, instance + " FO: " + str(y_result) + "  Time: " + str(time) + title)
         visualizer.save_fig(instance + "_" + sort_function, "Results/" + heuristic + "/")
         # visualizer.plot_animation()
         os.system("rm Visualizer_Module/polygons.txt")

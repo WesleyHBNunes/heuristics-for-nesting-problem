@@ -3,6 +3,7 @@ import Polygon
 import random
 import Placements
 import copy
+import time
 
 placement_functions = [Placements.placement_vertex,
                        Placements.placement_bottom_left_greedy]
@@ -10,6 +11,7 @@ rotate_axis = [0, 90]  # 0 == Y, 90 == X
 
 
 def solve(polygons, x_lim, length_population, iterations, percent_elitism, mutation_value, sort_functions):
+    begin = time.time()
     polygons = Polygon.sort(polygons, sort_functions, reverse=True)
     triangles_polygons = Polygon.triangulation_all_polygons(polygons)
     sort_functions = [sort_functions]
@@ -18,6 +20,8 @@ def solve(polygons, x_lim, length_population, iterations, percent_elitism, mutat
     current_population = initial_population
     times_repeat_best = 0
     best_solution = current_population[0][2]
+    if time.time() - begin >= 1800:
+        return current_population[0][0], current_population[0][2]
     for x in range(iterations):
         print(x)
         n = len(current_population)
@@ -33,7 +37,9 @@ def solve(polygons, x_lim, length_population, iterations, percent_elitism, mutat
             times_repeat_best = 0
         if best_solution == current_population[0][2]:
             times_repeat_best += 1
-        if times_repeat_best == 5:
+        # if times_repeat_best == 5:
+        #     return current_population[0][0], current_population[0][2]
+        if time.time() - begin >= 1800:
             return current_population[0][0], current_population[0][2]
 
     return current_population[0][0], current_population[0][2]
