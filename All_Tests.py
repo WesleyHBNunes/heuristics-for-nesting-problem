@@ -4,6 +4,7 @@ import File
 import Polygon
 import time
 import os
+import sys
 
 GENERATIONS = 50
 INDIVIDUALS = 15
@@ -15,9 +16,8 @@ def main():
     all_instances = ["albano", "blaz", "dighe2", "han", "jakobs", "jakobs2", "mao", "marques", "poly1a", "shapes",
                      "shirts", "trousers"]
 
-    sort_functions = [Polygon.area_polygon, Polygon.area_no_used_of_polygon,
-                      Polygon.percent_area_no_used_of_polygon, Polygon.ray_polygon,
-                      Polygon.rectangle_polygon_area]
+    sort_functions = [Polygon.area_polygon, Polygon.area_no_used_of_polygon, Polygon.rectangle_polygon_area,
+                      Polygon.ray_polygon, Polygon.percent_area_no_used_of_polygon]
 
     rotate_function = [Heuristics.heuristic_highest_axis, Heuristics.heuristic_highest_side]
 
@@ -139,7 +139,7 @@ def main():
                                                instance, final_time)
             string_sort_function = str(sort_functions[i]).split()[1]
             os.system("python3 Visualizer_Module/Visualizer.py " +
-                      "Heuristic_Multiples_Placements " + string_sort_function)
+                      "Heuristic_Multiples_Placemeychnts " + string_sort_function)
         print()
 
     print("Heuristic_Multiples_Placements_Random")
@@ -153,12 +153,13 @@ def main():
                 x_lim=limit_x,
                 sort_function=sort_functions[i],
                 reverse=True,
-                iteration=100)
+                iteration=10000)
             final_time = time.time() - begin
             File.export_polygons_to_txt_result("Visualizer_Module/polygons", polygons, limit_x, limit_y,
                                                instance, final_time)
             string_sort_function = str(sort_functions[i]).split()[1]
-            os.system("python3 Visualizer_Module/Visualizer.py " + "Heuristic_Multiples_Placements_Random "
+            heuristic = "Heuristic_Multiples_Placements_Random"
+            os.system("python3 Visualizer_Module/Visualizer.py " + heuristic + " "
                       + string_sort_function)
         print()
 

@@ -37,8 +37,6 @@ def solve(polygons, x_lim, length_population, iterations, percent_elitism, mutat
             times_repeat_best = 0
         if best_solution == current_population[0][2]:
             times_repeat_best += 1
-        # if times_repeat_best == 5:
-        #     return current_population[0][0], current_population[0][2]
         if time.time() - begin >= 1800:
             return current_population[0][0], current_population[0][2]
 
