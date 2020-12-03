@@ -4,7 +4,7 @@ import File
 import Polygon
 import time
 import os
-import sys
+# import sys
 
 GENERATIONS = 50
 INDIVIDUALS = 15
