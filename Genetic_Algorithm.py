@@ -7,12 +7,9 @@ import time
 
 placement_functions = [Placements.placement_vertex,
                        Placements.placement_bottom_left_greedy]
-rotate_axis = [0, 90]  # 0 == Y, 90 == X
 
 
 def solve(polygons, x_lim, length_population, iterations, percent_elitism, mutation_value, sort_functions):
-    print(str(sort_functions).split()[1])
-    print()
     begin = time.time()
     polygons = Polygon.sort(polygons, sort_functions, reverse=True)
     triangles_polygons = Polygon.triangulation_all_polygons(polygons)
@@ -20,7 +17,6 @@ def solve(polygons, x_lim, length_population, iterations, percent_elitism, mutat
     current_population = initial_population
     times_repeat_best = 0
     best_solution = current_population[0][2]
-    print("Initial Generation " + " - " + str(current_population[0][2]) + " Time: " + str(time.time() - begin))
     if time.time() - begin >= 1800:
         return current_population[0][0], current_population[0][2]
     for x in range(iterations):
@@ -37,7 +33,6 @@ def solve(polygons, x_lim, length_population, iterations, percent_elitism, mutat
             times_repeat_best = 0
         if best_solution == current_population[0][2]:
             times_repeat_best += 1
-        print(str(x) + " - " + str(current_population[0][2]) + " Time: " + str(time.time() - begin))
         if time.time() - begin >= 1800:
             return current_population[0][0], current_population[0][2]
 
@@ -91,8 +86,6 @@ def generate_individual_initial(polygons, x_lim, triangles_polygons):
                         final_triangle = copy.deepcopy(triangles_polygons[amount_polygons])
         new_polygons[amount_polygons] = final_polygon
         triangles_polygons[amount_polygons] = copy.deepcopy(final_triangle)
-        # new_polygons[amount_polygons] = \
-        #     place_polygon(new_polygons, amount_polygons, x_lim, placement_functions[place_function], placed)
         new_polygons[amount_polygons] = \
             Heuristics.slide_polygon(new_polygons, placed, amount_polygons, x_lim, triangles_polygons)
         placed[amount_polygons] = True
